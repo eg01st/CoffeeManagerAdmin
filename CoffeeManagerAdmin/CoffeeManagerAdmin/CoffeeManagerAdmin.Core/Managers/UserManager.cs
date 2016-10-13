@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CoffeeManagerAdmin.Core
 {
-	public class UserManager
+	public class UserManager : BaseManager
 	{
 		public UserManager ()
 		{
