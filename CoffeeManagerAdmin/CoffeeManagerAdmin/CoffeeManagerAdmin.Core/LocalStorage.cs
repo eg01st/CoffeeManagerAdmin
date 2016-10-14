@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CoffeeManagerAdmin.Models;
+﻿using CoffeeManager.Models;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.File;
 using Newtonsoft.Json;

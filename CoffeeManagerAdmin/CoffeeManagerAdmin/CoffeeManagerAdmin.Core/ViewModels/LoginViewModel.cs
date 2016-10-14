@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Net.Http;
-using System.Diagnostics.Contracts;
-using System.Runtime.InteropServices;
 using System.Windows.Input;
-using Acr.UserDialogs;
-using CoffeeManagerAdmin.Models;
+using CoffeeManager.Models;
+using CoffeeManagerAdmin.Core.Managers;
+using CoffeeManagerAdmin.Core.ServiceProviders;
 using MvvmCross.Core.ViewModels;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ViewModels
 {
 	public class LoginViewModel : ViewModelBase
 	{
+        private UserManager manager = new UserManager();
 	    private string _name;
 	    private string _password;
 	    private ICommand _loginCommand;
@@ -41,13 +40,16 @@ namespace CoffeeManagerAdmin.Core
             Password = userinfo.Password;
         }
 
+	    public ICommand LoginCommand => _loginCommand;
+
 	    private async void DoLogin()
 	    {
 	        try
 	        {
-                var accessToken = await UserManager.Login(Name, Password);
+                string accessToken = await manager.Login(Name, Password);
                 LocalStorage.SetUserInfo(new UserInfo() {Login = Name, Password = Password});
-	            ShowViewModel<MainViewModel>(new { accessToken = accessToken });
+	            BaseServiceProvider.AccessToken = accessToken;
+	            ShowViewModel<MainViewModel>();
 	        }
 	        catch (Exception ex)
 	        {

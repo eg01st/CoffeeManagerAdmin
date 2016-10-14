@@ -7,10 +7,11 @@ using Acr.UserDialogs;
 using MvvmCross.Platform;
 using Newtonsoft.Json;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ServiceProviders
 {
     public class BaseServiceProvider
     {
+        public static string AccessToken = "";
         protected IUserDialogs UserDialogs
         {
             get
@@ -28,7 +29,7 @@ namespace CoffeeManagerAdmin.Core
             try
             {
                 var client = new HttpClient();
-
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {

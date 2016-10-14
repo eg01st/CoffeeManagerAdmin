@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using CoffeeManagerAdmin.Models;
+﻿using System.Threading.Tasks;
+using CoffeeManager.Models;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ServiceProviders
 {
 	public class UserServiceProvider : BaseServiceProvider
 	{

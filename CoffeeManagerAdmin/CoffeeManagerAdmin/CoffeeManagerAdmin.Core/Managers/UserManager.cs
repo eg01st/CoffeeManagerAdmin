@@ -1,8 +1,7 @@
-﻿using System;
-using System.Runtime.InteropServices.ComTypes;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CoffeeManagerAdmin.Core.ServiceProviders;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.Managers
 {
 	public class UserManager : BaseManager
 	{
