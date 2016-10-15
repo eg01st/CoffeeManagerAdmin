@@ -12,18 +12,18 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _info = info;
         }
 
-        public DateTime Date => _info.Date;
+        public string Date => _info.Date.Date.ToString("dd-MM");
 
         public string UserName => _info.UserName;
 
-        public string StartAmount => _info.StartMoney.ToString();
+        public string StartAmount => ((int)_info.StartMoney).ToString();
 
-        public string EarnedAmount => _info.ShiftEarnedMoney.ToString();
+        public string EarnedAmount => ((int)_info.ShiftEarnedMoney).ToString();
 
-        public string TotalAmount => _info.TotalAmount.ToString();
+        public string TotalAmount => ((int)_info.TotalAmount).ToString();
 
-        public string RealAmount => _info.RealAmount.ToString();
+        public string RealAmount => ((int)_info.RealAmount).ToString();
 
-        public string ExpenseAmount => _info.ExpenseAmount.ToString();
+        public string ExpenseAmount => ((int)_info.ExpenseAmount).ToString();
     }
 }

@@ -7,20 +7,20 @@ using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
-	public class LoginViewModel : ViewModelBase
-	{
+    public class LoginViewModel : ViewModelBase
+    {
         private UserManager manager = new UserManager();
-	    private string _name;
-	    private string _password;
-	    private ICommand _loginCommand;
-	    public string Name
+        private string _name;
+        private string _password;
+        private ICommand _loginCommand;
+        public string Name
         {
-	        get { return _name; }
-	        set
-	        {
-	            _name = value;
-	            RaisePropertyChanged(nameof(Name));
-	        }
+            get { return _name; }
+            set
+            {
+                _name = value;
+                RaisePropertyChanged(nameof(Name));
+            }
         }
         public string Password
         {
@@ -31,7 +31,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                 RaisePropertyChanged(nameof(Password));
             }
         }
-        public LoginViewModel ()
+        public LoginViewModel()
         {
             _loginCommand = new MvxCommand(DoLogin);
 
@@ -40,21 +40,23 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             Password = userinfo.Password;
         }
 
-	    public ICommand LoginCommand => _loginCommand;
+        public ICommand LoginCommand => _loginCommand;
 
-	    private async void DoLogin()
-	    {
-	        try
-	        {
+        private async void DoLogin()
+        {
+            try
+            {
                 string accessToken = await manager.Login(Name, Password);
-                LocalStorage.SetUserInfo(new UserInfo() {Login = Name, Password = Password});
-	            BaseServiceProvider.AccessToken = accessToken;
-	            ShowViewModel<MainViewModel>();
-	        }
-	        catch (Exception ex)
-	        {
-	            UserDialogs.Alert(ex.ToString()); 
-	        }       
-	    }
-	}
+                accessToken = accessToken.Substring(1);
+                accessToken = accessToken.Substring(0, accessToken.Length - 1);
+                LocalStorage.SetUserInfo(new UserInfo() { Login = Name, Password = Password });
+                BaseServiceProvider.AccessToken = accessToken;
+                ShowViewModel<MainViewModel>();
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Alert(ex.ToString());
+            }
+        }
+    }
 }

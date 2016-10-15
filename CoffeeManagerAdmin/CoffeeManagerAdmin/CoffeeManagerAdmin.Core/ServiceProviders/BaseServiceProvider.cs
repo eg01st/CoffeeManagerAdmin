@@ -47,7 +47,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             }
             catch (Exception ex)
             {
-             
+
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
@@ -74,7 +74,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             }
             catch (Exception ex)
             {
-              
+
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
@@ -95,6 +95,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                     }
                 }
                 var response = await client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(obj)));
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    throw new Exception(response.Content.ReadAsStringAsync().Result);
+                }
                 return await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
@@ -125,7 +129,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             }
             catch (Exception ex)
             {
-                
+
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
@@ -174,7 +178,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             }
             catch (Exception ex)
             {
-                
+
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }

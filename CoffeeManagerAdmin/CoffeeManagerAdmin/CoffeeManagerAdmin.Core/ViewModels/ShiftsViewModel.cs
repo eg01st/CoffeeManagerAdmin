@@ -10,7 +10,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
     public class ShiftsViewModel : ViewModelBase
     {
         private ShiftManager manager = new ShiftManager();
-        private List<ShiftItemViewModel> _items;
+        private List<ShiftItemViewModel> _items = new List<ShiftItemViewModel>();
         public List<ShiftItemViewModel> Items
         {
             get { return _items; }
