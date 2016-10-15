@@ -35,6 +35,7 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(ExpenseLabel).To(vm => vm.ExpenseAmount);
                 set.Bind(RealAmountLabel).To(vm => vm.RealAmount);
                 set.Bind(TotalLabel).To(vm => vm.TotalAmount);
+                set.Bind(StartAmount).To(vm => vm.StartAmount);
                 set.Apply();
             });
         }
