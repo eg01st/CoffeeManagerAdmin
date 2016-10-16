@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainView">
             <connections>
+                <outlet property="CreateSuplyRequest" destination="510-wl-31F" id="Zh5-9v-hI5"/>
                 <outlet property="CurrentAmountLabel" destination="xWM-em-lxK" id="pxx-KU-8wv"/>
                 <outlet property="ShiftButton" destination="ho5-eG-NZS" id="j0W-vS-wIu"/>
                 <outlet property="SupliedProductsButton" destination="mJ4-rp-f1g" id="bZJ-rA-HxT"/>
@@ -57,12 +58,17 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-rp-f1g">
                     <state key="normal" title="Информация по балансу товара"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="510-wl-31F">
+                    <state key="normal" title="Создать заявку на покупку товара"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="17" id="0Oq-qK-C4M"/>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="17" id="1SV-RD-CYy"/>
                 <constraint firstItem="6pf-lb-OPA" firstAttribute="top" secondItem="2" secondAttribute="top" constant="150" id="1Ym-iu-XzU"/>
+                <constraint firstAttribute="trailing" secondItem="510-wl-31F" secondAttribute="trailing" constant="65" id="1xL-9V-et4"/>
+                <constraint firstItem="510-wl-31F" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="64" id="2Vl-1e-uGK"/>
                 <constraint firstAttribute="trailing" secondItem="mJ4-rp-f1g" secondAttribute="trailing" constant="72" id="54t-dr-bYG"/>
                 <constraint firstItem="6pf-lb-OPA" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="55" id="A5X-er-XYF"/>
                 <constraint firstAttribute="trailing" secondItem="ho5-eG-NZS" secondAttribute="trailing" constant="72" id="YPz-yc-7Gl"/>
@@ -70,6 +76,7 @@
                 <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="72" id="gre-Dy-acE"/>
                 <constraint firstItem="mJ4-rp-f1g" firstAttribute="top" secondItem="ho5-eG-NZS" secondAttribute="bottom" constant="-1" id="kAj-03-9a3"/>
                 <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="q8C-UB-VkK"/>
+                <constraint firstItem="510-wl-31F" firstAttribute="top" secondItem="mJ4-rp-f1g" secondAttribute="bottom" constant="8" id="tWY-30-ljb"/>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="71" id="vyL-jI-sKc"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>

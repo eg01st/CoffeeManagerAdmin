@@ -46,7 +46,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         private async void DoSubmitRequest()
         {
-            var items = Items.Where(i => i.IsSelected).Select(s => new SupliedProduct() {Id = s.Id, Amount = int.Parse(s.ItemCount)});
+            var items = Items.Where(i => i.IsSelected).Select(s => new SupliedProduct() { Id = s.Id, Amount = int.Parse(s.ItemCount) });
             await manager.AddNewSuplyRequest(items);
             Close(this);
         }

@@ -119,6 +119,15 @@
       <DependentUpon>SuplyProductCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Converters\DecimalToStringConverter.cs" />
+    <Compile Include="Views\RequestSuplyView.cs" />
+    <Compile Include="Views\RequestSuplyView.designer.cs">
+      <DependentUpon>RequestSuplyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\RequestSuplyTableSource.cs" />
+    <Compile Include="Views\Cells\RequestSuplyTableCell.cs" />
+    <Compile Include="Views\Cells\RequestSuplyTableCell.designer.cs">
+      <DependentUpon>RequestSuplyTableCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -136,6 +145,8 @@
     <InterfaceDefinition Include="Views\Cells\ShiftInfoCell.xib" />
     <InterfaceDefinition Include="Views\SuplyProductsView.xib" />
     <InterfaceDefinition Include="Views\Cells\SuplyProductCell.xib" />
+    <InterfaceDefinition Include="Views\RequestSuplyView.xib" />
+    <InterfaceDefinition Include="Views\Cells\RequestSuplyTableCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

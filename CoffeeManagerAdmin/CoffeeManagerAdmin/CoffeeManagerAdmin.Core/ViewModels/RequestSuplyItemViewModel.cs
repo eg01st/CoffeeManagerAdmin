@@ -67,25 +67,32 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _selectCommand = new MvxCommand(DoSelect);
         }
 
-        private async void DoSelect()
+        private void DoSelect()
         {
             IsSelected = !IsSelected;
             if (IsSelected)
             {
-                await
-                    UserDialogs.PromptAsync(new PromptConfig
-                    {
-                        Message = "Введите количество",
-                        OnAction = OnAction,
-                        Title = "Введите количество",
-                        InputType = InputType.Number
-                    });
+
+                UserDialogs.Prompt(new PromptConfig
+                {
+                    Message = "Введите количество",
+                    OnAction = OnAction,
+                    InputType = InputType.Number,
+                    Text = ItemCount
+                });
             }
         }
 
         private void OnAction(PromptResult promptResult)
         {
-            ItemCount = promptResult.Text;
+            if (promptResult.Ok)
+            {
+                ItemCount = promptResult.Text;
+            }
+            else
+            {
+                IsSelected = !IsSelected;
+            }
         }
     }
 }
