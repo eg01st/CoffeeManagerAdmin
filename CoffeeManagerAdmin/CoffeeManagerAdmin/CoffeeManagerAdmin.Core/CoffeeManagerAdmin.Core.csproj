@@ -41,6 +41,8 @@
     <Compile Include="ServiceProviders\ShiftServiceProvider.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RequestSuplyItemViewModel.cs" />
+    <Compile Include="ViewModels\RequestSuplyViewModel.cs" />
     <Compile Include="ViewModels\ShiftItemViewModel.cs" />
     <Compile Include="ViewModels\ShiftsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -99,7 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+    <ProjectReference Include="..\..\..\..\CoffeeManagerSol\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
       <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
       <Name>CoffeeManager.Models</Name>
     </ProjectReference>

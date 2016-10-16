@@ -1,7 +1,6 @@
-﻿using System;
-using CoffeeManager.Models;
+﻿using CoffeeManager.Models;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class SuplyProductItemViewModel : ViewModelBase
     {
@@ -12,7 +11,6 @@ namespace CoffeeManagerAdmin.Core
         {
             _item = product;
         }
-
         public string Name => _item.Name;
 
         public decimal Price => _item.Price;
