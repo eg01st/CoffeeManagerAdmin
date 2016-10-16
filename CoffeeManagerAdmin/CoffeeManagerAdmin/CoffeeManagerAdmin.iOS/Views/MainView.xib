@@ -10,6 +10,8 @@
             <connections>
                 <outlet property="CurrentAmountLabel" destination="xWM-em-lxK" id="pxx-KU-8wv"/>
                 <outlet property="ShiftButton" destination="ho5-eG-NZS" id="j0W-vS-wIu"/>
+                <outlet property="SupliedProductsButton" destination="mJ4-rp-f1g" id="bZJ-rA-HxT"/>
+                <outlet property="UpdateButton" destination="eri-g4-8vn" id="ZbT-6V-SUk"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
@@ -30,6 +32,9 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eri-g4-8vn">
+                            <state key="normal" title="Обновить"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -37,8 +42,11 @@
                         <constraint firstItem="xWM-em-lxK" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="top" constant="18" id="66c-qa-GT2"/>
                         <constraint firstAttribute="bottom" secondItem="Suy-dX-keX" secondAttribute="bottom" constant="18" id="79A-io-3UN"/>
                         <constraint firstItem="xWM-em-lxK" firstAttribute="leading" secondItem="Suy-dX-keX" secondAttribute="trailing" constant="20" id="A5U-EF-61d"/>
+                        <constraint firstItem="eri-g4-8vn" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="top" constant="14" id="MjQ-Wj-keB"/>
+                        <constraint firstAttribute="bottom" secondItem="eri-g4-8vn" secondAttribute="bottom" constant="13" id="NMp-pS-4ei"/>
                         <constraint firstAttribute="trailing" secondItem="xWM-em-lxK" secondAttribute="trailing" constant="8" id="OLj-cg-Utg"/>
                         <constraint firstItem="Suy-dX-keX" firstAttribute="leading" secondItem="6pf-lb-OPA" secondAttribute="leading" constant="14" id="VOL-jd-Z0p"/>
+                        <constraint firstAttribute="trailing" secondItem="eri-g4-8vn" secondAttribute="trailing" constant="8" id="gJV-Qf-Uhb"/>
                         <constraint firstAttribute="bottom" secondItem="xWM-em-lxK" secondAttribute="bottom" constant="18" id="opN-WG-itd"/>
                         <constraint firstItem="xWM-em-lxK" firstAttribute="leading" secondItem="Suy-dX-keX" secondAttribute="trailing" constant="20" id="wws-sf-qsb"/>
                     </constraints>
@@ -46,16 +54,22 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-eG-NZS">
                     <state key="normal" title="Информация по сменам"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-rp-f1g">
+                    <state key="normal" title="Информация по балансу товара"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="17" id="0Oq-qK-C4M"/>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="17" id="1SV-RD-CYy"/>
                 <constraint firstItem="6pf-lb-OPA" firstAttribute="top" secondItem="2" secondAttribute="top" constant="150" id="1Ym-iu-XzU"/>
+                <constraint firstAttribute="trailing" secondItem="mJ4-rp-f1g" secondAttribute="trailing" constant="72" id="54t-dr-bYG"/>
                 <constraint firstItem="6pf-lb-OPA" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="55" id="A5X-er-XYF"/>
                 <constraint firstAttribute="trailing" secondItem="ho5-eG-NZS" secondAttribute="trailing" constant="72" id="YPz-yc-7Gl"/>
                 <constraint firstAttribute="bottom" secondItem="ho5-eG-NZS" secondAttribute="bottom" constant="400" id="Yma-3L-ELP"/>
-                <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" constant="80" id="q8C-UB-VkK"/>
+                <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="72" id="gre-Dy-acE"/>
+                <constraint firstItem="mJ4-rp-f1g" firstAttribute="top" secondItem="ho5-eG-NZS" secondAttribute="bottom" constant="-1" id="kAj-03-9a3"/>
+                <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="q8C-UB-VkK"/>
                 <constraint firstItem="ho5-eG-NZS" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="71" id="vyL-jI-sKc"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>

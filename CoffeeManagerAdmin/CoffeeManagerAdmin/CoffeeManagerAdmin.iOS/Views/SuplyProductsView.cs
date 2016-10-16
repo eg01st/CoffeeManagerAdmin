@@ -1,27 +1,27 @@
 ﻿using System;
-
-using UIKit;
+using CoffeeManagerAdmin.Core;
 using MvvmCross.iOS.Views;
+using UIKit;
 using MvvmCross.Binding.BindingContext;
-using CoffeeManagerAdmin.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.iOS
 {
-    public partial class MainView : MvxViewController
+    public partial class SuplyProductsView : MvxViewController
     {
-        public MainView() : base("MainView", null)
+        public SuplyProductsView() : base("SuplyProductsView", null)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            var set = this.CreateBindingSet<MainView, MainViewModel>();
-            set.Bind(CurrentAmountLabel).To(vm => vm.CurrentBalance);
-            set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
-            set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
-            set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
+
+            var source = new SuplyProductTableSource(TableView);
+            TableView.Source = source;
+            var set = this.CreateBindingSet<SuplyProductsView, SuplyProductsViewModel>();
+            set.Bind(source).To(vm => vm.Items);
+            set.Apply();
         }
 
         public override void DidReceiveMemoryWarning()

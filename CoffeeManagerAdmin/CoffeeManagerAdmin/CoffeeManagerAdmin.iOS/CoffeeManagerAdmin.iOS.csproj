@@ -109,6 +109,16 @@
     <Compile Include="Views\Cells\ShiftInfoCell.designer.cs">
       <DependentUpon>ShiftInfoCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SuplyProductsView.cs" />
+    <Compile Include="Views\SuplyProductsView.designer.cs">
+      <DependentUpon>SuplyProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\SuplyProductTableSource.cs" />
+    <Compile Include="Views\Cells\SuplyProductCell.cs" />
+    <Compile Include="Views\Cells\SuplyProductCell.designer.cs">
+      <DependentUpon>SuplyProductCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\DecimalToStringConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -124,6 +134,8 @@
     <InterfaceDefinition Include="Views\MainView.xib" />
     <InterfaceDefinition Include="Views\ShiftsView.xib" />
     <InterfaceDefinition Include="Views\Cells\ShiftInfoCell.xib" />
+    <InterfaceDefinition Include="Views\SuplyProductsView.xib" />
+    <InterfaceDefinition Include="Views\Cells\SuplyProductCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -191,6 +203,7 @@
   <ItemGroup>
     <Folder Include="TableSources\" />
     <Folder Include="Views\Cells\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

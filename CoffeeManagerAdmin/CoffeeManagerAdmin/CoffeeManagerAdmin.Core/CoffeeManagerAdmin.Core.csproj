@@ -50,6 +50,10 @@
     <Compile Include="ServiceProviders\BaseServiceProvider.cs" />
     <Compile Include="ServiceProviders\UserServiceProvider.cs" />
     <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="ServiceProviders\SuplyProductsServiceProvider.cs" />
+    <Compile Include="Managers\SuplyProductsManager.cs" />
+    <Compile Include="ViewModels\SuplyProductsViewModel.cs" />
+    <Compile Include="ViewModels\SuplyProductItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -95,8 +99,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\CoffeeManagerSol\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
-      <Project>{77e355cb-adf2-4617-ad95-59e1f4f8af17}</Project>
+    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+      <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
       <Name>CoffeeManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
