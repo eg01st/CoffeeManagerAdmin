@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,6 +31,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Env-VX-Klu">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="glY-ld-mYT"/>
+                            </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -72,10 +74,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Jz9-sV-KGp" secondAttribute="trailing" constant="60" id="7iU-ze-hdt"/>
-                <constraint firstItem="Jz9-sV-KGp" firstAttribute="top" secondItem="2" secondAttribute="top" constant="269" id="MxU-To-uDg"/>
-                <constraint firstAttribute="bottom" secondItem="Jz9-sV-KGp" secondAttribute="bottom" constant="270" id="QTs-xs-ZTQ"/>
-                <constraint firstItem="Jz9-sV-KGp" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="75" id="ZcZ-tz-8W4"/>
+                <constraint firstItem="Jz9-sV-KGp" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="KxM-dO-eMR"/>
+                <constraint firstItem="Jz9-sV-KGp" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="ZxH-Ng-z8o"/>
             </constraints>
             <point key="canvasLocation" x="-316.5" y="34.5"/>
         </view>
