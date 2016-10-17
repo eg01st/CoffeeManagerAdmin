@@ -56,6 +56,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                                 Price = decimal.Parse(s.Price)
                             });
             await manager.ProcessSuplyRequests(items);
+            Close(this);
         }
     }
 }
