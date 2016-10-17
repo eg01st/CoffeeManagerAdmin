@@ -59,6 +59,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             try
             {
                 var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {
@@ -86,6 +87,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             try
             {
                 var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {
@@ -114,6 +116,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             try
             {
                 var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {
@@ -141,6 +144,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             try
             {
                 var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {
@@ -165,6 +169,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             try
             {
                 var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("token", AccessToken);
                 url = $"{_apiUrl}{path}?coffeeroomno={CoffeeRoomNo}";
                 if (param != null && param.Count > 0)
                 {

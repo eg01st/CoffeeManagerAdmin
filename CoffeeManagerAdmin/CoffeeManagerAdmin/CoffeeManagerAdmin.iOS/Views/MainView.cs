@@ -20,6 +20,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(CurrentAmountLabel).To(vm => vm.CurrentBalance);
             set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
+            set.Bind(CreateSuplyRequest).To(vm => vm.RequestSuplyCommand);
             set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
         }

@@ -21,12 +21,12 @@ namespace CoffeeManagerAdmin.Core
         {
             await
                 Put($"{SuplyProducts}/addproduct",
-                    new SupliedProduct() {CoffeeRoomNo = CoffeeRoomNo, Amount = 0, Price = 0, Name = newProduct});
+                    new SupliedProduct() { CoffeeRoomNo = CoffeeRoomNo, Amount = 0, Price = 0, Name = newProduct });
         }
 
         public async Task AddNewSuplyRequest(IEnumerable<SupliedProduct> items)
         {
-            await Post($"{SuplyProducts}/addsuplyrequest", items);
+            await Put($"{SuplyProducts}/addsuplyrequest", items);
         }
 
         public async Task<SupliedProduct[]> GetSuplyRequests()
