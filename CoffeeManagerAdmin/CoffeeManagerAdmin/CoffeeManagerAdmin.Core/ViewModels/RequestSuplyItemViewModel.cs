@@ -67,7 +67,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _selectCommand = new MvxCommand(DoSelect);
         }
 
-        private async void DoSelect()
+        protected virtual async void DoSelect()
         {
             IsSelected = !IsSelected;
             if (IsSelected)

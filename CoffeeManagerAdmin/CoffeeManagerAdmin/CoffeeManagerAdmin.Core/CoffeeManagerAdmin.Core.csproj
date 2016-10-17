@@ -41,6 +41,8 @@
     <Compile Include="ServiceProviders\ShiftServiceProvider.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProcessRequestSuplyViewModel.cs" />
+    <Compile Include="ViewModels\ProcessSuplyRequestItemViewModel.cs" />
     <Compile Include="ViewModels\RequestSuplyItemViewModel.cs" />
     <Compile Include="ViewModels\RequestSuplyViewModel.cs" />
     <Compile Include="ViewModels\ShiftItemViewModel.cs" />

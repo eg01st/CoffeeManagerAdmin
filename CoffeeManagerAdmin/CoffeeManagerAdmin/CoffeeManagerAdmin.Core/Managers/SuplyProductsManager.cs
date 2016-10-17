@@ -27,5 +27,15 @@ namespace CoffeeManagerAdmin.Core
         {
             await provider.AddNewSuplyRequest(items);
         }
+
+        public async Task<SupliedProduct[]> GetSuplyRequests()
+        {
+            return await provider.GetSuplyRequests();
+        }
+
+        public async Task ProcessSuplyRequests(IEnumerable<SupliedProduct> items)
+        {
+            await provider.ProcessSuplyRequests(items);
+        }
     }
 }
