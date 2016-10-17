@@ -19,6 +19,9 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UILabel CurrentAmountLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIButton ProcessSuplyRequestButton { get; set; }
+
+		[Outlet]
 		UIKit.UIButton ShiftButton { get; set; }
 
 		[Outlet]
@@ -52,6 +55,11 @@ namespace CoffeeManagerAdmin.iOS
 			if (UpdateButton != null) {
 				UpdateButton.Dispose ();
 				UpdateButton = null;
+			}
+
+			if (ProcessSuplyRequestButton != null) {
+				ProcessSuplyRequestButton.Dispose ();
+				ProcessSuplyRequestButton = null;
 			}
 		}
 	}

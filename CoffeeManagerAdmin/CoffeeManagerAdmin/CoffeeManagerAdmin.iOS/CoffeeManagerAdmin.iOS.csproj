@@ -156,6 +156,8 @@
     <InterfaceDefinition Include="Views\Cells\SuplyProductCell.xib" />
     <InterfaceDefinition Include="Views\RequestSuplyView.xib" />
     <InterfaceDefinition Include="Views\Cells\RequestSuplyTableCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\RequestSuplyProductCell.xib" />
+    <InterfaceDefinition Include="Views\ProcessRequestSuplyView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

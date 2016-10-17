@@ -28,7 +28,7 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aot-fn-BeZ">
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="cFB-ov-vEj"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Mf2-AX-Sy2"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -40,16 +40,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="sf0-Zj-Sa7" secondAttribute="trailing" constant="16.5" id="03U-CU-r1t"/>
                         <constraint firstItem="aot-fn-BeZ" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="5" id="3wT-5P-d5C"/>
                         <constraint firstItem="VFn-rc-cnM" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="10" id="DdH-wr-VNe"/>
                         <constraint firstItem="sf0-Zj-Sa7" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="5" id="E8r-TV-B2m"/>
                         <constraint firstItem="VFn-rc-cnM" firstAttribute="leading" secondItem="MeA-Wx-xGd" secondAttribute="leading" constant="8" id="EsS-03-2lG"/>
                         <constraint firstAttribute="height" constant="40" id="csa-oL-8fD"/>
                         <constraint firstAttribute="bottom" secondItem="VFn-rc-cnM" secondAttribute="bottom" constant="9" id="ke9-ze-7oS"/>
-                        <constraint firstItem="aot-fn-BeZ" firstAttribute="leading" secondItem="VFn-rc-cnM" secondAttribute="trailing" constant="-7" id="mz1-CZ-OcD"/>
+                        <constraint firstItem="aot-fn-BeZ" firstAttribute="leading" secondItem="VFn-rc-cnM" secondAttribute="trailing" constant="5" id="mz1-CZ-OcD"/>
                         <constraint firstAttribute="bottom" secondItem="aot-fn-BeZ" secondAttribute="bottom" constant="5" id="pLM-Cm-9ab"/>
                         <constraint firstAttribute="bottom" secondItem="sf0-Zj-Sa7" secondAttribute="bottom" constant="5" id="uo5-fz-p4A"/>
-                        <constraint firstItem="sf0-Zj-Sa7" firstAttribute="leading" secondItem="aot-fn-BeZ" secondAttribute="trailing" constant="8" id="zsA-uY-MEV"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0B-lk-vto">

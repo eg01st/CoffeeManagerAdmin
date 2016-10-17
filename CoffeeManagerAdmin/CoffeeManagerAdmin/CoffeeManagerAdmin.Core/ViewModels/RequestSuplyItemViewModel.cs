@@ -67,7 +67,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _selectCommand = new MvxCommand(DoSelect);
         }
 
-        protected virtual async void DoSelect()
+        protected virtual void DoSelect()
         {
             IsSelected = !IsSelected;
             if (IsSelected)
@@ -80,6 +80,10 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                     InputType = InputType.Number,
                     Text = ItemCount
                 });
+            }
+            else
+            {
+                ItemCount = "";
             }
         }
 

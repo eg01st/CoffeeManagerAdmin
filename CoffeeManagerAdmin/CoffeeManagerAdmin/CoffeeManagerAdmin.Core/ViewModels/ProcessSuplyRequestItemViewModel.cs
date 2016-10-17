@@ -4,20 +4,19 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class ProcessSuplyRequestItemViewModel : RequestSuplyItemViewModel
     {
-        protected override async void DoSelect()
+        protected override void DoSelect()
         {
-            IsSelected = !IsSelected;
-            if (IsSelected)
+            if (!IsSelected)
             {
-                await
-                    UserDialogs.PromptAsync(new PromptConfig
-                    {
-                        Message = "Введите цену",
-                        OnAction = OnAction,
-                        InputType = InputType.Number,
-                        Text = Price
-                    });
+                UserDialogs.Prompt(new PromptConfig
+                {
+                    Message = "Введите цену",
+                    OnAction = OnAction,
+                    InputType = InputType.Number,
+                    Text = Price
+                });
             }
+            IsSelected = !IsSelected;
         }
 
         private void OnAction(PromptResult obj)

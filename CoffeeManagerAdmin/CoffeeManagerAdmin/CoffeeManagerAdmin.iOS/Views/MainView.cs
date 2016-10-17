@@ -21,6 +21,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
             set.Bind(CreateSuplyRequest).To(vm => vm.RequestSuplyCommand);
+            set.Bind(ProcessSuplyRequestButton).To(vm => vm.ProcessRequestSuplyCommand);
             set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
         }
