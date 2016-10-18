@@ -13,7 +13,7 @@ namespace CoffeeManagerAdmin.iOS.Views.Cells
 	partial class RequestSuplyProductCell
 	{
 		[Outlet]
-		UIKit.UILabel AmountLabel { get; set; }
+		UIKit.UITextField AmountLabel { get; set; }
 
 		[Outlet]
 		UIKit.UISwitch IsSelected { get; set; }
@@ -26,14 +26,14 @@ namespace CoffeeManagerAdmin.iOS.Views.Cells
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (IsSelected != null) {
-				IsSelected.Dispose ();
-				IsSelected = null;
-			}
-
 			if (AmountLabel != null) {
 				AmountLabel.Dispose ();
 				AmountLabel = null;
+			}
+
+			if (IsSelected != null) {
+				IsSelected.Dispose ();
+				IsSelected = null;
 			}
 
 			if (NameLabel != null) {
