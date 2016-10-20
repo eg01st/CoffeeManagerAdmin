@@ -18,6 +18,7 @@ namespace CoffeeManagerAdmin.iOS
             base.ViewDidLoad();
             var set = this.CreateBindingSet<MainView, MainViewModel>();
             set.Bind(CurrentAmountLabel).To(vm => vm.CurrentBalance);
+            set.Bind(UpdateButton).To(vm => vm.UpdateEntireMoneyCommand);
             set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
             set.Bind(CreateSuplyRequest).To(vm => vm.RequestSuplyCommand);

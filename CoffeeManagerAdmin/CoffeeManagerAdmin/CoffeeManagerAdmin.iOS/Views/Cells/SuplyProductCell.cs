@@ -7,6 +7,7 @@ using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core;
 using MvvmCross.Platform.Converters;
 using CoffeeManagerAdmin.Core.ViewModels;
+using MvvmCross.Binding.iOS.Views.Gestures;
 
 namespace CoffeeManagerAdmin.iOS
 {
@@ -35,7 +36,7 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(NameLabel).To(vm => vm.Name);
                 set.Bind(AmountLabel).To(vm => vm.Amount);
                 set.Bind(PriceLabel).To(vm => vm.Price).WithConversion(new DecimalToStringConverter());
-
+                set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.SelectCommand);
                 set.Apply();
 
             });
