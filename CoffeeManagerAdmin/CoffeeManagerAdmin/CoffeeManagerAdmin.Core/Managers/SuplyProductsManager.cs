@@ -23,6 +23,11 @@ namespace CoffeeManagerAdmin.Core
             await provider.AddNewProduct(newProduct);
         }
 
+        public async Task DeleteSuplyRequest(int id)
+        {
+            await provider.DeleteSuplyRequest(id);
+        }
+
         public async Task AddNewSuplyRequest(IEnumerable<SupliedProduct> items)
         {
             await provider.AddNewSuplyRequest(items);

@@ -24,6 +24,11 @@ namespace CoffeeManagerAdmin.Core
                     new SupliedProduct() { CoffeeRoomNo = CoffeeRoomNo, Amount = 0, Price = 0, Name = newProduct });
         }
 
+        public async Task DeleteSuplyRequest(int id)
+        {
+            await Delete($"{SuplyProducts}/deleteSuplyRequest", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
+        }
+
         public async Task AddNewSuplyRequest(IEnumerable<SupliedProduct> items)
         {
             await Put($"{SuplyProducts}/addsuplyrequest", items);
@@ -31,7 +36,7 @@ namespace CoffeeManagerAdmin.Core
 
         public async Task<SupliedProduct[]> GetSuplyRequests()
         {
-           return await Get<SupliedProduct[]>($"{SuplyProducts}/getsuplyrequest");
+            return await Get<SupliedProduct[]>($"{SuplyProducts}/getsuplyrequest");
         }
 
         public async Task ProcessSuplyRequests(IEnumerable<SupliedProduct> items)

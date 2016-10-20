@@ -30,9 +30,22 @@ namespace CoffeeManagerAdmin.iOS.Views.Cells
             }
         }
 
+        private ICommand _longPressCommand;
+        public ICommand DeleteRequestCommand
+        {
+            get { return _longPressCommand; }
+            set
+            {
+                _longPressCommand = value;
+
+            }
+        }
+
         protected RequestSuplyProductCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
+            var longPressGesture = new UILongPressGestureRecognizer(() => DeleteRequestCommand?.Execute(null));
+            AddGestureRecognizer(longPressGesture);
         }
 
         public override void AwakeFromNib()
@@ -47,6 +60,7 @@ namespace CoffeeManagerAdmin.iOS.Views.Cells
                 set.Bind(AmountLabel).To(vm => vm.ItemCount);
                 set.Bind(IsSelected).To(vm => vm.IsSelected);
                 set.Bind(this).For(t => t.SelectActionCommand).To(vm => vm.SelectCommand);
+                set.Bind(this).For(t => t.DeleteRequestCommand).To(vm => vm.DeleteRequestCommand);
                 set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.SelectCommand);
                 set.Apply();
 
