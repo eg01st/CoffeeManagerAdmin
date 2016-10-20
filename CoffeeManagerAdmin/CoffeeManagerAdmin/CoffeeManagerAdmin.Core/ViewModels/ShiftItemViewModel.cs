@@ -1,15 +1,25 @@
 ﻿using System;
+using System.Windows.Input;
 using CoffeeManager.Models;
+using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class ShiftItemViewModel : ViewModelBase
     {
         private readonly ShiftInfo _info;
+        private ICommand _showDetailsCommand;
+        public ICommand ShowDetailsCommand => _showDetailsCommand;
 
         public ShiftItemViewModel(ShiftInfo info)
         {
             _info = info;
+            _showDetailsCommand = new MvxCommand(DoShowDetails);
+        }
+
+        private void DoShowDetails()
+        {
+            ShowViewModel<ShiftDetailsViewModel>(new {id = _info.Id});
         }
 
         public string Date => _info.Date.Date.ToString("dd-MM");

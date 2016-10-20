@@ -36,8 +36,12 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="LocalStorage.cs" />
+    <Compile Include="Managers\CupsManager.cs" />
+    <Compile Include="Managers\PaymentManager.cs" />
     <Compile Include="Managers\ShiftManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceProviders\CupsProvider.cs" />
+    <Compile Include="ServiceProviders\PaymentProvider.cs" />
     <Compile Include="ServiceProviders\ShiftServiceProvider.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -45,6 +49,7 @@
     <Compile Include="ViewModels\ProcessSuplyRequestItemViewModel.cs" />
     <Compile Include="ViewModels\RequestSuplyItemViewModel.cs" />
     <Compile Include="ViewModels\RequestSuplyViewModel.cs" />
+    <Compile Include="ViewModels\ShiftDetailsViewModel.cs" />
     <Compile Include="ViewModels\ShiftItemViewModel.cs" />
     <Compile Include="ViewModels\ShiftsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
