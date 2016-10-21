@@ -152,6 +152,10 @@
       <DependentUpon>SaleItemCell.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSources\SaleTableSource.cs" />
+    <Compile Include="Views\ProductsView.cs" />
+    <Compile Include="Views\ProductsView.designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -176,6 +180,7 @@
     <InterfaceDefinition Include="Views\ShiftDetailsView.xib" />
     <InterfaceDefinition Include="Views\Cells\ExpenseItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\SaleItemCell.xib" />
+    <InterfaceDefinition Include="Views\ProductsView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -23,6 +23,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
             set.Bind(CreateSuplyRequest).To(vm => vm.RequestSuplyCommand);
             set.Bind(ProcessSuplyRequestButton).To(vm => vm.ProcessRequestSuplyCommand);
+            set.Bind(ProductsButton).To(vm => vm.EditProductsCommand);
             set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
         }

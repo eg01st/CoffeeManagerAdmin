@@ -22,6 +22,9 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UIButton ProcessSuplyRequestButton { get; set; }
 
 		[Outlet]
+		UIKit.UIButton ProductsButton { get; set; }
+
+		[Outlet]
 		UIKit.UIButton ShiftButton { get; set; }
 
 		[Outlet]
@@ -42,6 +45,11 @@ namespace CoffeeManagerAdmin.iOS
 				CurrentAmountLabel = null;
 			}
 
+			if (ProcessSuplyRequestButton != null) {
+				ProcessSuplyRequestButton.Dispose ();
+				ProcessSuplyRequestButton = null;
+			}
+
 			if (ShiftButton != null) {
 				ShiftButton.Dispose ();
 				ShiftButton = null;
@@ -57,9 +65,9 @@ namespace CoffeeManagerAdmin.iOS
 				UpdateButton = null;
 			}
 
-			if (ProcessSuplyRequestButton != null) {
-				ProcessSuplyRequestButton.Dispose ();
-				ProcessSuplyRequestButton = null;
+			if (ProductsButton != null) {
+				ProductsButton.Dispose ();
+				ProductsButton = null;
 			}
 		}
 	}

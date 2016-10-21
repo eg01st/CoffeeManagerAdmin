@@ -16,6 +16,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private ICommand _updateEntireMoneyCommand;
         private ICommand _requestSuplyCommand;
         private ICommand _processRequestSuplyCommand;
+        private ICommand _editProductsCommand;
         private string _currentBalance;
 
         public ICommand ShowShiftsCommand => _showShiftsCommand;
@@ -23,6 +24,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand UpdateEntireMoneyCommand => _updateEntireMoneyCommand;
         public ICommand RequestSuplyCommand => _requestSuplyCommand;
         public ICommand ProcessRequestSuplyCommand => _processRequestSuplyCommand;
+        public ICommand EditProductsCommand => _editProductsCommand;
 
         public string CurrentBalance
         {
@@ -40,6 +42,12 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _updateEntireMoneyCommand = new MvxCommand(DoGetEntireMoney);
             _requestSuplyCommand = new MvxCommand(DoRequestSuply);
             _processRequestSuplyCommand = new MvxCommand(DoShowProcessRequestSuply);
+            _editProductsCommand = new MvxCommand(DoEditProducts);
+        }
+
+        private void DoEditProducts()
+        {
+            ShowViewModel<ProductsViewModel>();
         }
 
         private void DoShowProcessRequestSuply()

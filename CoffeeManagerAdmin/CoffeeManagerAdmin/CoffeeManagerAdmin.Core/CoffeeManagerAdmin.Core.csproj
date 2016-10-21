@@ -65,6 +65,9 @@
     <Compile Include="ViewModels\SuplyProductItemViewModel.cs" />
     <Compile Include="ViewModels\ExpenseItemViewModel.cs" />
     <Compile Include="ViewModels\SaleItemViewModel.cs" />
+    <Compile Include="ViewModels\ProductsViewModel.cs" />
+    <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="ServiceProviders\ProductProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
