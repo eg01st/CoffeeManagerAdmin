@@ -24,7 +24,10 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public async void Init()
         {
             var items = await manager.GetShifts();
-            Items = items.Select(s => new ShiftItemViewModel(s)).ToList();
+            if (items != null)
+            {
+                Items = items.Select(s => new ShiftItemViewModel(s)).ToList();
+            }
         }
     }
 }

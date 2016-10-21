@@ -12,19 +12,22 @@ namespace CoffeeManagerAdmin.Core.ViewModels
     {
         private int _shiftId;
         private ShiftManager shiftManager = new ShiftManager();
+        private PaymentManager paymentManager = new PaymentManager();
         private CupsManager cupsManager = new CupsManager();
         private string _c110;
         private string _c170;
         private string _c250;
         private string _c400;
         private string _plastic;
+        private List<ExpenseItemViewModel> _expenseItems = new List<ExpenseItemViewModel>();
+        private List<SaleItemViewModel> _saleItems = new List<SaleItemViewModel>();
 
         public async void Init(int id)
         {
             _shiftId = id;
 
-             await cupsManager.GetShiftUsedCups(_shiftId).ContinueWith(task =>
-             {
+            await cupsManager.GetShiftUsedCups(_shiftId).ContinueWith(task =>
+            {
                 var cups = task.Result;
                 C110 = cups.C110.ToString();
                 C170 = cups.C170.ToString();
@@ -33,9 +36,32 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                 Plastic = cups.Plastic.ToString();
             });
 
+            var items = await paymentManager.GetShiftExpenses(_shiftId);
+            ExpenseItems = items.Select(s => new ExpenseItemViewModel(s)).ToList();
+
+            var saleItems = await shiftManager.GetShiftSales(_shiftId);
+            SaleItems = saleItems.Select(s => new SaleItemViewModel(s)).ToList();
         }
 
+        public List<ExpenseItemViewModel> ExpenseItems
+        {
+            get { return _expenseItems; }
+            set
+            {
+                _expenseItems = value;
+                RaisePropertyChanged(nameof(ExpenseItems));
+            }
+        }
 
+        public List<SaleItemViewModel> SaleItems
+        {
+            get { return _saleItems; }
+            set
+            {
+                _saleItems = value;
+                RaisePropertyChanged(nameof(SaleItems));
+            }
+        }
 
         public string C110
         {

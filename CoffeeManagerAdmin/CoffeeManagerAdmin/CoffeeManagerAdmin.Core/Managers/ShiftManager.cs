@@ -11,7 +11,7 @@ namespace CoffeeManagerAdmin.Core.Managers
     public class ShiftManager
     {
         private ShiftServiceProvider provider = new ShiftServiceProvider();
-        public async  Task<Shift> GetCurrentShift()
+        public async Task<Shift> GetCurrentShift()
         {
             return await provider.GetCurrentShift();
         }
@@ -23,6 +23,11 @@ namespace CoffeeManagerAdmin.Core.Managers
         public async Task<ShiftInfo[]> GetShifts()
         {
             return await provider.GetShifts();
-        } 
+        }
+
+        public async Task<Sale[]> GetShiftSales(int id)
+        {
+            return await provider.GetShiftSales(id);
+        }
     }
 }

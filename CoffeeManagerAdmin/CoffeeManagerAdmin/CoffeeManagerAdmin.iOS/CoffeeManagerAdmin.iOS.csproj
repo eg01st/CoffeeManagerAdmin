@@ -44,8 +44,9 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Dmytro Serdechnyi (L437EB49N2)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>d611088f-f8a0-4f9a-88e7-22a28ee1d7f2</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -137,6 +138,20 @@
     <Compile Include="Views\Cells\RequestSuplyTableCell.designer.cs">
       <DependentUpon>RequestSuplyTableCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShiftDetailsView.cs" />
+    <Compile Include="Views\ShiftDetailsView.designer.cs">
+      <DependentUpon>ShiftDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\ExpenseItemCell.cs" />
+    <Compile Include="Views\Cells\ExpenseItemCell.designer.cs">
+      <DependentUpon>ExpenseItemCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\ExpenseTableSource.cs" />
+    <Compile Include="Views\Cells\SaleItemCell.cs" />
+    <Compile Include="Views\Cells\SaleItemCell.designer.cs">
+      <DependentUpon>SaleItemCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\SaleTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -158,6 +173,9 @@
     <InterfaceDefinition Include="Views\Cells\RequestSuplyTableCell.xib" />
     <InterfaceDefinition Include="Views\Cells\RequestSuplyProductCell.xib" />
     <InterfaceDefinition Include="Views\ProcessRequestSuplyView.xib" />
+    <InterfaceDefinition Include="Views\ShiftDetailsView.xib" />
+    <InterfaceDefinition Include="Views\Cells\ExpenseItemCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\SaleItemCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

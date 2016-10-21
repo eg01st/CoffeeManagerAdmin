@@ -26,6 +26,12 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(NewProductLabel).To(vm => vm.NewProduct);
             set.Bind(DoneButton).To(vm => vm.SubmitRequestCommand);
             set.Apply();
+
+            NewProductLabel.ShouldReturn += (textField) =>
+            {
+                textField.ResignFirstResponder();
+                return true;
+            };
         }
 
         public override void DidReceiveMemoryWarning()

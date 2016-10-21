@@ -13,7 +13,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
 
         public async Task<Shift> GetCurrentShift()
         {
-           return await Get<Shift>($"{Shift}/getCurrentShift");
+            return await Get<Shift>($"{Shift}/getCurrentShift");
         }
 
         public async Task<Sale[]> GetCurrentShiftSales()
@@ -28,6 +28,11 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
         public async Task<ShiftInfo[]> GetShifts()
         {
             return await Get<ShiftInfo[]>($"{Shift}/getShifts");
+        }
+
+        public async Task<Sale[]> GetShiftSales(int id)
+        {
+            return await Get<Sale[]>($"{Shift}/getShiftSalesById", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
     }
 }

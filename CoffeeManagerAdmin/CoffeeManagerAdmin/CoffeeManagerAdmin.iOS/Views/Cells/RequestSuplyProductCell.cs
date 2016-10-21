@@ -71,7 +71,13 @@ namespace CoffeeManagerAdmin.iOS.Views.Cells
                          SelectActionCommand.Execute(null);
                      }
                  };
+
             });
+            AmountLabel.ShouldReturn += (textField) =>
+            {
+                textField.ResignFirstResponder();
+                return true;
+            };
         }
     }
 }

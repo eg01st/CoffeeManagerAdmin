@@ -5,6 +5,7 @@ using UIKit;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core.ViewModels;
+using MvvmCross.Binding.iOS.Views.Gestures;
 
 namespace CoffeeManagerAdmin.iOS
 {
@@ -36,6 +37,7 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(RealAmountLabel).To(vm => vm.RealAmount);
                 set.Bind(TotalLabel).To(vm => vm.TotalAmount);
                 set.Bind(StartAmount).To(vm => vm.StartAmount);
+                set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.ShowDetailsCommand);
                 set.Apply();
             });
         }
