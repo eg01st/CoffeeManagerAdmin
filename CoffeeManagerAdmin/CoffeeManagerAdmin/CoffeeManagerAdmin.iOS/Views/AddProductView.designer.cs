@@ -29,9 +29,17 @@ namespace CoffeeManagerAdmin.iOS
 
 		[Outlet]
 		UIKit.UITextField ProductTypeText { get; set; }
+
+		[Outlet]
+		UIKit.UITextField SuplyBindLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (AddProductButton != null) {
+				AddProductButton.Dispose ();
+				AddProductButton = null;
+			}
+
 			if (CupTypeCategoryText != null) {
 				CupTypeCategoryText.Dispose ();
 				CupTypeCategoryText = null;
@@ -57,9 +65,9 @@ namespace CoffeeManagerAdmin.iOS
 				ProductTypeText = null;
 			}
 
-			if (AddProductButton != null) {
-				AddProductButton.Dispose ();
-				AddProductButton = null;
+			if (SuplyBindLabel != null) {
+				SuplyBindLabel.Dispose ();
+				SuplyBindLabel = null;
 			}
 		}
 	}

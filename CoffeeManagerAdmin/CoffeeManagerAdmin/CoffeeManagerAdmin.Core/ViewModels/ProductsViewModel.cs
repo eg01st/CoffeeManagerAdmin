@@ -11,6 +11,7 @@ namespace CoffeeManagerAdmin.Core
     public class ProductsViewModel : ViewModelBase
     {
         private ProductManager manager = new ProductManager();
+        private SuplyProductsManager suplyManager = new SuplyProductsManager();
 
         private MvxSubscriptionToken _productSelectedToken;
 
@@ -32,6 +33,10 @@ namespace CoffeeManagerAdmin.Core
 
         private string _productTypeName;
 
+        private int? _suplyId;
+
+        private string _suplyName;
+
         private ICommand _editProductCommand;
 
         private ICommand _addProductCommand;
@@ -39,11 +44,15 @@ namespace CoffeeManagerAdmin.Core
         private bool _isTapped = false;
 
         private List<ProductItemViewModel> _items = new List<ProductItemViewModel>();
+        private List<Entity> _suplyProductItems = new List<Entity>();
 
         private Entity _selectedCupType;
         private Entity _selectedProductType;
+        private Entity _supliedProduct;
 
         public List<Entity> CupTypesList => TypesLists.CupTypesList;
+
+
 
         public List<Entity> ProductTypesList => TypesLists.ProductTypesList;
 
@@ -57,6 +66,16 @@ namespace CoffeeManagerAdmin.Core
             }
         }
 
+        public List<Entity> SuplyProductItems
+        {
+            get { return _suplyProductItems; }
+            set
+            {
+                _suplyProductItems = value;
+                RaisePropertyChanged(nameof(SuplyProductItems));
+            }
+        }
+
         public ProductsViewModel()
         {
             _editProductCommand = new MvxCommand(DoEditProduct);
@@ -65,13 +84,19 @@ namespace CoffeeManagerAdmin.Core
             _productListChangedToken = Subscribe<ProductListChangedMessage>(async (obj) =>
             {
                 await LoadProducts();
-                Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
+                Name = Price = PolicePrice = CupTypeName = ProductTypeName = SuplyName = string.Empty;
+                SuplyId = -1;
+                ProductTypeId = -1;
+                CupType = -1;
             });
         }
 
         public async void Init()
         {
             await LoadProducts();
+            var types = await suplyManager.GetSupliedProducts();
+            SuplyProductItems = types.Select(s => new Entity { Id = s.Id, Name = s.Name }).ToList();
+            SuplyProductItems.Insert(0, new Entity() { Name = "Нету" });
         }
 
 
@@ -93,6 +118,14 @@ namespace CoffeeManagerAdmin.Core
             PolicePrice = obj.Data.PolicePrice.ToString("F");
             SelectedCupType = TypesLists.CupTypesList.First(i => i.Id == obj.Data.CupType);
             SelectedProductType = TypesLists.ProductTypesList.First(i => i.Id == obj.Data.ProductType);
+            if (obj.Data.SuplyId.HasValue)
+            {
+                SelectedSupliedProduct = SuplyProductItems.First(i => i.Id == obj.Data.SuplyId.Value);
+            }
+            else
+            {
+                SelectedSupliedProduct = null;
+            }
             _id = obj.Data.Id;
         }
 
@@ -108,8 +141,11 @@ namespace CoffeeManagerAdmin.Core
                     {
                         if (obj)
                         {
-                            await manager.EditProduct(_id, Name, Price, PolicePrice, CupType, ProductTypeId);
-                            Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
+                            await manager.EditProduct(_id, Name, Price, PolicePrice, CupType, ProductTypeId, SuplyId);
+                            Name = Price = PolicePrice = CupTypeName = ProductTypeName = SuplyName = string.Empty;
+                            SuplyId = -1;
+                            ProductTypeId = -1;
+                            CupType = -1;
                             await LoadProducts();
                         }
                         _isTapped = false;
@@ -123,6 +159,21 @@ namespace CoffeeManagerAdmin.Core
         public ICommand EditProductCommand => _editProductCommand;
 
         public ICommand AddProductCommand => _addProductCommand;
+
+        public Entity SelectedSupliedProduct
+        {
+            get { return _supliedProduct; }
+            set
+            {
+                if (_supliedProduct != value)
+                {
+                    _supliedProduct = value;
+                    RaisePropertyChanged(nameof(SelectedSupliedProduct));
+                    SuplyId = _supliedProduct?.Id;
+                    SuplyName = _supliedProduct?.Name;
+                }
+            }
+        }
 
         public Entity SelectedCupType
         {
@@ -186,6 +237,27 @@ namespace CoffeeManagerAdmin.Core
                 _policePrice = value;
                 RaisePropertyChanged(nameof(PolicePrice));
                 RaisePropertyChanged(nameof(IsAddEnabled));
+            }
+        }
+
+        public int? SuplyId
+        {
+            get { return _suplyId; }
+            set
+            {
+                _suplyId = value;
+                RaisePropertyChanged(nameof(SuplyId));
+                RaisePropertyChanged(nameof(SelectedSupliedProduct));
+            }
+        }
+
+        public string SuplyName
+        {
+            get { return _suplyName; }
+            set
+            {
+                _suplyName = value;
+                RaisePropertyChanged(nameof(SuplyName));
             }
         }
 
