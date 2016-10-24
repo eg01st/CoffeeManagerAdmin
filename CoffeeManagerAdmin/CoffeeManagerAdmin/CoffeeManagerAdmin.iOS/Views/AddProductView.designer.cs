@@ -9,17 +9,14 @@ using System.CodeDom.Compiler;
 
 namespace CoffeeManagerAdmin.iOS
 {
-	[Register ("ProductsView")]
-	partial class ProductsView
+	[Register ("AddProductView")]
+	partial class AddProductView
 	{
 		[Outlet]
 		UIKit.UIButton AddProductButton { get; set; }
 
 		[Outlet]
 		UIKit.UITextField CupTypeCategoryText { get; set; }
-
-		[Outlet]
-		UIKit.UIButton EditProductButton { get; set; }
 
 		[Outlet]
 		UIKit.UITextField NameText { get; set; }
@@ -31,23 +28,10 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UITextField PriceText { get; set; }
 
 		[Outlet]
-		UIKit.UITableView ProductsTableView { get; set; }
-
-		[Outlet]
 		UIKit.UITextField ProductTypeText { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (AddProductButton != null) {
-				AddProductButton.Dispose ();
-				AddProductButton = null;
-			}
-
-			if (EditProductButton != null) {
-				EditProductButton.Dispose ();
-				EditProductButton = null;
-			}
-
 			if (CupTypeCategoryText != null) {
 				CupTypeCategoryText.Dispose ();
 				CupTypeCategoryText = null;
@@ -68,14 +52,14 @@ namespace CoffeeManagerAdmin.iOS
 				PriceText = null;
 			}
 
-			if (ProductsTableView != null) {
-				ProductsTableView.Dispose ();
-				ProductsTableView = null;
-			}
-
 			if (ProductTypeText != null) {
 				ProductTypeText.Dispose ();
 				ProductTypeText = null;
+			}
+
+			if (AddProductButton != null) {
+				AddProductButton.Dispose ();
+				AddProductButton = null;
 			}
 		}
 	}

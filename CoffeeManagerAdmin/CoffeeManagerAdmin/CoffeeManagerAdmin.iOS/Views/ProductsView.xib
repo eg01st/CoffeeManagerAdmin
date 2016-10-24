@@ -8,8 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsView">
             <connections>
-                <outlet property="AddProductButton" destination="fcn-0p-bBi" id="Qny-tv-bfG"/>
+                <outlet property="AddProductButton" destination="SIb-gb-5F7" id="Qje-w4-gRx"/>
                 <outlet property="CupTypeCategoryText" destination="l03-sL-M5p" id="zWL-Xy-w7y"/>
+                <outlet property="EditProductButton" destination="fcn-0p-bBi" id="kDv-Cm-c71"/>
                 <outlet property="NameText" destination="i2c-KW-dj7" id="oOa-9O-9DI"/>
                 <outlet property="PolicePriceText" destination="f5s-2C-IvR" id="A4g-6p-haR"/>
                 <outlet property="PriceText" destination="091-EF-gZF" id="kME-DQ-FEU"/>
@@ -23,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить новый товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhj-Md-nn5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изменить товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhj-Md-nn5">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -82,14 +83,17 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-0p-bBi">
-                    <state key="normal" title="Добавить"/>
+                    <state key="normal" title="Сохранить"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIb-gb-5F7">
+                    <state key="normal" title="Добавить новый товар"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3kC-FM-5fx" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="0Ed-OH-aaf"/>
                 <constraint firstItem="i2c-KW-dj7" firstAttribute="leading" secondItem="muS-bq-Wq3" secondAttribute="trailing" constant="8" id="2Sl-sn-M2V"/>
-                <constraint firstItem="Vhj-Md-nn5" firstAttribute="top" secondItem="2" secondAttribute="top" constant="60" id="2Tg-jf-eHa"/>
+                <constraint firstItem="Vhj-Md-nn5" firstAttribute="top" secondItem="2" secondAttribute="top" constant="70" id="2Tg-jf-eHa"/>
                 <constraint firstItem="fcn-0p-bBi" firstAttribute="top" secondItem="KeO-y9-n3C" secondAttribute="bottom" constant="16" id="5TM-iI-ANN"/>
                 <constraint firstItem="Qvd-Zl-qZo" firstAttribute="top" secondItem="3kC-FM-5fx" secondAttribute="bottom" constant="16" id="5tN-lM-OcL"/>
                 <constraint firstAttribute="trailing" secondItem="i2c-KW-dj7" secondAttribute="trailing" constant="16" id="5uq-XG-NZo"/>
@@ -98,11 +102,13 @@
                 <constraint firstItem="Vhj-Md-nn5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="AfM-dU-kbv"/>
                 <constraint firstItem="f5s-2C-IvR" firstAttribute="leading" secondItem="Qvd-Zl-qZo" secondAttribute="trailing" constant="8" id="BKQ-FT-1Kl"/>
                 <constraint firstAttribute="trailing" secondItem="091-EF-gZF" secondAttribute="trailing" constant="16" id="F0g-9o-oiW"/>
+                <constraint firstItem="SIb-gb-5F7" firstAttribute="top" secondItem="2" secondAttribute="top" constant="65" id="KxG-jq-F3f"/>
                 <constraint firstItem="3NI-WU-7EI" firstAttribute="width" secondItem="2" secondAttribute="width" id="MiX-hw-wgw"/>
                 <constraint firstItem="muS-bq-Wq3" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Mlh-T2-uNQ"/>
                 <constraint firstItem="3kC-FM-5fx" firstAttribute="top" secondItem="muS-bq-Wq3" secondAttribute="bottom" constant="16" id="N6j-cm-f3n"/>
                 <constraint firstItem="3NI-WU-7EI" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="Pjb-lL-Q1h"/>
                 <constraint firstItem="D6s-8k-LdN" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Rge-cJ-2PW"/>
+                <constraint firstAttribute="trailing" secondItem="SIb-gb-5F7" secondAttribute="trailing" constant="16" id="UZP-dM-TWE"/>
                 <constraint firstItem="GtZ-JL-d77" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Vfu-uH-pbL"/>
                 <constraint firstItem="l03-sL-M5p" firstAttribute="top" secondItem="f5s-2C-IvR" secondAttribute="bottom" constant="6" id="Vh2-u2-1rt"/>
                 <constraint firstItem="muS-bq-Wq3" firstAttribute="top" secondItem="Vhj-Md-nn5" secondAttribute="bottom" constant="16" id="XI2-YU-IwB"/>

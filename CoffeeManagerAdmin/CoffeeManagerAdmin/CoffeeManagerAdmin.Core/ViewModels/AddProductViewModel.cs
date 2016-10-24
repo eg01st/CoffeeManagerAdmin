@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using CoffeeManager.Models;
 using System.Windows.Input;
+using CoffeeManager.Models;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
-using System.Linq;
-using System.Threading.Tasks;
+
 namespace CoffeeManagerAdmin.Core
 {
-    public class ProductsViewModel : ViewModelBase
+    public class AddProductViewModel : ViewModelBase
     {
         private ProductManager manager = new ProductManager();
-
-        private MvxSubscriptionToken _productSelectedToken;
-
-        private MvxSubscriptionToken _productListChangedToken;
-
-        private int _id;
-
         private string _name;
 
         private string _price;
@@ -32,13 +23,7 @@ namespace CoffeeManagerAdmin.Core
 
         private string _productTypeName;
 
-        private ICommand _editProductCommand;
-
         private ICommand _addProductCommand;
-
-        private bool _isTapped = false;
-
-        private List<ProductItemViewModel> _items = new List<ProductItemViewModel>();
 
         private Entity _selectedCupType;
         private Entity _selectedProductType;
@@ -47,82 +32,36 @@ namespace CoffeeManagerAdmin.Core
 
         public List<Entity> ProductTypesList => TypesLists.ProductTypesList;
 
-        public List<ProductItemViewModel> Items
-        {
-            get { return _items; }
-            set
-            {
-                _items = value;
-                RaisePropertyChanged(nameof(Items));
-            }
-        }
+        public ICommand AddProductCommand => _addProductCommand;
 
-        public ProductsViewModel()
+        public AddProductViewModel()
         {
-            _editProductCommand = new MvxCommand(DoEditProduct);
             _addProductCommand = new MvxCommand(DoAddProduct);
-            _productSelectedToken = Subscribe<ProductSelectedMessage>(DoSetFields);
-            _productListChangedToken = Subscribe<ProductListChangedMessage>(async (obj) =>
+        }
+
+        private async void DoAddProduct()
+        {
+
+            UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
             {
-                await LoadProducts();
-                Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
-            });
-        }
-
-        public async void Init()
-        {
-            await LoadProducts();
-        }
-
-
-        private async Task LoadProducts()
-        {
-            var items = await manager.GetProducts();
-            Items = items.Select(s => new ProductItemViewModel(s)).ToList();
-        }
-
-        private void DoAddProduct()
-        {
-            ShowViewModel<AddProductViewModel>();
-        }
-
-        private void DoSetFields(ProductSelectedMessage obj)
-        {
-            Name = obj.Data.Name;
-            Price = obj.Data.Price.ToString("F");
-            PolicePrice = obj.Data.PolicePrice.ToString("F");
-            SelectedCupType = TypesLists.CupTypesList.First(i => i.Id == obj.Data.CupType);
-            SelectedProductType = TypesLists.ProductTypesList.First(i => i.Id == obj.Data.ProductType);
-            _id = obj.Data.Id;
-        }
-
-        private void DoEditProduct()
-        {
-            if (!_isTapped)
-            {
-                _isTapped = true;
-                UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
+                Message = $"Добавить продукт \"{Name}\"?",
+                OnAction = async (obj) =>
                 {
-                    Message = $"Сохранить изменения в продукте \"{Name}\"?",
-                    OnAction = async (obj) =>
+                    if (obj)
                     {
-                        if (obj)
-                        {
-                            await manager.EditProduct(_id, Name, Price, PolicePrice, CupType, ProductTypeId);
-                            Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
-                            await LoadProducts();
-                        }
-                        _isTapped = false;
+                        await manager.AddProduct(Name, Price, PolicePrice, CupType, ProductTypeId);
+                        Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
+                        Publish(new ProductListChangedMessage(this));
+                        Close(this);
                     }
-                });
-            }
+                }
+            });
+
+
         }
 
         public bool IsAddEnabled => !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Price) && !string.IsNullOrEmpty(PolicePrice) && !string.IsNullOrEmpty(CupTypeName) && !string.IsNullOrEmpty(ProductTypeName);
 
-        public ICommand EditProductCommand => _editProductCommand;
-
-        public ICommand AddProductCommand => _addProductCommand;
 
         public Entity SelectedCupType
         {
@@ -230,5 +169,6 @@ namespace CoffeeManagerAdmin.Core
                 RaisePropertyChanged(nameof(ProductTypeName));
             }
         }
+
     }
 }

@@ -45,7 +45,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                 {
                     Message = "Введите цену",
                     OnAction = OnAction,
-                    InputType = InputType.Number,
+                    InputType = InputType.DecimalNumber,
                     Text = Price
                 });
             }

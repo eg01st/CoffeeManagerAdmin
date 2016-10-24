@@ -22,6 +22,7 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -32,6 +33,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +49,7 @@
     <CodesignKey>iPhone Developer: Dmytro Serdechnyi (L437EB49N2)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignProvision>d611088f-f8a0-4f9a-88e7-22a28ee1d7f2</CodesignProvision>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -58,6 +61,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -71,6 +75,7 @@
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
@@ -83,6 +88,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
@@ -156,16 +162,20 @@
     <Compile Include="Views\ProductsView.designer.cs">
       <DependentUpon>ProductsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddProductView.cs" />
+    <Compile Include="Views\AddProductView.designer.cs">
+      <DependentUpon>AddProductView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Views\Cells\ProductItemCell.cs" />
+    <Compile Include="Views\Cells\ProductItemCell.designer.cs">
+      <DependentUpon>ProductItemCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\GenericConverter.cs" />
+    <Compile Include="TableSources\ProductsTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\FirstView.designer.cs">
-      <DependentUpon>FirstView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FirstView.cs" />
-    <InterfaceDefinition Include="Views\FirstView.storyboard">
-      <SubType>Designer</SubType>
-    </InterfaceDefinition>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <InterfaceDefinition Include="Views\LoginView.xib" />
     <InterfaceDefinition Include="Views\MainView.xib" />
@@ -181,6 +191,8 @@
     <InterfaceDefinition Include="Views\Cells\ExpenseItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\SaleItemCell.xib" />
     <InterfaceDefinition Include="Views\ProductsView.xib" />
+    <InterfaceDefinition Include="Views\AddProductView.xib" />
+    <InterfaceDefinition Include="Views\Cells\ProductItemCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -235,6 +247,9 @@
     <Reference Include="Acr.UserDialogs.Interface">
       <HintPath>..\..\packages\Acr.UserDialogs.6.2.3\lib\Xamarin.iOS10\Acr.UserDialogs.Interface.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger">
+      <HintPath>..\..\packages\MvvmCross.Plugin.Messenger.4.3.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
@@ -243,6 +258,10 @@
     <ProjectReference Include="..\CoffeeManagerAdmin.Core\CoffeeManagerAdmin.Core.csproj">
       <Project>{31d7792c-8339-4c32-8c91-123c9b248b83}</Project>
       <Name>CoffeeManagerAdmin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+      <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
+      <Name>CoffeeManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

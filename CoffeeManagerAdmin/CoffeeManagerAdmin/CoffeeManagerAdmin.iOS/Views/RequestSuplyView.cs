@@ -17,7 +17,8 @@ namespace CoffeeManagerAdmin.iOS
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-
+            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
+            View.AddGestureRecognizer(g);
             var source = new RequestSuplyTableSource(TableView);
             TableView.Source = source;
             var set = this.CreateBindingSet<RequestSuplyView, RequestSuplyViewModel>();

@@ -23,7 +23,8 @@ namespace CoffeeManagerAdmin.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
+            View.AddGestureRecognizer(g);
             // Perform any additional setup after loading the view, typically from a nib.
 
             var source = new RequestSuplyProductTableSource(TableView);

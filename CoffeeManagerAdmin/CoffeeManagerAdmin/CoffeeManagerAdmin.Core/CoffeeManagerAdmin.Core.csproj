@@ -68,6 +68,11 @@
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="ServiceProviders\ProductProvider.cs" />
+    <Compile Include="ViewModels\ProductItemViewModel.cs" />
+    <Compile Include="Messages\ProductSelectedMessage.cs" />
+    <Compile Include="Messages\BaseMessage.cs" />
+    <Compile Include="ViewModels\AddProductViewModel.cs" />
+    <Compile Include="Messages\ProductListChangedMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -111,12 +116,18 @@
       <HintPath>..\..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger">
+      <HintPath>..\..\packages\MvvmCross.Plugin.Messenger.4.3.0\lib\portable-net45+win+wpa81+wp80\MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\CoffeeManagerSol\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
       <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
       <Name>CoffeeManager.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Messages\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

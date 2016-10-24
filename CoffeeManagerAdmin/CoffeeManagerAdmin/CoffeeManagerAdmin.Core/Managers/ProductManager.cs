@@ -20,5 +20,15 @@ namespace CoffeeManagerAdmin.Core
         {
             await provider.DeleteProduct(id);
         }
+
+        public async Task EditProduct(int id, string name, string price, string policePrice, int cupType, int productTypeId)
+        {
+            await provider.EditProduct(new Product { Id = id, Name = name, Price = decimal.Parse(price), PolicePrice = decimal.Parse(policePrice), ProductType = productTypeId, CupType = cupType, CoffeeRoomNo = Config.CoffeeRoomNo });
+        }
+
+        public async Task<Product[]> GetProducts()
+        {
+            return await provider.GetProducts();
+        }
     }
 }

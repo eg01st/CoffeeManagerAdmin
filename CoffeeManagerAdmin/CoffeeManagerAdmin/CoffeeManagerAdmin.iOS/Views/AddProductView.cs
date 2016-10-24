@@ -5,13 +5,12 @@ using MvvmCross.iOS.Views;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core;
-using CoffeeManager.Models;
 
 namespace CoffeeManagerAdmin.iOS
 {
-    public partial class ProductsView : MvxViewController
+    public partial class AddProductView : MvxViewController
     {
-        public ProductsView() : base("ProductsView", null)
+        public AddProductView() : base("AddProductView", null)
         {
         }
 
@@ -19,7 +18,6 @@ namespace CoffeeManagerAdmin.iOS
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-
 
             var g = new UITapGestureRecognizer(() => View.EndEditing(true));
             View.AddGestureRecognizer(g);
@@ -40,25 +38,18 @@ namespace CoffeeManagerAdmin.iOS
 
 
 
-            var set = this.CreateBindingSet<ProductsView, ProductsViewModel>();
+            var set = this.CreateBindingSet<AddProductView, AddProductViewModel>();
             set.Bind(NameText).To(vm => vm.Name);
             set.Bind(PriceText).To(vm => vm.Price);
             set.Bind(PolicePriceText).To(vm => vm.PolicePrice);
             set.Bind(CupTypeCategoryText).To(vm => vm.CupTypeName);
             set.Bind(ProductTypeText).To(vm => vm.ProductTypeName);
-            set.Bind(EditProductButton).To(vm => vm.EditProductCommand);
-            set.Bind(EditProductButton).For(b => b.Enabled).To(vm => vm.IsAddEnabled);
+            set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
+            set.Bind(AddProductButton).For(b => b.Enabled).To(vm => vm.IsAddEnabled);
             set.Bind(cupPickerViewModel).For(p => p.ItemsSource).To(vm => vm.CupTypesList);
             set.Bind(cupPickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedCupType);
             set.Bind(productTypePickerViewModel).For(p => p.ItemsSource).To(vm => vm.ProductTypesList);
             set.Bind(productTypePickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedProductType);
-            set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
-
-
-            var source = new ProductsTableSource(ProductsTableView);
-            ProductsTableView.Source = source;
-            set.Bind(source).To(vm => vm.Items);
-
             set.Apply();
 
         }
