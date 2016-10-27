@@ -14,6 +14,12 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private ICommand _showShiftsCommand;
         private ICommand _showSupliedProductsCommand;
         private ICommand _updateEntireMoneyCommand;
+
+        public void ShowErrorMessage(string v)
+        {
+            UserDialogs.Alert(v);
+        }
+
         private ICommand _requestSuplyCommand;
         private ICommand _processRequestSuplyCommand;
         private ICommand _editProductsCommand;

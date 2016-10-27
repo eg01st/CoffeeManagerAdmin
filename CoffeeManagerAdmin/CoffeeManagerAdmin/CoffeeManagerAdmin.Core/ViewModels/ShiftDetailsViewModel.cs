@@ -22,6 +22,10 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private List<ExpenseItemViewModel> _expenseItems = new List<ExpenseItemViewModel>();
         private List<SaleItemViewModel> _saleItems = new List<SaleItemViewModel>();
 
+        private List<Entity> _groupedSaleItems = new List<Entity>();
+
+        private float _copSalePercentage;
+
         public async void Init(int id)
         {
             _shiftId = id;
@@ -41,6 +45,29 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
             var saleItems = await shiftManager.GetShiftSales(_shiftId);
             SaleItems = saleItems.Select(s => new SaleItemViewModel(s)).ToList();
+            GroupedSaleItems = SaleItems.GroupBy(g => g.Name).Select(s => new Entity() { Name = s.Key, Id = s.Count() }).OrderByDescending(o => o.Id).ToList();
+
+            CalculateCopSalePercentage();
+        }
+
+
+        private void CalculateCopSalePercentage()
+        {
+            int allSalesCount = SaleItems.Count;
+
+            int copSaleCount = SaleItems.Count(s => s.IsCopSale);
+
+            CopSalePercentage = copSaleCount * 100 / allSalesCount;
+        }
+
+        public float CopSalePercentage
+        {
+            get { return _copSalePercentage; }
+            set
+            {
+                _copSalePercentage = value;
+                RaisePropertyChanged(nameof(CopSalePercentage));
+            }
         }
 
         public List<ExpenseItemViewModel> ExpenseItems
@@ -60,6 +87,16 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             {
                 _saleItems = value;
                 RaisePropertyChanged(nameof(SaleItems));
+            }
+        }
+
+        public List<Entity> GroupedSaleItems
+        {
+            get { return _groupedSaleItems; }
+            set
+            {
+                _groupedSaleItems = value;
+                RaisePropertyChanged(nameof(GroupedSaleItems));
             }
         }
 

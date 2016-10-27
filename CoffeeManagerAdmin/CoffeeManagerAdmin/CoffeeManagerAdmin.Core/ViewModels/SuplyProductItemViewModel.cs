@@ -3,6 +3,7 @@ using Acr.UserDialogs;
 using CoffeeManager.Models;
 using MvvmCross.Core.ViewModels;
 using System.Threading.Tasks;
+using System;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
@@ -10,21 +11,30 @@ namespace CoffeeManagerAdmin.Core.ViewModels
     {
         private SupliedProduct _item;
         private ICommand _selectCommand;
+        private ICommand _requestSuplyCommand;
 
         public ICommand SelectCommand => _selectCommand;
+        public ICommand RequestSuplyCommand => _requestSuplyCommand;
 
         public SuplyProductItemViewModel(SupliedProduct product)
         {
             _item = product;
-            _selectCommand = new MvxCommand(DoSelect);
+            _selectCommand = new MvxCommand(DoShowDetails);
+            _requestSuplyCommand = new MvxCommand(DoRequestSuply);
         }
+
+        private void DoShowDetails()
+        {
+            ShowViewModel<SuplyProductDetailsViewModel>(new { id = _item.Id });
+        }
+
         public string Name => _item.Name;
 
         public decimal Price => _item.Price;
 
         public string Amount => _item.Amount.ToString();
 
-        protected virtual void DoSelect()
+        protected virtual void DoRequestSuply()
         {
 
             UserDialogs.Prompt(new PromptConfig

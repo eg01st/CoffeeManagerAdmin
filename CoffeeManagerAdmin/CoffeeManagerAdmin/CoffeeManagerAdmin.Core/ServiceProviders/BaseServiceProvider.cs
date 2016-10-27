@@ -25,6 +25,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
 
         protected async Task<T> Get<T>(string path, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -51,10 +52,15 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
+            finally
+            {
+                UserDialogs.HideLoading();
+            }
         }
 
         protected async Task<T> Post<T, TY>(string path, TY obj, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -79,10 +85,15 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
+            finally
+            {
+                UserDialogs.HideLoading();
+            }
         }
 
         protected async Task<string> Post<T>(string path, T obj, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -108,10 +119,15 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
+            finally
+            {
+                UserDialogs.HideLoading();
+            }
         }
 
         protected async Task<T> Put<T, TY>(string path, TY obj, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -136,10 +152,15 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
+            finally
+            {
+                UserDialogs.HideLoading();
+            }
         }
 
         protected async Task<string> Put<T>(string path, T obj, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -161,10 +182,15 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
             }
+            finally
+            {
+                UserDialogs.HideLoading();
+            }
         }
 
         protected async Task<string> Delete(string path, Dictionary<string, string> param = null)
         {
+            UserDialogs.ShowLoading("Loading", Acr.UserDialogs.MaskType.Black);
             string url = string.Empty;
             try
             {
@@ -186,6 +212,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
 
                 UserDialogs.Alert("Произошла ошибка запроса к серверу");
                 throw;
+            }
+            finally
+            {
+                UserDialogs.HideLoading();
             }
         }
     }

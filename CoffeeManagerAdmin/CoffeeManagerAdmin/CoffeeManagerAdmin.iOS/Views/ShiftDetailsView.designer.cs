@@ -13,7 +13,22 @@ namespace CoffeeManagerAdmin.iOS
 	partial class ShiftDetailsView
 	{
 		[Outlet]
+		UIKit.UIButton ByProductButton { get; set; }
+
+		[Outlet]
+		UIKit.UIButton ByTimeButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel CopSalePercentageLabel { get; set; }
+
+		[Outlet]
 		UIKit.UITableView ExpenseTableView { get; set; }
+
+		[Outlet]
+		UIKit.UITableView GroupedSalesTableView { get; set; }
+
+		[Outlet]
+		UIKit.NSLayoutConstraint GroupedSaleTableViewHeightConstraint { get; set; }
 
 		[Outlet]
 		UIKit.UILabel Label110 { get; set; }
@@ -32,9 +47,17 @@ namespace CoffeeManagerAdmin.iOS
 
 		[Outlet]
 		UIKit.UITableView SalesTableView { get; set; }
+
+		[Outlet]
+		UIKit.NSLayoutConstraint SaleTableViewHeightConstraint { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ExpenseTableView != null) {
+				ExpenseTableView.Dispose ();
+				ExpenseTableView = null;
+			}
+
 			if (Label110 != null) {
 				Label110.Dispose ();
 				Label110 = null;
@@ -60,14 +83,39 @@ namespace CoffeeManagerAdmin.iOS
 				LabelPlastic = null;
 			}
 
-			if (ExpenseTableView != null) {
-				ExpenseTableView.Dispose ();
-				ExpenseTableView = null;
-			}
-
 			if (SalesTableView != null) {
 				SalesTableView.Dispose ();
 				SalesTableView = null;
+			}
+
+			if (GroupedSalesTableView != null) {
+				GroupedSalesTableView.Dispose ();
+				GroupedSalesTableView = null;
+			}
+
+			if (SaleTableViewHeightConstraint != null) {
+				SaleTableViewHeightConstraint.Dispose ();
+				SaleTableViewHeightConstraint = null;
+			}
+
+			if (GroupedSaleTableViewHeightConstraint != null) {
+				GroupedSaleTableViewHeightConstraint.Dispose ();
+				GroupedSaleTableViewHeightConstraint = null;
+			}
+
+			if (CopSalePercentageLabel != null) {
+				CopSalePercentageLabel.Dispose ();
+				CopSalePercentageLabel = null;
+			}
+
+			if (ByTimeButton != null) {
+				ByTimeButton.Dispose ();
+				ByTimeButton = null;
+			}
+
+			if (ByProductButton != null) {
+				ByProductButton.Dispose ();
+				ByProductButton = null;
 			}
 		}
 	}

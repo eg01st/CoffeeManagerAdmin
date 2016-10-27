@@ -39,6 +39,16 @@ namespace CoffeeManagerAdmin.Core
             return await Get<SupliedProduct[]>($"{SuplyProducts}/getsuplyrequest");
         }
 
+        public async Task<SupliedProduct> GetSupliedProduct(int id)
+        {
+            return await Get<SupliedProduct>($"{SuplyProducts}/getProduct", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
+        }
+
+        public async Task SaveSuplyProduct(SupliedProduct supliedProduct)
+        {
+            await Post($"{SuplyProducts}/editSuplyProduct", supliedProduct);
+        }
+
         public async Task ProcessSuplyRequests(IEnumerable<SupliedProduct> items)
         {
             await Post($"{SuplyProducts}/processsuplyrequest", items);

@@ -173,6 +173,14 @@
     </Compile>
     <Compile Include="Converters\GenericConverter.cs" />
     <Compile Include="TableSources\ProductsTableSource.cs" />
+    <Compile Include="Views\Cells\GroupedSaleCell.cs" />
+    <Compile Include="Views\Cells\GroupedSaleCell.designer.cs">
+      <DependentUpon>GroupedSaleCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuplyProductDetailsView.cs" />
+    <Compile Include="Views\SuplyProductDetailsView.designer.cs">
+      <DependentUpon>SuplyProductDetailsView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -193,6 +201,8 @@
     <InterfaceDefinition Include="Views\ProductsView.xib" />
     <InterfaceDefinition Include="Views\AddProductView.xib" />
     <InterfaceDefinition Include="Views\Cells\ProductItemCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\GroupedSaleCell.xib" />
+    <InterfaceDefinition Include="Views\SuplyProductDetailsView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

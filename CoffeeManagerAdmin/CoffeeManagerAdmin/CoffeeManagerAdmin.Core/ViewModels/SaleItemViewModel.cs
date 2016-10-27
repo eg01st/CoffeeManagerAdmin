@@ -10,6 +10,8 @@ namespace CoffeeManagerAdmin.Core
             _sale = sale;
         }
 
+        public bool IsCopSale => _sale.IsPoliceSale;
+
         public string Name => _sale.Product1.Name;
         public string Amount => _sale.Amount.ToString("F");
         public string Time => _sale.Time.ToString("HH:mm:ss");

@@ -42,5 +42,15 @@ namespace CoffeeManagerAdmin.Core
         {
             await provider.ProcessSuplyRequests(items);
         }
+
+        public async Task<SupliedProduct> GetSupliedProduct(int id)
+        {
+            return await provider.GetSupliedProduct(id);
+        }
+
+        public async Task SaveSuplyProduct(int id, string name, decimal supliedPrice, int itemCount)
+        {
+            await provider.SaveSuplyProduct(new SupliedProduct { Id = id, Amount = itemCount, Name = name, Price = supliedPrice, CoffeeRoomNo = Config.CoffeeRoomNo });
+        }
     }
 }

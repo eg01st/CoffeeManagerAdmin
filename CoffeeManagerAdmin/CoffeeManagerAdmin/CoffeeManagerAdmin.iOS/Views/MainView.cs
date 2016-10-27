@@ -11,6 +11,10 @@ namespace CoffeeManagerAdmin.iOS
     {
         public MainView() : base("MainView", null)
         {
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                ((MainViewModel)ViewModel).ShowErrorMessage(e.ExceptionObject.ToString());
+            };
         }
 
         public override void ViewDidLoad()

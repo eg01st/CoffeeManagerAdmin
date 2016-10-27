@@ -73,6 +73,7 @@
     <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="Messages\ProductListChangedMessage.cs" />
+    <Compile Include="ViewModels\SuplyProductDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
