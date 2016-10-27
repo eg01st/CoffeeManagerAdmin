@@ -66,7 +66,7 @@ namespace CoffeeManagerAdmin.Core
             _deleteCommand = new MvxCommand(DoDeleteProduct);
         }
 
-        private async void DoDeleteProduct()
+        private void DoDeleteProduct()
         {
             UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
             {
@@ -76,6 +76,7 @@ namespace CoffeeManagerAdmin.Core
                     if (obj)
                     {
                         await manager.DeleteSuplyProduct(_id);
+                        Publish(new SuplyListChangedMessage(this));
                         Close(this);
                     }
                 }
@@ -86,6 +87,7 @@ namespace CoffeeManagerAdmin.Core
         private async void DoSaveProduct()
         {
             await manager.SaveSuplyProduct(_id, Name, SupliedPrice, ItemCount);
+            Publish(new SuplyListChangedMessage(this));
             Close(this);
         }
 

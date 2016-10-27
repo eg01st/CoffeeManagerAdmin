@@ -26,7 +26,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             var items = await manager.GetShifts();
             if (items != null)
             {
-                Items = items.Select(s => new ShiftItemViewModel(s)).ToList();
+                Items = items.Select(s => new ShiftItemViewModel(s)).OrderByDescending(o => o.Date).ToList();
             }
         }
     }

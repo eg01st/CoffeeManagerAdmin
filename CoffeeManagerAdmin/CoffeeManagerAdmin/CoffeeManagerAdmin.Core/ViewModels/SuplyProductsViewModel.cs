@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using MvvmCross.Plugins.Messenger;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class SuplyProductsViewModel : ViewModelBase
     {
+        private MvxSubscriptionToken _listChanged;
+
         private SuplyProductsManager manager = new SuplyProductsManager();
         private List<SuplyProductItemViewModel> _items;
 
@@ -20,12 +24,19 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public SuplyProductsViewModel()
         {
+            _listChanged = Subscribe<SuplyListChangedMessage>(async (obj) => await LoadList());
         }
 
         public async void Init()
         {
+            await LoadList();
+        }
+
+        private async Task LoadList()
+        {
             var items = await manager.GetSupliedProducts();
             Items = items.Select(s => new SuplyProductItemViewModel(s)).ToList();
         }
+
     }
 }

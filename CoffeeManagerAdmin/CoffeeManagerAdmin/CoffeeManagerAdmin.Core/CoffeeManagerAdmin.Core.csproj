@@ -43,7 +43,6 @@
     <Compile Include="ServiceProviders\CupsProvider.cs" />
     <Compile Include="ServiceProviders\PaymentProvider.cs" />
     <Compile Include="ServiceProviders\ShiftServiceProvider.cs" />
-    <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProcessRequestSuplyViewModel.cs" />
     <Compile Include="ViewModels\ProcessSuplyRequestItemViewModel.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="Messages\ProductListChangedMessage.cs" />
     <Compile Include="ViewModels\SuplyProductDetailsViewModel.cs" />
+    <Compile Include="Messages\SuplyListChangedMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
