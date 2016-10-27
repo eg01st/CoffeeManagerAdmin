@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuplyProductDetailsView">
             <connections>
+                <outlet property="DeleteButton" destination="BAd-gv-WhZ" id="nNa-6l-ohw"/>
                 <outlet property="ItemCountText" destination="VJF-ey-uSl" id="4UZ-3M-fkO"/>
                 <outlet property="NameText" destination="Q6O-Zi-JrM" id="JIZ-Hw-Iua"/>
                 <outlet property="SalePriceLabel" destination="Aos-EH-lfd" id="zXe-JA-bY5"/>
@@ -64,30 +64,35 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-gv-WhZ">
+                    <state key="normal" title="Удалить"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="tC0-ZH-PYs" firstAttribute="top" secondItem="Q6O-Zi-JrM" secondAttribute="bottom" constant="5" id="7VS-T1-rJr"/>
-                <constraint firstItem="sHa-ci-xuD" firstAttribute="top" secondItem="2" secondAttribute="top" constant="70" id="80i-gf-eji"/>
+                <constraint firstItem="sHa-ci-xuD" firstAttribute="top" secondItem="2" secondAttribute="top" constant="75" id="80i-gf-eji"/>
                 <constraint firstAttribute="trailing" secondItem="tC0-ZH-PYs" secondAttribute="trailing" constant="16" id="AX4-yS-D3M"/>
+                <constraint firstItem="BAd-gv-WhZ" firstAttribute="top" secondItem="NWl-jT-wvJ" secondAttribute="bottom" constant="23" id="Csw-CH-I7O"/>
                 <constraint firstItem="VJF-ey-uSl" firstAttribute="leading" secondItem="NWl-jT-wvJ" secondAttribute="trailing" constant="16" id="FMQ-gh-K3b"/>
                 <constraint firstAttribute="trailing" secondItem="VJF-ey-uSl" secondAttribute="trailing" constant="16" id="Hl5-rK-512"/>
                 <constraint firstAttribute="trailing" secondItem="Q6O-Zi-JrM" secondAttribute="trailing" constant="16" id="Jye-po-foh"/>
                 <constraint firstItem="NWl-jT-wvJ" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Llt-4C-gYn"/>
                 <constraint firstItem="tC0-ZH-PYs" firstAttribute="leading" secondItem="NEh-Gc-2xv" secondAttribute="trailing" constant="16" id="R3d-6h-34Q"/>
                 <constraint firstItem="xZp-17-8fg" firstAttribute="top" secondItem="NEh-Gc-2xv" secondAttribute="bottom" constant="16" id="SeV-Uj-fqE"/>
-                <constraint firstItem="qnX-sL-XdU" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="VxD-2u-KTN"/>
                 <constraint firstItem="sHa-ci-xuD" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="YOp-R0-BeE"/>
                 <constraint firstItem="NEh-Gc-2xv" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="axI-tr-FfT"/>
+                <constraint firstItem="VJF-ey-uSl" firstAttribute="top" secondItem="xZp-17-8fg" secondAttribute="bottom" constant="4" id="bFK-Gi-hdO"/>
                 <constraint firstItem="NWl-jT-wvJ" firstAttribute="top" secondItem="xZp-17-8fg" secondAttribute="bottom" constant="8" id="bk1-mv-DLs"/>
                 <constraint firstItem="NEh-Gc-2xv" firstAttribute="top" secondItem="sHa-ci-xuD" secondAttribute="bottom" constant="16" id="bzU-TB-Qeo"/>
                 <constraint firstItem="Aos-EH-lfd" firstAttribute="leading" secondItem="xZp-17-8fg" secondAttribute="trailing" constant="8" id="hwp-z9-jWV"/>
-                <constraint firstItem="Q6O-Zi-JrM" firstAttribute="top" secondItem="2" secondAttribute="top" constant="67" id="iPx-1Q-BFQ"/>
-                <constraint firstItem="VJF-ey-uSl" firstAttribute="top" secondItem="Aos-EH-lfd" secondAttribute="bottom" constant="3" id="jH6-5h-DJl"/>
+                <constraint firstItem="Q6O-Zi-JrM" firstAttribute="top" secondItem="2" secondAttribute="top" constant="72" id="iPx-1Q-BFQ"/>
                 <constraint firstItem="xZp-17-8fg" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="jsz-Os-JZA"/>
                 <constraint firstItem="Aos-EH-lfd" firstAttribute="top" secondItem="tC0-ZH-PYs" secondAttribute="bottom" constant="12" id="kkH-e7-b7m"/>
+                <constraint firstItem="BAd-gv-WhZ" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="oR1-8V-D5b"/>
                 <constraint firstItem="qnX-sL-XdU" firstAttribute="top" secondItem="VJF-ey-uSl" secondAttribute="bottom" constant="23" id="qm9-kH-Xra"/>
                 <constraint firstItem="Q6O-Zi-JrM" firstAttribute="leading" secondItem="sHa-ci-xuD" secondAttribute="trailing" constant="16" id="tkT-nb-g4P"/>
+                <constraint firstAttribute="trailing" secondItem="qnX-sL-XdU" secondAttribute="trailing" constant="16" id="vqi-nr-2kx"/>
             </constraints>
         </view>
     </objects>

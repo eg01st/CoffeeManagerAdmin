@@ -49,6 +49,11 @@ namespace CoffeeManagerAdmin.Core
             await Post($"{SuplyProducts}/editSuplyProduct", supliedProduct);
         }
 
+        public async Task DeleteSuplyProduct(int id)
+        {
+            await Delete($"{SuplyProducts}/deleteSuplyProduct", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
+        }
+
         public async Task ProcessSuplyRequests(IEnumerable<SupliedProduct> items)
         {
             await Post($"{SuplyProducts}/processsuplyrequest", items);

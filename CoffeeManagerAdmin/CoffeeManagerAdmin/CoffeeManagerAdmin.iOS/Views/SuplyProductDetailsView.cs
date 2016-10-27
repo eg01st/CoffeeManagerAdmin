@@ -23,6 +23,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(SalePriceLabel).To(vm => vm.SalePrice);
             set.Bind(ItemCountText).To(vm => vm.ItemCount);
             set.Bind(SaveButton).To(vm => vm.SaveCommand);
+            set.Bind(DeleteButton).To(vm => vm.DeleteCommand);
             set.Apply();
         }
 

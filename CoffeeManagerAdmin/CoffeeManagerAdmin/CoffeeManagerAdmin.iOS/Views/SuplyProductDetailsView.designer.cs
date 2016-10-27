@@ -13,6 +13,9 @@ namespace CoffeeManagerAdmin.iOS
 	partial class SuplyProductDetailsView
 	{
 		[Outlet]
+		UIKit.UIButton DeleteButton { get; set; }
+
+		[Outlet]
 		UIKit.UITextField ItemCountText { get; set; }
 
 		[Outlet]
@@ -29,14 +32,14 @@ namespace CoffeeManagerAdmin.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ItemCountText != null) {
+				ItemCountText.Dispose ();
+				ItemCountText = null;
+			}
+
 			if (NameText != null) {
 				NameText.Dispose ();
 				NameText = null;
-			}
-
-			if (SuplyPriceText != null) {
-				SuplyPriceText.Dispose ();
-				SuplyPriceText = null;
 			}
 
 			if (SalePriceLabel != null) {
@@ -44,14 +47,19 @@ namespace CoffeeManagerAdmin.iOS
 				SalePriceLabel = null;
 			}
 
-			if (ItemCountText != null) {
-				ItemCountText.Dispose ();
-				ItemCountText = null;
-			}
-
 			if (SaveButton != null) {
 				SaveButton.Dispose ();
 				SaveButton = null;
+			}
+
+			if (SuplyPriceText != null) {
+				SuplyPriceText.Dispose ();
+				SuplyPriceText = null;
+			}
+
+			if (DeleteButton != null) {
+				DeleteButton.Dispose ();
+				DeleteButton = null;
 			}
 		}
 	}

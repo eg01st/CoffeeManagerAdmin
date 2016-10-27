@@ -14,7 +14,10 @@ namespace CoffeeManagerAdmin.Core
         private int _itemCount;
         private ICommand _saveCommand;
 
+        private ICommand _deleteCommand;
+
         public ICommand SaveCommand => _saveCommand;
+        public ICommand DeleteCommand => _deleteCommand;
 
         public string Name
         {
@@ -60,6 +63,24 @@ namespace CoffeeManagerAdmin.Core
         public SuplyProductDetailsViewModel()
         {
             _saveCommand = new MvxCommand(DoSaveProduct);
+            _deleteCommand = new MvxCommand(DoDeleteProduct);
+        }
+
+        private async void DoDeleteProduct()
+        {
+            UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
+            {
+                Message = $"Действительно удалить баланс продукта \"{Name}\"?",
+                OnAction = async (obj) =>
+                {
+                    if (obj)
+                    {
+                        await manager.DeleteSuplyProduct(_id);
+                        Close(this);
+                    }
+                }
+            });
+
         }
 
         private async void DoSaveProduct()

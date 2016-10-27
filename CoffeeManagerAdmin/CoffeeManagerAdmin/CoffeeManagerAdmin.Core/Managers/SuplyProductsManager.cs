@@ -52,5 +52,10 @@ namespace CoffeeManagerAdmin.Core
         {
             await provider.SaveSuplyProduct(new SupliedProduct { Id = id, Amount = itemCount, Name = name, Price = supliedPrice, CoffeeRoomNo = Config.CoffeeRoomNo });
         }
+
+        public async Task DeleteSuplyProduct(int _id)
+        {
+            await provider.DeleteSuplyProduct(_id);
+        }
     }
 }
