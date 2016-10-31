@@ -74,6 +74,7 @@
     <Compile Include="Messages\ProductListChangedMessage.cs" />
     <Compile Include="ViewModels\SuplyProductDetailsViewModel.cs" />
     <Compile Include="Messages\SuplyListChangedMessage.cs" />
+    <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

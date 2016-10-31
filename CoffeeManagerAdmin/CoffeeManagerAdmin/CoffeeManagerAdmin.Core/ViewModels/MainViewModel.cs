@@ -14,15 +14,17 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private ICommand _showShiftsCommand;
         private ICommand _showSupliedProductsCommand;
         private ICommand _updateEntireMoneyCommand;
+        private ICommand _requestSuplyCommand;
+        private ICommand _processRequestSuplyCommand;
+        private ICommand _editProductsCommand;
+        private ICommand _editUsersCommand;
 
         public void ShowErrorMessage(string v)
         {
             UserDialogs.Alert(v);
         }
 
-        private ICommand _requestSuplyCommand;
-        private ICommand _processRequestSuplyCommand;
-        private ICommand _editProductsCommand;
+
         private string _currentBalance;
 
         public ICommand ShowShiftsCommand => _showShiftsCommand;
@@ -31,6 +33,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand RequestSuplyCommand => _requestSuplyCommand;
         public ICommand ProcessRequestSuplyCommand => _processRequestSuplyCommand;
         public ICommand EditProductsCommand => _editProductsCommand;
+        public ICommand EditUsersCommand => _editUsersCommand;
+
 
         public string CurrentBalance
         {
@@ -49,6 +53,12 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _requestSuplyCommand = new MvxCommand(DoRequestSuply);
             _processRequestSuplyCommand = new MvxCommand(DoShowProcessRequestSuply);
             _editProductsCommand = new MvxCommand(DoEditProducts);
+            _editUsersCommand = new MvxCommand(DoEditUsers);
+        }
+
+        private void DoEditUsers()
+        {
+            ShowViewModel<UsersViewModel>();
         }
 
         private void DoEditProducts()

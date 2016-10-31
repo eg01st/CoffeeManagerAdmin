@@ -181,6 +181,10 @@
     <Compile Include="Views\SuplyProductDetailsView.designer.cs">
       <DependentUpon>SuplyProductDetailsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UsersView.cs" />
+    <Compile Include="Views\UsersView.designer.cs">
+      <DependentUpon>UsersView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -203,6 +207,7 @@
     <InterfaceDefinition Include="Views\Cells\ProductItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\GroupedSaleCell.xib" />
     <InterfaceDefinition Include="Views\SuplyProductDetailsView.xib" />
+    <InterfaceDefinition Include="Views\UsersView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

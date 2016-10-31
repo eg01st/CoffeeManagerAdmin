@@ -15,6 +15,7 @@
                 <outlet property="ShiftButton" destination="ho5-eG-NZS" id="j0W-vS-wIu"/>
                 <outlet property="SupliedProductsButton" destination="mJ4-rp-f1g" id="bZJ-rA-HxT"/>
                 <outlet property="UpdateButton" destination="eri-g4-8vn" id="ZbT-6V-SUk"/>
+                <outlet property="UsersButton" destination="ljL-ig-Bk5" id="qJb-11-Rym"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
@@ -71,6 +72,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLn-MY-6qN">
                             <state key="normal" title="Редактированние товаров"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljL-ig-Bk5">
+                            <state key="normal" title="Персонал"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -79,9 +83,11 @@
                         <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="A92-MY-CFK"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="DlG-fi-nj4"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="J2J-4q-TO1"/>
+                        <constraint firstItem="ljL-ig-Bk5" firstAttribute="top" secondItem="BLn-MY-6qN" secondAttribute="bottom" id="MIk-V8-ca4"/>
                         <constraint firstAttribute="trailing" secondItem="bs1-UM-KjF" secondAttribute="trailing" id="OqB-Bx-tLW"/>
                         <constraint firstItem="6pf-lb-OPA" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="Ps8-tv-f19"/>
                         <constraint firstItem="bs1-UM-KjF" firstAttribute="top" secondItem="510-wl-31F" secondAttribute="bottom" id="TyR-Rs-bj0"/>
+                        <constraint firstItem="ljL-ig-Bk5" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="aEK-rj-Lsg"/>
                         <constraint firstAttribute="trailing" secondItem="510-wl-31F" secondAttribute="trailing" id="fpC-tG-ezw"/>
                         <constraint firstItem="510-wl-31F" firstAttribute="top" secondItem="mJ4-rp-f1g" secondAttribute="bottom" id="gy2-Eb-Uyr"/>
                         <constraint firstItem="bs1-UM-KjF" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="lcW-kS-kcR"/>

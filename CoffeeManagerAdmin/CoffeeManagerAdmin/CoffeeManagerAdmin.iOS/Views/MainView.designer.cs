@@ -32,6 +32,9 @@ namespace CoffeeManagerAdmin.iOS
 
 		[Outlet]
 		UIKit.UIButton UpdateButton { get; set; }
+
+		[Outlet]
+		UIKit.UIButton UsersButton { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -50,6 +53,11 @@ namespace CoffeeManagerAdmin.iOS
 				ProcessSuplyRequestButton = null;
 			}
 
+			if (ProductsButton != null) {
+				ProductsButton.Dispose ();
+				ProductsButton = null;
+			}
+
 			if (ShiftButton != null) {
 				ShiftButton.Dispose ();
 				ShiftButton = null;
@@ -65,9 +73,9 @@ namespace CoffeeManagerAdmin.iOS
 				UpdateButton = null;
 			}
 
-			if (ProductsButton != null) {
-				ProductsButton.Dispose ();
-				ProductsButton = null;
+			if (UsersButton != null) {
+				UsersButton.Dispose ();
+				UsersButton = null;
 			}
 		}
 	}

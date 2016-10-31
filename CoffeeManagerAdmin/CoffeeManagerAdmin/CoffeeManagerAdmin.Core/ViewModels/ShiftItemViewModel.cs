@@ -19,8 +19,10 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         private void DoShowDetails()
         {
-            ShowViewModel<ShiftDetailsViewModel>(new {id = _info.Id});
+            ShowViewModel<ShiftDetailsViewModel>(new { id = _info.Id });
         }
+
+        public int Id => _info.Id;
 
         public string Date => _info.Date.Date.ToString("dd-MM");
 
