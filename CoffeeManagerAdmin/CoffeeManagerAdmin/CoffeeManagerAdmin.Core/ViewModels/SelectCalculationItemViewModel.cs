@@ -24,7 +24,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _addCalculationProductItemCommand = new MvxCommand(DoAddCalculationItem);
         }
 
-        private async void DoAddCalculationItem()
+        private void DoAddCalculationItem()
         {
             UserDialogs.Prompt(new PromptConfig()
             {
@@ -43,10 +43,11 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             {
                 var manager = new SuplyProductsManager();
                 await manager.AddProductCalculationItem(_productId, _prod.Id, decimal.Parse(obj.Text));
-                Publish<CalculationListChangedMessage>();
-                Close(this);
+                Publish(new CalculationListChangedMessage(this));
             }
         }
+
+        public ICommand AddCalculationProductItemCommand => _addCalculationProductItemCommand;
 
         public string Name => _prod.Name;
     }

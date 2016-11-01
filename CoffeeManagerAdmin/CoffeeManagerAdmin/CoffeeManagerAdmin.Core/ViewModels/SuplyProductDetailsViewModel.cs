@@ -11,7 +11,7 @@ namespace CoffeeManagerAdmin.Core
         private string _name;
         private decimal _supliedPrice;
         private decimal? _salePrice;
-        private int _itemCount;
+        private decimal? _itemCount;
         private ICommand _saveCommand;
 
         private ICommand _deleteCommand;
@@ -50,7 +50,7 @@ namespace CoffeeManagerAdmin.Core
         }
 
 
-        public int ItemCount
+        public decimal? ItemCount
         {
             get { return _itemCount; }
             set
@@ -98,7 +98,7 @@ namespace CoffeeManagerAdmin.Core
             Name = product.Name;
             SupliedPrice = product.Price;
             SalePrice = product.SalePrice;
-            ItemCount = product.Amount;
+            ItemCount = product.Quatity;
         }
     }
 }

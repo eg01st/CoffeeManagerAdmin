@@ -26,10 +26,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aot-fn-BeZ">
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Mf2-AX-Sy2"/>
-                            </constraints>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aot-fn-BeZ">
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -40,11 +37,12 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="sf0-Zj-Sa7" secondAttribute="trailing" constant="16.5" id="03U-CU-r1t"/>
+                        <constraint firstAttribute="trailing" secondItem="sf0-Zj-Sa7" secondAttribute="trailing" constant="16" id="03U-CU-r1t"/>
                         <constraint firstItem="aot-fn-BeZ" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="5" id="3wT-5P-d5C"/>
                         <constraint firstItem="VFn-rc-cnM" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="10" id="DdH-wr-VNe"/>
                         <constraint firstItem="sf0-Zj-Sa7" firstAttribute="top" secondItem="MeA-Wx-xGd" secondAttribute="top" constant="5" id="E8r-TV-B2m"/>
                         <constraint firstItem="VFn-rc-cnM" firstAttribute="leading" secondItem="MeA-Wx-xGd" secondAttribute="leading" constant="8" id="EsS-03-2lG"/>
+                        <constraint firstItem="sf0-Zj-Sa7" firstAttribute="leading" secondItem="aot-fn-BeZ" secondAttribute="trailing" constant="5" id="bIj-fA-Bds"/>
                         <constraint firstAttribute="height" constant="40" id="csa-oL-8fD"/>
                         <constraint firstAttribute="bottom" secondItem="VFn-rc-cnM" secondAttribute="bottom" constant="9" id="ke9-ze-7oS"/>
                         <constraint firstItem="aot-fn-BeZ" firstAttribute="leading" secondItem="VFn-rc-cnM" secondAttribute="trailing" constant="5" id="mz1-CZ-OcD"/>

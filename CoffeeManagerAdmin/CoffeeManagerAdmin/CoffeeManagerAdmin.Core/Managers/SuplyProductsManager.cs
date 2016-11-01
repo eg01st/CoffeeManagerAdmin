@@ -48,9 +48,9 @@ namespace CoffeeManagerAdmin.Core
             return await provider.GetSupliedProduct(id);
         }
 
-        public async Task SaveSuplyProduct(int id, string name, decimal supliedPrice, int itemCount)
+        public async Task SaveSuplyProduct(int id, string name, decimal supliedPrice, decimal? itemCount)
         {
-            await provider.SaveSuplyProduct(new SupliedProduct { Id = id, Amount = itemCount, Name = name, Price = supliedPrice, CoffeeRoomNo = Config.CoffeeRoomNo });
+            await provider.SaveSuplyProduct(new SupliedProduct { Id = id, Quatity = itemCount, Name = name, Price = supliedPrice, CoffeeRoomNo = Config.CoffeeRoomNo });
         }
 
         public async Task DeleteSuplyProduct(int _id)

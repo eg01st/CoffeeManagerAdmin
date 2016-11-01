@@ -82,6 +82,7 @@
     <Compile Include="ViewModels\SuplyProductDetailsViewModel.cs" />
     <Compile Include="Messages\SuplyListChangedMessage.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
+    <Compile Include="Messages\ProcessRequestSuplyListChangedMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

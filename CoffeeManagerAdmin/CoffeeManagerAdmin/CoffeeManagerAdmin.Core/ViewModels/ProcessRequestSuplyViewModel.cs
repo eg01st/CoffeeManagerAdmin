@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class ProcessRequestSuplyViewModel : ViewModelBase
     {
+        MvxSubscriptionToken token;
+
         private SuplyProductsManager manager = new SuplyProductsManager();
 
         private ICommand _doneCommand;
@@ -26,9 +31,15 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ProcessRequestSuplyViewModel()
         {
             _doneCommand = new MvxCommand(DoDoneRequest);
+            token = Subscribe<ProcessRequestSuplyListChangedMessage>(async (obj) => await LoadData());
         }
 
         public async void Init()
+        {
+            await LoadData();
+        }
+
+        private async Task LoadData()
         {
             var items = await manager.GetSuplyRequests();
             Items =
@@ -39,7 +50,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                             Name = s.Name,
                             Id = s.Id,
                             Price = s.Price.ToString("F"),
-                            ItemCount = s.Amount.ToString()
+                            ItemCount = s.Quatity.ToString()
                         }).ToList();
         }
 
@@ -52,7 +63,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                             new CoffeeManager.Models.SupliedProduct()
                             {
                                 Id = s.Id,
-                                Amount = int.Parse(s.ItemCount),
+                                Quatity = decimal.Parse(s.ItemCount),
                                 Price = decimal.Parse(s.Price)
                             });
             await manager.ProcessSuplyRequests(items);

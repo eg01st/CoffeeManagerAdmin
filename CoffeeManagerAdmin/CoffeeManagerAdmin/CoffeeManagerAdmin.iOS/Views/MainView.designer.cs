@@ -22,6 +22,9 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UIButton ProcessSuplyRequestButton { get; set; }
 
 		[Outlet]
+		UIKit.UIButton ProductCalculationButton { get; set; }
+
+		[Outlet]
 		UIKit.UIButton ProductsButton { get; set; }
 
 		[Outlet]
@@ -76,6 +79,11 @@ namespace CoffeeManagerAdmin.iOS
 			if (UsersButton != null) {
 				UsersButton.Dispose ();
 				UsersButton = null;
+			}
+
+			if (ProductCalculationButton != null) {
+				ProductCalculationButton.Dispose ();
+				ProductCalculationButton = null;
 			}
 		}
 	}

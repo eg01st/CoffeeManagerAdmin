@@ -11,6 +11,7 @@
                 <outlet property="CreateSuplyRequest" destination="510-wl-31F" id="Zh5-9v-hI5"/>
                 <outlet property="CurrentAmountLabel" destination="xWM-em-lxK" id="pxx-KU-8wv"/>
                 <outlet property="ProcessSuplyRequestButton" destination="bs1-UM-KjF" id="ftl-l3-b7N"/>
+                <outlet property="ProductCalculationButton" destination="tMJ-bQ-3tM" id="q4s-1F-ZdG"/>
                 <outlet property="ProductsButton" destination="BLn-MY-6qN" id="ZOk-Sy-nIa"/>
                 <outlet property="ShiftButton" destination="ho5-eG-NZS" id="j0W-vS-wIu"/>
                 <outlet property="SupliedProductsButton" destination="mJ4-rp-f1g" id="bZJ-rA-HxT"/>
@@ -75,14 +76,19 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljL-ig-Bk5">
                             <state key="normal" title="Персонал"/>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-bQ-3tM">
+                            <state key="normal" title="Калькуляция продуктов"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="510-wl-31F" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="0JR-3f-7sz"/>
                         <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="8" id="0qD-cX-jnt"/>
+                        <constraint firstItem="tMJ-bQ-3tM" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="59Q-2J-Xef"/>
                         <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="A92-MY-CFK"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="DlG-fi-nj4"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="J2J-4q-TO1"/>
+                        <constraint firstItem="tMJ-bQ-3tM" firstAttribute="top" secondItem="ljL-ig-Bk5" secondAttribute="bottom" id="KdR-O0-Myk"/>
                         <constraint firstItem="ljL-ig-Bk5" firstAttribute="top" secondItem="BLn-MY-6qN" secondAttribute="bottom" id="MIk-V8-ca4"/>
                         <constraint firstAttribute="trailing" secondItem="bs1-UM-KjF" secondAttribute="trailing" id="OqB-Bx-tLW"/>
                         <constraint firstItem="6pf-lb-OPA" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="Ps8-tv-f19"/>

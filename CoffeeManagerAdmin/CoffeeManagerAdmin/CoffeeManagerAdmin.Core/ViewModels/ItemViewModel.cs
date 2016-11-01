@@ -21,13 +21,13 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         private void DoSelect()
         {
-            ShowViewModel<CalculationViewModel>(new {id = _prod.Id});
+            ShowViewModel<CalculationViewModel>(new { id = _prod.Id });
         }
 
         public int Id => _prod.Id;
 
         public ICommand SelectCommand => _selectCommand;
-        public string Name => _prod.Name;
+        public string Name => $"{_prod.Name} : {_prod.Price}";
 
 
     }

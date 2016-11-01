@@ -8,18 +8,18 @@ namespace CoffeeManagerAdmin.Core
     public class LocalStorage
     {
         private static IMvxFileStore storage = Mvx.Resolve<IMvxFileStore>();
-        private const string UserInfo = "UserInfo";
+        private const string UserInfoStorage = "UserInfo";
         public static UserInfo GetUserInfo()
         {
-            var info = GetStorage<UserInfo>(UserInfo);
+            var info = GetStorage<UserInfo>(UserInfoStorage);
             return info;
         }
         public static void SetUserInfo(UserInfo info)
         {
-            storage.WriteFile(UserInfo, JsonConvert.SerializeObject(info));
+            storage.WriteFile(UserInfoStorage, JsonConvert.SerializeObject(info));
         }
 
-        private static T GetStorage<T>(string fileName) where T : new ()
+        private static T GetStorage<T>(string fileName) where T : new()
         {
             string storageJson;
             if (storage.TryReadTextFile(fileName, out storageJson))

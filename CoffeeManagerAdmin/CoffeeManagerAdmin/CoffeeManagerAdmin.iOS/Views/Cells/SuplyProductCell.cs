@@ -49,7 +49,7 @@ namespace CoffeeManagerAdmin.iOS
             {
                 var set = this.CreateBindingSet<SuplyProductCell, SuplyProductItemViewModel>();
                 set.Bind(NameLabel).To(vm => vm.Name);
-                set.Bind(AmountLabel).To(vm => vm.Amount);
+                set.Bind(AmountLabel).To(vm => vm.Quatity);
                 set.Bind(PriceLabel).To(vm => vm.Price).WithConversion(new DecimalToStringConverter());
                 set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.SelectCommand);
                 set.Bind(this).For(t => t.RequestSuplyCommand).To(vm => vm.RequestSuplyCommand);

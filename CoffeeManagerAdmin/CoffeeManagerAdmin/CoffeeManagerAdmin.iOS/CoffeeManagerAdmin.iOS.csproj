@@ -185,6 +185,30 @@
     <Compile Include="Views\UsersView.designer.cs">
       <DependentUpon>UsersView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductsCalculationView.cs" />
+    <Compile Include="Views\ProductsCalculationView.designer.cs">
+      <DependentUpon>ProductsCalculationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\ItemViewCell.cs" />
+    <Compile Include="Views\Cells\ItemViewCell.designer.cs">
+      <DependentUpon>ItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalculationView.cs" />
+    <Compile Include="Views\CalculationView.designer.cs">
+      <DependentUpon>CalculationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\CalculationItemViewCell.cs" />
+    <Compile Include="Views\Cells\CalculationItemViewCell.designer.cs">
+      <DependentUpon>CalculationItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectCalculationListView.cs" />
+    <Compile Include="Views\SelectCalculationListView.designer.cs">
+      <DependentUpon>SelectCalculationListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\SelectCalculationItemViewCell.cs" />
+    <Compile Include="Views\Cells\SelectCalculationItemViewCell.designer.cs">
+      <DependentUpon>SelectCalculationItemViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -208,6 +232,12 @@
     <InterfaceDefinition Include="Views\Cells\GroupedSaleCell.xib" />
     <InterfaceDefinition Include="Views\SuplyProductDetailsView.xib" />
     <InterfaceDefinition Include="Views\UsersView.xib" />
+    <InterfaceDefinition Include="Views\ProductsCalculationView.xib" />
+    <InterfaceDefinition Include="Views\Cells\ItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\CalculationView.xib" />
+    <InterfaceDefinition Include="Views\Cells\CalculationItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\SelectCalculationListView.xib" />
+    <InterfaceDefinition Include="Views\Cells\SelectCalculationItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

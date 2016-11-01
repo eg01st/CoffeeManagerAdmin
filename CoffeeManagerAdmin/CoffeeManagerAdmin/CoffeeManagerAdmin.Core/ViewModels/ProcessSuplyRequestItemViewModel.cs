@@ -29,6 +29,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                         if (obj)
                         {
                             await new SuplyProductsManager().DeleteSuplyRequest(Id);
+                            Publish(new ProcessRequestSuplyListChangedMessage(this));
                         }
                         _isPromt = false;
                     }

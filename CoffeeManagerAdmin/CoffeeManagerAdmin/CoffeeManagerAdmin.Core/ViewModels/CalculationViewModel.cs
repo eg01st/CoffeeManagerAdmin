@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CoffeeManagerAdmin.Core.Messages;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
@@ -26,7 +27,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         private void DoAddItem()
         {
-            ShowViewModel<>(new {productId = _productId}); 
+            ShowViewModel<SelectCalculationListViewModel>(new { productId = _productId });
         }
 
         public async void Init(int id)
@@ -42,6 +43,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             Name = info.Name;
             Items = info.SuplyProductInfo.Select(s => new CalculationItemViewModel(s)).ToList();
         }
+
+        public ICommand AddItemCommand => _addItemCommand;
 
         public string Name
         {
@@ -61,6 +64,6 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                 _items = value;
                 RaisePropertyChanged(nameof(Items));
             }
-        } 
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace CoffeeManagerAdmin.Core
         {
             await
                 Put($"{SuplyProducts}/addproduct",
-                    new SupliedProduct() { CoffeeRoomNo = CoffeeRoomNo, Amount = 0, Price = 0, Name = newProduct });
+                    new SupliedProduct() { CoffeeRoomNo = CoffeeRoomNo, Quatity = 0, Price = 0, Name = newProduct });
         }
 
         public async Task DeleteSuplyRequest(int id)
@@ -63,14 +63,14 @@ namespace CoffeeManagerAdmin.Core
         {
             return await
                 Get<ProductCalculationEntity>($"{SuplyProducts}/getproductcalculationitems",
-                    new Dictionary<string, string>() {{nameof(productId), productId.ToString()}});
+                    new Dictionary<string, string>() { { nameof(productId), productId.ToString() } });
         }
 
         public async Task DeleteProductCalculationItem(int id)
         {
             await
                 Delete($"{SuplyProducts}/deleteproductcalculationitem",
-                    new Dictionary<string, string>() {{nameof(id), id.ToString()}});
+                    new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
 
         public async Task AddProductCalculationItem(ProductCalculationEntity productCalculationEntity)

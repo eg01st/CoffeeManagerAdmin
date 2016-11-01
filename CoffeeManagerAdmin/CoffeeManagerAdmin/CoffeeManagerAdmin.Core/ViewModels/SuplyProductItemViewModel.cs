@@ -16,6 +16,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand SelectCommand => _selectCommand;
         public ICommand RequestSuplyCommand => _requestSuplyCommand;
 
+        private bool isDialodShown;
+
         public SuplyProductItemViewModel(SupliedProduct product)
         {
             _item = product;
@@ -32,18 +34,21 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public decimal Price => _item.Price;
 
-        public string Amount => _item.Amount.ToString();
+        public string Quatity => _item.Quatity.ToString();
 
         protected virtual void DoRequestSuply()
         {
-
-            UserDialogs.Prompt(new PromptConfig
+            if (!isDialodShown)
             {
-                Title = "Заказать товар",
-                Message = "Введите количество",
-                OnAction = OnAction,
-                InputType = InputType.Number
-            });
+                isDialodShown = true;
+                UserDialogs.Prompt(new PromptConfig
+                {
+                    Title = "Заказать товар",
+                    Message = "Введите количество",
+                    OnAction = OnAction,
+                    InputType = InputType.DecimalNumber
+                });
+            }
 
         }
 
@@ -52,8 +57,9 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             if (promptResult.Ok)
             {
                 var manager = new SuplyProductsManager();
-                Task.Run(async () => await manager.AddNewSuplyRequest(new[] { new SupliedProduct() { Id = _item.Id, CoffeeRoomNo = Config.CoffeeRoomNo, Amount = int.Parse(promptResult.Text) } }));
+                Task.Run(async () => await manager.AddNewSuplyRequest(new[] { new SupliedProduct() { Id = _item.Id, CoffeeRoomNo = Config.CoffeeRoomNo, Quatity = decimal.Parse(promptResult.Text) } }));
             }
+            isDialodShown = false;
         }
     }
 }

@@ -63,7 +63,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
 
 
-            var source = new ProductsTableSource(ProductsTableView);
+            var source = new ProductsTableSource(ProductsTableView, ProductItemCell.Key);
             ProductsTableView.Source = source;
             set.Bind(source).To(vm => vm.Items);
 
