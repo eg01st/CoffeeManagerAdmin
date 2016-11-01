@@ -58,5 +58,24 @@ namespace CoffeeManagerAdmin.Core
         {
             await Post($"{SuplyProducts}/processsuplyrequest", items);
         }
+
+        public async Task<ProductCalculationEntity> GetProductCalculationItems(int productId)
+        {
+            return await
+                Get<ProductCalculationEntity>($"{SuplyProducts}/getproductcalculationitems",
+                    new Dictionary<string, string>() {{nameof(productId), productId.ToString()}});
+        }
+
+        public async Task DeleteProductCalculationItem(int id)
+        {
+            await
+                Delete($"{SuplyProducts}/deleteproductcalculationitem",
+                    new Dictionary<string, string>() {{nameof(id), id.ToString()}});
+        }
+
+        public async Task AddProductCalculationItem(ProductCalculationEntity productCalculationEntity)
+        {
+            await Put($"{SuplyProducts}/addproductcalculationitem", productCalculationEntity);
+        }
     }
 }

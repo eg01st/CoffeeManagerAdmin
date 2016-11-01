@@ -57,5 +57,35 @@ namespace CoffeeManagerAdmin.Core
         {
             await provider.DeleteSuplyProduct(_id);
         }
+
+        public async Task<ProductCalculationEntity> GetProductCalculationItems(int productId)
+        {
+            return await provider.GetProductCalculationItems(productId);
+        }
+
+        public async Task DeleteProductCalculationItem(int id)
+        {
+            await provider.DeleteProductCalculationItem(id);
+        }
+
+        public async Task AddProductCalculationItem(int productId, int id, decimal quantity)
+        {
+            await
+                provider.AddProductCalculationItem(new ProductCalculationEntity()
+                {
+                    ProductId = productId,
+                    CoffeeRoomNo = Config.CoffeeRoomNo,
+                    SuplyProductInfo =
+                        new[]
+                        {
+                            new CalculationItem()
+                            {
+                                CoffeeRoomNo = Config.CoffeeRoomNo,
+                                SuplyProductId = id,
+                                Quantity = quantity
+                            },
+                        }
+                });
+        }
     }
 }

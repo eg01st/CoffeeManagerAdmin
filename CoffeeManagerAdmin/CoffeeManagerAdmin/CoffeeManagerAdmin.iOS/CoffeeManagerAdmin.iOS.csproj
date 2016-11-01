@@ -274,15 +274,11 @@
       <Project>{31d7792c-8339-4c32-8c91-123c9b248b83}</Project>
       <Name>CoffeeManagerAdmin.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+    <ProjectReference Include="..\..\..\..\CoffeeManagerSol\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
       <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
       <Name>CoffeeManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TableSources\" />
-    <Folder Include="Views\Cells\" />
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
