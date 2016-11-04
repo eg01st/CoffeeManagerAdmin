@@ -34,7 +34,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public decimal Price => _item.Price;
 
-        public string Quatity => _item.Quatity.ToString();
+        public string Quatity => _item.Quatity?.ToString("F");
 
         protected virtual void DoRequestSuply()
         {

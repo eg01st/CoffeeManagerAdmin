@@ -30,6 +30,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         {
             _shiftId = id;
 
+            var shiftInfo = await shiftManager.GetShiftInfo(id);
+
             await cupsManager.GetShiftUsedCups(_shiftId).ContinueWith(task =>
             {
                 var cups = task.Result;
