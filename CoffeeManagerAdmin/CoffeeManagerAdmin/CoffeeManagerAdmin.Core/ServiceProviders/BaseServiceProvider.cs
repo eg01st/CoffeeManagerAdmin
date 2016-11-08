@@ -42,6 +42,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 var response = await client.GetAsync(url);
                 string responseString = await response.Content.ReadAsStringAsync();
                 Debug.WriteLine(responseString);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new Exception(responseString);
+                }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
 
@@ -49,7 +53,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             catch (Exception ex)
             {
 
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
@@ -76,13 +80,17 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 }
                 var response = await client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(obj)));
                 string responseString = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new Exception(responseString);
+                }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
             }
             catch (Exception ex)
             {
 
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
@@ -108,15 +116,16 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                     }
                 }
                 var response = await client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(obj)));
-                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                var responseString = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(response.Content.ReadAsStringAsync().Result);
+                    throw new Exception(responseString);
                 }
-                return await response.Content.ReadAsStringAsync();
+                return responseString;
             }
             catch (Exception ex)
             {
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
@@ -143,13 +152,17 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 }
                 var response = await client.PutAsync(url, new StringContent(JsonConvert.SerializeObject(obj)));
                 string responseString = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new Exception(responseString);
+                }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
             }
             catch (Exception ex)
             {
 
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
@@ -175,11 +188,16 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                     }
                 }
                 var response = await client.PutAsync(url, new StringContent(JsonConvert.SerializeObject(obj)));
-                return await response.Content.ReadAsStringAsync();
+                var responseString = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new Exception(responseString);
+                }
+                return responseString;
             }
             catch (Exception ex)
             {
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
@@ -205,12 +223,17 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                     }
                 }
                 var response = await client.DeleteAsync(url);
-                return await response.Content.ReadAsStringAsync();
+                var responseString = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    throw new Exception(responseString);
+                }
+                return responseString;
             }
             catch (Exception ex)
             {
 
-                UserDialogs.Alert("Произошла ошибка запроса к серверу");
+                UserDialogs.Alert(ex.ToString());
                 throw;
             }
             finally
