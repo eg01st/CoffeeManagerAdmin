@@ -23,10 +23,21 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public async void Init()
         {
-            var items = await manager.GetShifts();
-            if (items != null)
+            try
             {
-                Items = items.Select(s => new ShiftItemViewModel(s)).OrderByDescending(o => o.Id).ToList();
+                var items = await manager.GetShifts();
+                if (items != null)
+                {
+                    Items = items.Select(s => new ShiftItemViewModel(s)).OrderByDescending(o => o.Id).ToList();
+                }
+                else
+                {
+                    UserDialogs.Alert("Empty list from server");
+                }
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Alert(ex.ToString());
             }
         }
     }

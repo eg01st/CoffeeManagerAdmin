@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MvvmCross.Plugins.Messenger;
@@ -29,7 +30,14 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public async void Init()
         {
-            await LoadList();
+            try
+            {
+                await LoadList();
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Alert(ex.ToString());
+            }
         }
 
         private async Task LoadList()

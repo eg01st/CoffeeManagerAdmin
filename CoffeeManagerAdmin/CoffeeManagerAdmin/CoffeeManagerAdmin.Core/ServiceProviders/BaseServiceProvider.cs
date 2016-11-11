@@ -44,7 +44,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 Debug.WriteLine(responseString);
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
@@ -82,7 +82,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 string responseString = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
@@ -119,7 +119,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 var responseString = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 return responseString;
             }
@@ -154,7 +154,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 string responseString = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 var result = JsonConvert.DeserializeObject<T>(responseString);
                 return result;
@@ -191,7 +191,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 var responseString = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 return responseString;
             }
@@ -226,7 +226,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 var responseString = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    throw new Exception(responseString);
+                    throw new Exception(response.ToString() + responseString);
                 }
                 return responseString;
             }
