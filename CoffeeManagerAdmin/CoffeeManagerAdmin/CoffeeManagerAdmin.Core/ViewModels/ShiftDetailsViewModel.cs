@@ -13,12 +13,12 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private int _shiftId;
         private ShiftManager shiftManager = new ShiftManager();
         private PaymentManager paymentManager = new PaymentManager();
-        private CupsManager cupsManager = new CupsManager();
-        private string _c110;
-        private string _c170;
-        private string _c250;
-        private string _c400;
-        private string _plastic;
+        private string _date;
+        private string _name;
+        private int? _usedCoffee;
+        private int? _counter;
+        private int _rejectedSales;
+        private int _utilizeSales;
         private List<ExpenseItemViewModel> _expenseItems = new List<ExpenseItemViewModel>();
         private List<SaleItemViewModel> _saleItems = new List<SaleItemViewModel>();
 
@@ -30,16 +30,6 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         {
             _shiftId = id;
 
-            await cupsManager.GetShiftUsedCups(_shiftId).ContinueWith(task =>
-            {
-                var cups = task.Result;
-                C110 = cups.C110.ToString();
-                C170 = cups.C170.ToString();
-                C250 = cups.C250.ToString();
-                C400 = cups.C400.ToString();
-                Plastic = cups.Plastic.ToString();
-            });
-
             var items = await paymentManager.GetShiftExpenses(_shiftId);
             ExpenseItems = items.Select(s => new ExpenseItemViewModel(s)).ToList();
 
@@ -48,6 +38,17 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             GroupedSaleItems = SaleItems.GroupBy(g => g.Name).Select(s => new Entity() { Name = s.Key, Id = s.Count() }).OrderByDescending(o => o.Id).ToList();
 
             CalculateCopSalePercentage();
+
+            var shiftInfo = await shiftManager.GetShiftInfo(id);
+            Date = shiftInfo.Date.ToString("g");
+            Name = shiftInfo.UserName;
+            if (shiftInfo.StartCounter.HasValue && shiftInfo.EndCounter.HasValue)
+            {
+                Counter = shiftInfo.EndCounter - shiftInfo.StartCounter;
+            }
+            RejectedSales = saleItems.Count(i => i.IsRejected);
+            UtilizedSales = saleItems.Count(i => i.IsUtilized);
+            UsedCoffee = (int)shiftInfo.UsedPortions;
         }
 
 
@@ -100,49 +101,61 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             }
         }
 
-        public string C110
+        public string Date
         {
-            get { return _c110; }
+            get { return _date; }
             set
             {
-                _c110 = value;
-                RaisePropertyChanged(nameof(C110));
+                _date = value;
+                RaisePropertyChanged(nameof(Date));
             }
         }
-        public string C170
+        public string Name
         {
-            get { return _c170; }
+            get { return _name; }
             set
             {
-                _c170 = value;
-                RaisePropertyChanged(nameof(C170));
+                _name = value;
+                RaisePropertyChanged(nameof(Name));
             }
         }
-        public string C250
+        public int? UsedCoffee
         {
-            get { return _c250; }
+            get { return _usedCoffee; }
             set
             {
-                _c250 = value;
-                RaisePropertyChanged(nameof(C250));
+                _usedCoffee = value;
+                RaisePropertyChanged(nameof(UsedCoffee));
             }
         }
-        public string C400
+
+        public int? Counter
         {
-            get { return _c400; }
+            get { return _counter; }
             set
             {
-                _c400 = value;
-                RaisePropertyChanged(nameof(C400));
+                _counter = value;
+                RaisePropertyChanged(nameof(Counter));
             }
         }
-        public string Plastic
+
+        public int RejectedSales
         {
-            get { return _plastic; }
+            get { return _rejectedSales; }
             set
             {
-                _plastic = value;
-                RaisePropertyChanged(nameof(Plastic));
+                _rejectedSales = value;
+                RaisePropertyChanged(nameof(RejectedSales));
+            }
+        }
+
+        public int UtilizedSales
+        {
+            get { return _utilizeSales; }
+            set
+            {
+                _utilizeSales = value;
+                RaisePropertyChanged(nameof(UtilizedSales));
             }
         }
     }

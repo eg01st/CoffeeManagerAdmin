@@ -86,11 +86,12 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(this).For(i => i.SaleItems).To(vm => vm.SaleItems);
             set.Bind(this).For(i => i.GroupedSaleItems).To(vm => vm.GroupedSaleItems);
             set.Bind(source).To(vm => vm.ExpenseItems);
-            set.Bind(Label110).To(vm => vm.C110);
-            set.Bind(Label170).To(vm => vm.C170);
-            set.Bind(Label250).To(vm => vm.C250);
-            set.Bind(Label400).To(vm => vm.C400);
-            set.Bind(LabelPlastic).To(vm => vm.Plastic);
+            set.Bind(NameLabel).To(vm => vm.Name);
+            set.Bind(DateLabel).To(vm => vm.Date);
+            set.Bind(CoffeeCounter).To(vm => vm.Counter);
+            set.Bind(CoffeeSaleCounter).To(vm => vm.UsedCoffee);
+            set.Bind(RejectedSalesLabel).To(vm => vm.RejectedSales);
+            set.Bind(UtilizedSalesLabel).To(vm => vm.UtilizedSales);
             set.Apply();
         }
 

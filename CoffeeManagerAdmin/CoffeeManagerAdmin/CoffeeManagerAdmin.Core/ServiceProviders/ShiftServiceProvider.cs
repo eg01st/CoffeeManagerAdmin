@@ -34,5 +34,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
         {
             return await Get<Sale[]>($"{Shift}/getShiftSalesById", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
+
+        public async Task<ShiftInfo> GetShiftInfo(int id)
+        {
+            return await Get<ShiftInfo>($"{Shift}/getShiftInfo", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
+        }
     }
 }

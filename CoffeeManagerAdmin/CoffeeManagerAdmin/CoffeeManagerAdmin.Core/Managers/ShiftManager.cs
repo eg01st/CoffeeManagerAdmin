@@ -29,5 +29,10 @@ namespace CoffeeManagerAdmin.Core.Managers
         {
             return await provider.GetShiftSales(id);
         }
+
+        public async Task<ShiftInfo> GetShiftInfo(int id)
+        {
+            return await provider.GetShiftInfo(id);
+        }
     }
 }

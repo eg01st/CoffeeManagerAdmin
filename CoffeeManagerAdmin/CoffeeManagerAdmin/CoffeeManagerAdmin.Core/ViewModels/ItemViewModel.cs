@@ -27,7 +27,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public int Id => _prod.Id;
 
         public ICommand SelectCommand => _selectCommand;
-        public string Name => $"{_prod.Name} : {_prod.Price}";
+        public string Name => _prod.Name + " : " + _prod.Price.ToString("F1");
 
 
     }
