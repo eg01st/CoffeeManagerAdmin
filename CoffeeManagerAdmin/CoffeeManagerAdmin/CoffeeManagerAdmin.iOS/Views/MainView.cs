@@ -25,8 +25,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(UpdateButton).To(vm => vm.UpdateEntireMoneyCommand);
             set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
-            set.Bind(CreateSuplyRequest).To(vm => vm.RequestSuplyCommand);
-            set.Bind(ProcessSuplyRequestButton).To(vm => vm.ProcessRequestSuplyCommand);
+            set.Bind(OrdersButton).To(vm => vm.ShowOrdersCommand);
             set.Bind(ProductsButton).To(vm => vm.EditProductsCommand);
             set.Bind(UsersButton).To(vm => vm.EditUsersCommand);
             set.Bind(ProductCalculationButton).To(vm => vm.EditProductCalculation);

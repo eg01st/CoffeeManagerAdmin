@@ -3,6 +3,7 @@ using System.Windows.Input;
 using CoffeeManagerAdmin.Core.Managers;
 using MvvmCross.Core.ViewModels;
 using System.Threading.Tasks;
+using CoffeeManagerAdmin.Core.ViewModels.Orders;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
@@ -14,8 +15,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private ICommand _showShiftsCommand;
         private ICommand _showSupliedProductsCommand;
         private ICommand _updateEntireMoneyCommand;
-        private ICommand _requestSuplyCommand;
-        private ICommand _processRequestSuplyCommand;
+        private ICommand _showOrdersCommand;
         private ICommand _editProductsCommand;
         private ICommand _editUsersCommand;
         private ICommand _editProductCalculation;
@@ -31,8 +31,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand ShowShiftsCommand => _showShiftsCommand;
         public ICommand ShowSupliedProductsCommand => _showSupliedProductsCommand;
         public ICommand UpdateEntireMoneyCommand => _updateEntireMoneyCommand;
-        public ICommand RequestSuplyCommand => _requestSuplyCommand;
-        public ICommand ProcessRequestSuplyCommand => _processRequestSuplyCommand;
+        public ICommand ShowOrdersCommand => _showOrdersCommand;
         public ICommand EditProductsCommand => _editProductsCommand;
         public ICommand EditUsersCommand => _editUsersCommand;
         public ICommand EditProductCalculation => _editProductCalculation;
@@ -52,8 +51,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _showShiftsCommand = new MvxCommand(DoShowShifts);
             _showSupliedProductsCommand = new MvxCommand(DoShowSupliedProducts);
             _updateEntireMoneyCommand = new MvxCommand(DoGetEntireMoney);
-            _requestSuplyCommand = new MvxCommand(DoRequestSuply);
-            _processRequestSuplyCommand = new MvxCommand(DoShowProcessRequestSuply);
+            _showOrdersCommand = new MvxCommand(DoShowOrders);
             _editProductsCommand = new MvxCommand(DoEditProducts);
             _editUsersCommand = new MvxCommand(DoEditUsers);
             _editProductCalculation = new MvxCommand(DoEditCalculation);
@@ -74,14 +72,9 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             ShowViewModel<ProductsViewModel>();
         }
 
-        private void DoShowProcessRequestSuply()
+        private void DoShowOrders()
         {
-            ShowViewModel<ProcessRequestSuplyViewModel>();
-        }
-
-        private void DoRequestSuply()
-        {
-            ShowViewModel<RequestSuplyViewModel>();
+            ShowViewModel<OrdersViewModel>();
         }
 
         private void DoShowSupliedProducts()

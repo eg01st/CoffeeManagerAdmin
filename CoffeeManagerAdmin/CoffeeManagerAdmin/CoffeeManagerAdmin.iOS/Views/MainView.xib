@@ -8,9 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainView">
             <connections>
-                <outlet property="CreateSuplyRequest" destination="510-wl-31F" id="Zh5-9v-hI5"/>
                 <outlet property="CurrentAmountLabel" destination="xWM-em-lxK" id="pxx-KU-8wv"/>
-                <outlet property="ProcessSuplyRequestButton" destination="bs1-UM-KjF" id="ftl-l3-b7N"/>
+                <outlet property="OrdersButton" destination="510-wl-31F" id="Y6z-KC-OEH"/>
                 <outlet property="ProductCalculationButton" destination="tMJ-bQ-3tM" id="q4s-1F-ZdG"/>
                 <outlet property="ProductsButton" destination="BLn-MY-6qN" id="ZOk-Sy-nIa"/>
                 <outlet property="ShiftButton" destination="ho5-eG-NZS" id="j0W-vS-wIu"/>
@@ -65,10 +64,7 @@
                             <state key="normal" title="Информация по балансу товара"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="510-wl-31F">
-                            <state key="normal" title="Создать заявку на покупку товара"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs1-UM-KjF">
-                            <state key="normal" title="Обработать заявки на покупку товара"/>
+                            <state key="normal" title="Заявки на покупку товара"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLn-MY-6qN">
                             <state key="normal" title="Редактированние товаров"/>
@@ -85,22 +81,19 @@
                         <constraint firstItem="510-wl-31F" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="0JR-3f-7sz"/>
                         <constraint firstItem="ho5-eG-NZS" firstAttribute="top" secondItem="6pf-lb-OPA" secondAttribute="bottom" constant="8" id="0qD-cX-jnt"/>
                         <constraint firstItem="tMJ-bQ-3tM" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="59Q-2J-Xef"/>
+                        <constraint firstItem="BLn-MY-6qN" firstAttribute="top" secondItem="510-wl-31F" secondAttribute="bottom" id="9vz-bg-2eB"/>
                         <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="A92-MY-CFK"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="DlG-fi-nj4"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="J2J-4q-TO1"/>
                         <constraint firstItem="tMJ-bQ-3tM" firstAttribute="top" secondItem="ljL-ig-Bk5" secondAttribute="bottom" id="KdR-O0-Myk"/>
                         <constraint firstItem="ljL-ig-Bk5" firstAttribute="top" secondItem="BLn-MY-6qN" secondAttribute="bottom" id="MIk-V8-ca4"/>
-                        <constraint firstAttribute="trailing" secondItem="bs1-UM-KjF" secondAttribute="trailing" id="OqB-Bx-tLW"/>
                         <constraint firstItem="6pf-lb-OPA" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="Ps8-tv-f19"/>
-                        <constraint firstItem="bs1-UM-KjF" firstAttribute="top" secondItem="510-wl-31F" secondAttribute="bottom" id="TyR-Rs-bj0"/>
                         <constraint firstItem="ljL-ig-Bk5" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="aEK-rj-Lsg"/>
                         <constraint firstAttribute="trailing" secondItem="510-wl-31F" secondAttribute="trailing" id="fpC-tG-ezw"/>
                         <constraint firstItem="510-wl-31F" firstAttribute="top" secondItem="mJ4-rp-f1g" secondAttribute="bottom" id="gy2-Eb-Uyr"/>
-                        <constraint firstItem="bs1-UM-KjF" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="lcW-kS-kcR"/>
                         <constraint firstAttribute="trailing" secondItem="mJ4-rp-f1g" secondAttribute="trailing" id="lnp-3f-aOE"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="width" secondItem="nw2-pP-fuX" secondAttribute="width" id="m0v-2p-oKU"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="top" secondItem="ho5-eG-NZS" secondAttribute="bottom" id="mNT-uo-NLK"/>
-                        <constraint firstItem="BLn-MY-6qN" firstAttribute="top" secondItem="bs1-UM-KjF" secondAttribute="bottom" id="p7w-HM-n7e"/>
                         <constraint firstAttribute="trailing" secondItem="ho5-eG-NZS" secondAttribute="trailing" id="vGM-rQ-Uku"/>
                         <constraint firstItem="xWM-em-lxK" firstAttribute="centerY" secondItem="nw2-pP-fuX" secondAttribute="centerY" id="xYE-OK-htF"/>
                         <constraint firstItem="ho5-eG-NZS" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="yi0-dM-Jf9"/>

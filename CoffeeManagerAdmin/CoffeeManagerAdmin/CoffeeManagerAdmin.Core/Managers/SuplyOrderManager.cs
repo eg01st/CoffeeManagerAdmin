@@ -9,7 +9,7 @@ namespace CoffeeManagerAdmin.Core.Managers
         private SuplyOrderProvider provider = new SuplyOrderProvider();
         public async Task<Order[]> GetOrders()
         {
-           return await provider.GetOrders();
+            return await provider.GetOrders();
         }
 
         public async Task<OrderItem[]> GetOrderItems(int id)
@@ -27,9 +27,9 @@ namespace CoffeeManagerAdmin.Core.Managers
             await provider.CreateOrderItem(item);
         }
 
-        public async Task CreateOrder(Order order)
+        public async Task<int> CreateOrder(Order order)
         {
-            await provider.CreateOrder(order);
+            return await provider.CreateOrder(order);
         }
 
         public async Task CloseOrder(Order order)

@@ -209,6 +209,31 @@
     <Compile Include="Views\Cells\SelectCalculationItemViewCell.designer.cs">
       <DependentUpon>SelectCalculationItemViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Orders\OrdersView.cs" />
+    <Compile Include="Views\Orders\OrdersView.designer.cs">
+      <DependentUpon>OrdersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\OrderViewCell.cs" />
+    <Compile Include="Views\Orders\OrderViewCell.designer.cs">
+      <DependentUpon>OrderViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\OrderItemViewCell.cs" />
+    <Compile Include="Views\Orders\OrderItemViewCell.designer.cs">
+      <DependentUpon>OrderItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\SelectOrderItemViewCell.cs" />
+    <Compile Include="Views\Orders\SelectOrderItemViewCell.designer.cs">
+      <DependentUpon>SelectOrderItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\SelectOrderItemsView.cs" />
+    <Compile Include="Views\Orders\SelectOrderItemsView.designer.cs">
+      <DependentUpon>SelectOrderItemsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\OrderItemsView.cs" />
+    <Compile Include="Views\Orders\OrderItemsView.designer.cs">
+      <DependentUpon>OrderItemsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -238,6 +263,12 @@
     <InterfaceDefinition Include="Views\Cells\CalculationItemViewCell.xib" />
     <InterfaceDefinition Include="Views\SelectCalculationListView.xib" />
     <InterfaceDefinition Include="Views\Cells\SelectCalculationItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Orders\OrdersView.xib" />
+    <InterfaceDefinition Include="Views\Orders\OrderViewCell.xib" />
+    <InterfaceDefinition Include="Views\Orders\OrderItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Orders\SelectOrderItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\Orders\SelectOrderItemsView.xib" />
+    <InterfaceDefinition Include="Views\Orders\OrderItemsView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -258,14 +289,6 @@
     </Reference>
     <Reference Include="MvvmCross.Localization, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmCross.Binding.4.2.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MvvmCross.Platform, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvvmCross.Platform.4.3.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MvvmCross.Platform.iOS, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvvmCross.Platform.4.3.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MvvmCross.Plugins.File, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -295,6 +318,18 @@
     <Reference Include="MvvmCross.Plugins.Messenger">
       <HintPath>..\..\packages\MvvmCross.Plugin.Messenger.4.3.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Messenger.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS">
+      <HintPath>..\..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Visibility">
+      <HintPath>..\..\packages\MvvmCross.Plugin.Visibility.4.4.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Visibility.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Visibility.iOS">
+      <HintPath>..\..\packages\MvvmCross.Plugin.Visibility.4.4.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Visibility.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
@@ -304,11 +339,17 @@
       <Project>{31d7792c-8339-4c32-8c91-123c9b248b83}</Project>
       <Name>CoffeeManagerAdmin.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\CoffeeManagerSol\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
+    <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
       <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>
       <Name>CoffeeManager.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Orders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_check.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

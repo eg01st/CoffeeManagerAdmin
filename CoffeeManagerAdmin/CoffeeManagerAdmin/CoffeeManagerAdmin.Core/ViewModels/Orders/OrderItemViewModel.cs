@@ -15,6 +15,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private decimal _price;
         private int _quantity;
         private bool _isDone;
+        private string _suplyProductName;
 
         private bool _isPromt;
         public OrderItemViewModel(OrderItem item)
@@ -22,6 +23,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             _item = item;
             IsDone = item.IsDone;
             Price = item.Price;
+            SuplyProductName = item.SuplyProductName;
             Quantity = (int)item.Quantity;
             SaveItemCommand = new MvxCommand(DoSaveItem);
             DeleteItemCommand = new MvxCommand(DoDeleteItem);
@@ -29,7 +31,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         private void DoDeleteItem()
         {
-            if (!_isPromt)
+            if (!_isPromt && !IsDone)
             {
                 _isPromt = true;
                 UserDialogs.Confirm(new ConfirmConfig
@@ -63,9 +65,9 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                     InputType = InputType.DecimalNumber,
                     Text = Price.ToString()
                 });
+
             }
-            IsDone = !IsDone;
-            Publish(new OrderItemChangedMessage(this));
+
         }
 
         private async void OnAction(PromptResult obj)
@@ -75,6 +77,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                 decimal price;
                 if (decimal.TryParse(obj.Text, out price))
                 {
+                    IsDone = !IsDone;
                     await _manager.SaveOrderItem(new OrderItem
                     {
                         Id = _item.Id,
@@ -82,12 +85,22 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                         Price = price,
                         Quantity = Quantity
                     });
+                    Price = price;
+                    Publish(new OrderItemChangedMessage(this));
                 }
             }
             _isPromt = false;
         }
 
-        public string Name => _item.SuplyProductName;
+        public string SuplyProductName
+        {
+            get { return _suplyProductName; }
+            set
+            {
+                _suplyProductName = value;
+                RaisePropertyChanged(nameof(SuplyProductName));
+            }
+        }
 
         public decimal Price
         {

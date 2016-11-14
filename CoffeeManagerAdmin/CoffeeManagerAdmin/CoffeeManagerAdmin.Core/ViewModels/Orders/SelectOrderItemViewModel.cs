@@ -56,7 +56,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                     Quantity = int.Parse(obj.Text),
                     SuplyProductId = _prod.Id
                 });
-                Publish(new CalculationListChangedMessage(this));
+
                 IsSelected = true;
                 Quantity = int.Parse(obj.Text);
             }

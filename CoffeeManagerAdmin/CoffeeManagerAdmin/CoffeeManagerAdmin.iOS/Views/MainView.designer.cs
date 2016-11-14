@@ -13,13 +13,10 @@ namespace CoffeeManagerAdmin.iOS
 	partial class MainView
 	{
 		[Outlet]
-		UIKit.UIButton CreateSuplyRequest { get; set; }
-
-		[Outlet]
 		UIKit.UILabel CurrentAmountLabel { get; set; }
 
 		[Outlet]
-		UIKit.UIButton ProcessSuplyRequestButton { get; set; }
+		UIKit.UIButton OrdersButton { get; set; }
 
 		[Outlet]
 		UIKit.UIButton ProductCalculationButton { get; set; }
@@ -41,19 +38,19 @@ namespace CoffeeManagerAdmin.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (CreateSuplyRequest != null) {
-				CreateSuplyRequest.Dispose ();
-				CreateSuplyRequest = null;
-			}
-
 			if (CurrentAmountLabel != null) {
 				CurrentAmountLabel.Dispose ();
 				CurrentAmountLabel = null;
 			}
 
-			if (ProcessSuplyRequestButton != null) {
-				ProcessSuplyRequestButton.Dispose ();
-				ProcessSuplyRequestButton = null;
+			if (ProductCalculationButton != null) {
+				ProductCalculationButton.Dispose ();
+				ProductCalculationButton = null;
+			}
+
+			if (OrdersButton != null) {
+				OrdersButton.Dispose ();
+				OrdersButton = null;
 			}
 
 			if (ProductsButton != null) {
@@ -79,11 +76,6 @@ namespace CoffeeManagerAdmin.iOS
 			if (UsersButton != null) {
 				UsersButton.Dispose ();
 				UsersButton = null;
-			}
-
-			if (ProductCalculationButton != null) {
-				ProductCalculationButton.Dispose ();
-				ProductCalculationButton = null;
 			}
 		}
 	}

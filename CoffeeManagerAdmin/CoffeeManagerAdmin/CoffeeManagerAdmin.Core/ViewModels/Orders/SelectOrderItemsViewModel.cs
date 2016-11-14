@@ -12,11 +12,33 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
     public class SelectOrderItemsViewModel : ViewModelBase
     {
         private SuplyProductsManager _manager = new SuplyProductsManager();
+
+        private string _newProductName;
+        private int _orderId;
+
+        public SelectOrderItemsViewModel()
+        {
+            DoneCommand = new MvxCommand(DoDoneCommand);
+            AddNewProductCommand = new MvxCommand(DoAddNewProduct);
+        }
+
         public async void Init(int id)
         {
+            _orderId = id;
+            await LoadData();
+        }
+
+        private async Task LoadData()
+        {
             var items = await _manager.GetSupliedProducts();
-            Items = items.Select(s => new SelectOrderItemViewModel(id, s)).ToList();
-            DoneCommand = new MvxCommand(DoDoneCommand);
+            Items = items.Select(s => new SelectOrderItemViewModel(_orderId, s)).ToList();
+        }
+
+        private async void DoAddNewProduct()
+        {
+            var manager = new SuplyProductsManager();
+            await manager.AddNewProduct(NewProductName);
+            await LoadData();
         }
 
         private void DoDoneCommand()
@@ -37,6 +59,18 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             }
         }
 
+        public string NewProductName
+        {
+            get { return _newProductName; }
+            set
+            {
+                _newProductName = value;
+                RaisePropertyChanged(nameof(NewProductName));
+            }
+        }
+
         public ICommand DoneCommand { get; set; }
+
+        public ICommand AddNewProductCommand { get; set; }
     }
 }

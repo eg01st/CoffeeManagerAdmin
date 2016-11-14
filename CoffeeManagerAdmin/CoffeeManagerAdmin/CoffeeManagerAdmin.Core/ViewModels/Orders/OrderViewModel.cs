@@ -24,7 +24,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private void DoShowDetails()
         {
             var id = ParameterTransmitter.PutParameter(_order);
-            ShowViewModel<OrderItemsViewModel>(new {id = id });
+            ShowViewModel<OrderItemsViewModel>(new { id = id });
         }
 
 
@@ -51,11 +51,15 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             _isPromt = false;
         }
 
-        public decimal Price => _order.Price;
+        public string Price => _order.Price.ToString("F");
 
         public string Date => _order.Date.ToString("MM dddd");
 
         public bool IsDone => _order.IsDone;
+
+        public string Status => _order.IsDone ? "Выполнен" : "В процессе";
+
+        public string DisplayName => $"{Date} Цена: {Price} грн ";
 
         public ICommand DeleteOrderCommand { get; set; }
 

@@ -14,7 +14,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
 
         public async Task<OrderItem[]> GetOrderItems(int id)
         {
-            return await Get<OrderItem[]>($"{SuplyOrder}/getorderitems", new Dictionary<string, string> { {nameof(id), id.ToString()} });
+            return await Get<OrderItem[]>($"{SuplyOrder}/getorderitems", new Dictionary<string, string> { { nameof(id), id.ToString() } });
         }
 
         public async Task SaveOrderItem(OrderItem item)
@@ -27,9 +27,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             await Put<OrderItem>($"{SuplyOrder}/createorderitem", item);
         }
 
-        public async Task CreateOrder(Order order)
+        public async Task<int> CreateOrder(Order order)
         {
-            await Put<Order>($"{SuplyOrder}/createorder", order);
+            var res = await Put<Order>($"{SuplyOrder}/createorder", order);
+            return int.Parse(res);
         }
 
         public async Task CloseOrder(Order order)
@@ -39,7 +40,7 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
 
         public async Task DeleteOrder(int id)
         {
-            await Delete($"{SuplyOrder}/deleteorder", new Dictionary<string, string>{ {nameof(id), id.ToString()} });
+            await Delete($"{SuplyOrder}/deleteorder", new Dictionary<string, string> { { nameof(id), id.ToString() } });
         }
 
         public async Task DeleteOrderItem(int id)

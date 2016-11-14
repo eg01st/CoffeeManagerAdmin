@@ -3,6 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoffeeManagerAdmin.Core.Managers;
 using CoffeeManagerAdmin.Core.Messages;
+using System.Windows.Input;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
+using CoffeeManager.Models;
+using System;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 {
@@ -16,7 +21,25 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         public OrdersViewModel()
         {
             _token = Subscribe<OrderListChangedMessage>(async (a) => await LoadData());
+            CreateOrderCommand = new MvxCommand(DoCreateOrder);
         }
+
+        private async void DoCreateOrder()
+        {
+            var order = new Order()
+            {
+                IsDone = false,
+                CoffeeRoomNo = Config.CoffeeRoomNo
+            };
+
+            int orderId = await _manager.CreateOrder(order);
+            order.Id = orderId;
+            await LoadData();
+            var id = ParameterTransmitter.PutParameter(order);
+            ShowViewModel<OrderItemsViewModel>(new { id = id });
+        }
+
+        public ICommand CreateOrderCommand { get; set; }
 
         public List<OrderViewModel> Items
         {
