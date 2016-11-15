@@ -19,9 +19,9 @@ namespace CoffeeManagerAdmin.iOS
             // Perform any additional setup after loading the view, typically from a nib.
             var set = this.CreateBindingSet<SuplyProductDetailsView, SuplyProductDetailsViewModel>();
             set.Bind(NameText).To(vm => vm.Name);
-            set.Bind(SuplyPriceText).To(vm => vm.SupliedPrice);
-            set.Bind(SalePriceLabel).To(vm => vm.SalePrice);
-            set.Bind(ItemCountText).To(vm => vm.ItemCount);
+            set.Bind(SuplyPriceText).To(vm => vm.SupliedPrice).WithConversion(new DecimalToStringConverter());
+            set.Bind(SalePriceLabel).To(vm => vm.SalePrice).WithConversion(new DecimalToStringConverter());
+            set.Bind(ItemCountText).To(vm => vm.ItemCount).WithConversion(new DecimalToStringConverter());
             set.Bind(SaveButton).To(vm => vm.SaveCommand);
             set.Bind(DeleteButton).To(vm => vm.DeleteCommand);
             set.Apply();
