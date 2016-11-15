@@ -63,7 +63,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                     Message = "Введите цену",
                     OnAction = OnAction,
                     InputType = InputType.DecimalNumber,
-                    Text = Price.ToString()
+                    Text = Price.ToString("F")
                 });
 
             }

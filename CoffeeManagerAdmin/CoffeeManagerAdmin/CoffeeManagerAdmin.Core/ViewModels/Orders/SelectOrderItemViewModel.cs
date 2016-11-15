@@ -26,6 +26,31 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             _prod = prod;
             _orderId = orderId;
             AddRequestItemCommand = new MvxCommand(DoAddRequestItem);
+            DeleteItemCommand = new MvxCommand(DoDeleteItem);
+        }
+
+        private void DoDeleteItem()
+        {
+            if (!_isPromt)
+            {
+                _isPromt = true;
+                UserDialogs.Confirm(new ConfirmConfig()
+                {
+                    Message = $"Действительно удалить товар {_prod.Name}?",
+                    OnAction = OnDeleteItem
+                });
+            }
+        }
+
+        private async void OnDeleteItem(bool ok)
+        {
+            if (ok)
+            {
+                var suplyManager = new SuplyProductsManager();
+                await suplyManager.DeleteSuplyProduct(_prod.Id);
+                Publish(new SuplyProductDeletedMessage(this));
+            }
+            _isPromt = false;
         }
 
         private void DoAddRequestItem()
@@ -64,6 +89,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         }
 
         public ICommand AddRequestItemCommand { get; set; }
+        public ICommand DeleteItemCommand { get; set; }
+
 
         public string Name => _prod.Name;
 

@@ -95,6 +95,7 @@
     <Compile Include="Messages\SuplyListChangedMessage.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Messages\ProcessRequestSuplyListChangedMessage.cs" />
+    <Compile Include="Messages\SuplyProductDeletedMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

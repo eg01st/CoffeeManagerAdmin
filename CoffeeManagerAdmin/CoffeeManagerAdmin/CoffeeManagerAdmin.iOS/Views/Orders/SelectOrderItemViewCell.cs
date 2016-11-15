@@ -27,6 +27,18 @@ namespace CoffeeManagerAdmin.iOS
             }
         }
 
+
+        private ICommand _longPressCommand;
+        public ICommand DeleteItemCommand
+        {
+            get { return _longPressCommand; }
+            set
+            {
+                _longPressCommand = value;
+
+            }
+        }
+
         static SelectOrderItemViewCell()
         {
             Nib = UINib.FromName("SelectOrderItemViewCell", NSBundle.MainBundle);
@@ -35,6 +47,8 @@ namespace CoffeeManagerAdmin.iOS
         protected SelectOrderItemViewCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
+            var longPressGesture = new UILongPressGestureRecognizer(() => DeleteItemCommand?.Execute(null));
+            AddGestureRecognizer(longPressGesture);
         }
 
         public override void AwakeFromNib()
@@ -47,6 +61,7 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(NameLabel).To(vm => vm.Name);
                 set.Bind(IsSelected).To(vm => vm.IsSelected);
                 set.Bind(this).For(t => t.SelectActionCommand).To(vm => vm.AddRequestItemCommand);
+                set.Bind(this).For(t => t.DeleteItemCommand).To(vm => vm.DeleteItemCommand);
                 set.Bind(CountLabel).To(vm => vm.Quantity);
                 set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.AddRequestItemCommand);
                 set.Apply();

@@ -61,6 +61,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         public string DisplayName => $"{Date} Цена: {Price} грн ";
 
+        public int Id => _order.Id;
+
         public ICommand DeleteOrderCommand { get; set; }
 
         public ICommand ShowDelailsCommand { get; set; }

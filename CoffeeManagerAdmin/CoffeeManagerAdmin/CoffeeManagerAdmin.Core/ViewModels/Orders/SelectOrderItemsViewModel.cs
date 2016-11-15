@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CoffeeManagerAdmin.Core.Messages;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 {
@@ -16,10 +17,15 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private string _newProductName;
         private int _orderId;
 
+        private string _searchString;
+
+        private MvxSubscriptionToken _token;
+
         public SelectOrderItemsViewModel()
         {
             DoneCommand = new MvxCommand(DoDoneCommand);
             AddNewProductCommand = new MvxCommand(DoAddNewProduct);
+            _token = Subscribe<SuplyProductDeletedMessage>(async (obj) => await LoadData());
         }
 
         public async void Init(int id)
@@ -31,13 +37,14 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private async Task LoadData()
         {
             var items = await _manager.GetSupliedProducts();
-            Items = items.Select(s => new SelectOrderItemViewModel(_orderId, s)).ToList();
+            _orginalItems = Items = items.Select(s => new SelectOrderItemViewModel(_orderId, s)).ToList();
         }
 
         private async void DoAddNewProduct()
         {
             var manager = new SuplyProductsManager();
             await manager.AddNewProduct(NewProductName);
+            NewProductName = string.Empty;
             await LoadData();
         }
 
@@ -47,6 +54,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             Close(this);
         }
 
+
+        private List<SelectOrderItemViewModel> _orginalItems;
         private List<SelectOrderItemViewModel> _items;
 
         public List<SelectOrderItemViewModel> Items
@@ -66,6 +75,24 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             {
                 _newProductName = value;
                 RaisePropertyChanged(nameof(NewProductName));
+            }
+        }
+
+        public string SearchString
+        {
+            get { return _searchString; }
+            set
+            {
+                _searchString = value;
+                RaisePropertyChanged(nameof(SearchString));
+                if (!string.IsNullOrWhiteSpace(SearchString))
+                {
+                    Items = Items.Where(i => i.Name.StartsWith(SearchString, StringComparison.OrdinalIgnoreCase)).ToList();
+                }
+                else
+                {
+                    Items = _orginalItems;
+                }
             }
         }
 

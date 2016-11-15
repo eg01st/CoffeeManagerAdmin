@@ -59,7 +59,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private async Task LoadData()
         {
             var items = await _manager.GetOrders();
-            Items = items.Select(s => new OrderViewModel(s)).ToList();
+            Items = items.Select(s => new OrderViewModel(s)).OrderByDescending(o => o.Id).ToList();
         }
     }
 }

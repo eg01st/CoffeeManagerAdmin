@@ -23,7 +23,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         private bool _isPromt;
         private Order _order;
         private decimal _price;
-        private int _expenseTypeId;
+        private int? _expenseTypeId;
         private string _expenseTypeName;
         private Entity _selectedExpenseType;
         private bool _isDone;
@@ -34,7 +34,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         public OrderItemsViewModel()
         {
-            _token = Subscribe<OrderItemChangedMessage>((a) => ReloadPrice());
+            _token = Subscribe<OrderItemChangedMessage>(async (a) => await LoadData());
             _itemsSelectedtoken = Subscribe<OrderItemsListChangedMessage>(async (s) => await LoadData());
             CloseOrderCommand = new MvxCommand(DoCloseOrder);
             AddOrderItemsCommand = new MvxCommand(DoAddOrderItems);
@@ -50,6 +50,18 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         private void DoCloseOrder()
         {
+            if (!_expenseTypeId.HasValue || _expenseTypeId == 0)
+            {
+                UserDialogs.Alert("Выберите тип траты");
+                return;
+            }
+
+            if (Items.All(i => !i.IsDone))
+            {
+                UserDialogs.Alert("Не выполнена ни одна покупка");
+                return;
+            }
+
             if (!_isPromt && !IsDone)
             {
                 _isPromt = true;
@@ -88,12 +100,18 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             ParameterTransmitter.TryGetParameter<Order>(id, out _order);
             Price = _order.Price;
             IsDone = _order.IsDone;
+            ExpenseTypeId = _order.ExpenseTypeId;
             if (_order.Id > 0)
             {
                 await LoadData();
             }
             var types = await _paymentManager.GetExpenseItems();
             ExpenseItems = types.Select(s => new Entity { Id = s.Id, Name = s.Name }).ToList();
+            if (ExpenseTypeId > 0)
+            {
+                var item = ExpenseItems.First(i => i.Id == ExpenseTypeId);
+                SelectedExpenseType = item;
+            }
         }
 
 
@@ -138,7 +156,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
             }
         }
 
-        public int ExpenseTypeId
+        public int? ExpenseTypeId
         {
             get { return _expenseTypeId; }
             set

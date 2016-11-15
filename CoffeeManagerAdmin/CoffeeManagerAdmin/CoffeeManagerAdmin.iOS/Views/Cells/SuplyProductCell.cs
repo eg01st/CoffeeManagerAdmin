@@ -42,8 +42,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-            var longPressGesture = new UILongPressGestureRecognizer(() => RequestSuplyCommand?.Execute(null));
-            AddGestureRecognizer(longPressGesture);
+
 
             this.DelayBind(() =>
             {
@@ -52,7 +51,6 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(AmountLabel).To(vm => vm.Quatity);
                 set.Bind(PriceLabel).To(vm => vm.Price).WithConversion(new DecimalToStringConverter());
                 set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.SelectCommand);
-                set.Bind(this).For(t => t.RequestSuplyCommand).To(vm => vm.RequestSuplyCommand);
                 set.Apply();
 
             });

@@ -69,7 +69,8 @@ namespace CoffeeManagerAdmin.iOS
                 var set = this.CreateBindingSet<OrderItemViewCell, OrderItemViewModel>();
                 set.Bind(NameText).To(vm => vm.SuplyProductName);
                 set.Bind(QuantityText).To(vm => vm.Quantity);
-                set.Bind(PriceLabel).To(vm => vm.Price);
+                set.Bind(PriceLabel).To(vm => vm.Price)
+                   .WithConversion(new DecimalToStringConverter());
                 set.Bind(this).For(v => v.IsDone).To(vm => vm.IsDone);
 
                 set.Bind(this.Tap()).For(t => t.Command).To(vm => vm.SaveItemCommand);

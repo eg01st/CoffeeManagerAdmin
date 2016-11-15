@@ -2,11 +2,12 @@
 using MvvmCross.Platform.Converters;
 namespace CoffeeManagerAdmin.iOS
 {
-    public class DecimalToStringConverter : MvxValueConverter<decimal, string>
+    public class DecimalToStringConverter : GenericConverter<decimal, string>
     {
-        protected override string Convert(decimal value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public DecimalToStringConverter() : base((decimal arg) => arg.ToString("F"),
+                       (string arg) => decimal.Parse(arg))
         {
-            return value.ToString("F");
+
         }
     }
 }

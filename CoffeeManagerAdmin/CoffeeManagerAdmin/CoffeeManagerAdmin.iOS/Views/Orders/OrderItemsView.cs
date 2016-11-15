@@ -18,7 +18,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+
             var g = new UITapGestureRecognizer(() => View.EndEditing(true));
             View.AddGestureRecognizer(g);
 
@@ -50,9 +50,10 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(AddProductButton).To(vm => vm.AddOrderItemsCommand);
             set.Bind(AddProductButton).For(b => b.Enabled).To(vm => vm.IsDone).WithConversion(new GenericConverter<bool, bool>((arg) => !arg));
             set.Bind(source).To(vm => vm.Items);
-            set.Bind(PriceLabel).To(vm => vm.Price);
+            set.Bind(PriceLabel).To(vm => vm.Price).WithConversion(new DecimalToStringConverter());
             set.Bind(StatusLabel).To(vm => vm.Status);
             set.Bind(ExpenseTypeText).To(vm => vm.ExpenseTypeName);
+            set.Bind(ExpenseTypeText).For(e => e.Enabled).To(vm => vm.IsDone).WithConversion(new GenericConverter<bool, bool>((arg) => !arg));
             set.Bind(expensePickerViewModel).For(p => p.ItemsSource).To(vm => vm.ExpenseItems);
             set.Bind(expensePickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedExpenseType);
             set.Apply();
