@@ -60,11 +60,7 @@
     <Compile Include="ViewModels\Orders\OrderViewModel.cs" />
     <Compile Include="ViewModels\Orders\SelectOrderItemsViewModel.cs" />
     <Compile Include="ViewModels\Orders\SelectOrderItemViewModel.cs" />
-    <Compile Include="ViewModels\ProcessRequestSuplyViewModel.cs" />
-    <Compile Include="ViewModels\ProcessSuplyRequestItemViewModel.cs" />
     <Compile Include="ViewModels\ProductsCalculationViewModel.cs" />
-    <Compile Include="ViewModels\RequestSuplyItemViewModel.cs" />
-    <Compile Include="ViewModels\RequestSuplyViewModel.cs" />
     <Compile Include="ViewModels\SelectCalculationItemViewModel.cs" />
     <Compile Include="ViewModels\SelectCalculationListViewModel.cs" />
     <Compile Include="ViewModels\ShiftDetailsViewModel.cs" />
