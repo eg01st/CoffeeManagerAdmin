@@ -36,7 +36,19 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(ExpenseLabel).To(vm => vm.ExpenseAmount);
                 set.Bind(RealAmountLabel).To(vm => vm.RealAmount);
                 set.Bind(TotalLabel).To(vm => vm.TotalAmount);
-                set.Bind(StartAmount).To(vm => vm.StartAmount);
+                set.Bind(StartAmount).To(vm => vm.RealShiftAmount);
+                set.Bind(StartAmount).For(o => o.TextColor).To(vm => vm.IsPositive)
+                   .WithConversion(new GenericConverter<bool, UIColor>((arg) =>
+               {
+                   if (arg)
+                   {
+                       return UIColor.Green;
+                   }
+                   else
+                   {
+                       return UIColor.Red;
+                   }
+               }));
                 set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.ShowDetailsCommand);
                 set.Apply();
             });

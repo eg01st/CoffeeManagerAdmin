@@ -28,6 +28,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public string UserName => _info.UserName;
 
+        public bool IsPositive => _info.RealAmount - _info.TotalAmount >= 0;
+
         public string StartAmount => ((int)_info.StartMoney).ToString();
 
         public string EarnedAmount => ((int)_info.ShiftEarnedMoney).ToString();
@@ -37,5 +39,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public string RealAmount => ((int)_info.RealAmount).ToString();
 
         public string ExpenseAmount => ((int)_info.ExpenseAmount).ToString();
+
+        public string RealShiftAmount => ((int)(_info.RealAmount - _info.TotalAmount + _info.ShiftEarnedMoney)).ToString();
     }
 }
