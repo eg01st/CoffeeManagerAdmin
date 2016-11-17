@@ -36,28 +36,18 @@ namespace CoffeeManagerAdmin.iOS
             productTypePicker.ShowSelectionIndicator = true;
             ProductTypeText.InputView = productTypePicker;
 
-
-            var suplyPicker = new UIPickerView();
-            var suplyPickerViewModel = new MvxPickerViewModel(suplyPicker);
-            suplyPicker.Model = suplyPickerViewModel;
-            suplyPicker.ShowSelectionIndicator = true;
-            SuplyBindLabel.InputView = suplyPicker;
-
             var set = this.CreateBindingSet<AddProductView, AddProductViewModel>();
             set.Bind(NameText).To(vm => vm.Name);
             set.Bind(PriceText).To(vm => vm.Price);
             set.Bind(PolicePriceText).To(vm => vm.PolicePrice);
             set.Bind(CupTypeCategoryText).To(vm => vm.CupTypeName);
             set.Bind(ProductTypeText).To(vm => vm.ProductTypeName);
-            set.Bind(SuplyBindLabel).To(vm => vm.SuplyName);
             set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
             set.Bind(AddProductButton).For(b => b.Enabled).To(vm => vm.IsAddEnabled);
             set.Bind(cupPickerViewModel).For(p => p.ItemsSource).To(vm => vm.CupTypesList);
             set.Bind(cupPickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedCupType);
             set.Bind(productTypePickerViewModel).For(p => p.ItemsSource).To(vm => vm.ProductTypesList);
             set.Bind(productTypePickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedProductType);
-            set.Bind(suplyPickerViewModel).For(p => p.ItemsSource).To(vm => vm.SuplyProductItems);
-            set.Bind(suplyPickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedSupliedProduct);
             set.Apply();
 
         }

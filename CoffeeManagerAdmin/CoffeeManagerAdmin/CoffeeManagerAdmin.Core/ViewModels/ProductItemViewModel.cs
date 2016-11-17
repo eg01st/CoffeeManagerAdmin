@@ -64,7 +64,5 @@ namespace CoffeeManagerAdmin.Core
         public int ProductType => _prod.ProductType;
 
         public int Id => _prod.Id;
-
-        public int? SuplyId => _prod.SuplyId;
     }
 }
