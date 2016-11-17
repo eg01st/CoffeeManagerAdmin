@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.Managers;
+using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
@@ -20,11 +22,18 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private int _rejectedSales;
         private int _utilizeSales;
         private List<ExpenseItemViewModel> _expenseItems = new List<ExpenseItemViewModel>();
-        private List<SaleItemViewModel> _saleItems = new List<SaleItemViewModel>();
-
-        private List<Entity> _groupedSaleItems = new List<Entity>();
 
         private float _copSalePercentage;
+
+        public ShiftDetailsViewModel()
+        {
+            ShowSalesCommand = new MvxCommand(DoShowSales);
+        }
+
+        private void DoShowSales()
+        {
+            ShowViewModel<ShiftSalesViewModel>(new { id = _shiftId });
+        }
 
         public async void Init(int id)
         {
@@ -34,10 +43,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             ExpenseItems = items.Select(s => new ExpenseItemViewModel(s)).ToList();
 
             var saleItems = await shiftManager.GetShiftSales(_shiftId);
-            SaleItems = saleItems.Select(s => new SaleItemViewModel(s)).ToList();
-            GroupedSaleItems = SaleItems.GroupBy(g => g.Name).Select(s => new Entity() { Name = s.Key, Id = s.Count() }).OrderByDescending(o => o.Id).ToList();
-
-            CalculateCopSalePercentage();
+            CalculateCopSalePercentage(saleItems.ToList());
 
             var shiftInfo = await shiftManager.GetShiftInfo(id);
             Date = shiftInfo.Date.ToString("g");
@@ -52,14 +58,16 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         }
 
 
-        private void CalculateCopSalePercentage()
+        private void CalculateCopSalePercentage(List<Sale> saleItems)
         {
-            int allSalesCount = SaleItems.Count;
+            int allSalesCount = saleItems.Count;
 
-            int copSaleCount = SaleItems.Count(s => s.IsCopSale);
+            int copSaleCount = saleItems.Count(s => s.IsPoliceSale);
 
             CopSalePercentage = copSaleCount * 100 / allSalesCount;
         }
+
+        public ICommand ShowSalesCommand { get; set; }
 
         public float CopSalePercentage
         {
@@ -81,25 +89,6 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             }
         }
 
-        public List<SaleItemViewModel> SaleItems
-        {
-            get { return _saleItems; }
-            set
-            {
-                _saleItems = value;
-                RaisePropertyChanged(nameof(SaleItems));
-            }
-        }
-
-        public List<Entity> GroupedSaleItems
-        {
-            get { return _groupedSaleItems; }
-            set
-            {
-                _groupedSaleItems = value;
-                RaisePropertyChanged(nameof(GroupedSaleItems));
-            }
-        }
 
         public string Date
         {

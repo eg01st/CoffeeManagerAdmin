@@ -216,6 +216,10 @@
       <DependentUpon>OrderItemsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
+    <Compile Include="Views\ShiftSalesView.cs" />
+    <Compile Include="Views\ShiftSalesView.designer.cs">
+      <DependentUpon>ShiftSalesView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -247,6 +251,7 @@
     <InterfaceDefinition Include="Views\Orders\SelectOrderItemViewCell.xib" />
     <InterfaceDefinition Include="Views\Orders\SelectOrderItemsView.xib" />
     <InterfaceDefinition Include="Views\Orders\OrderItemsView.xib" />
+    <InterfaceDefinition Include="Views\ShiftSalesView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
