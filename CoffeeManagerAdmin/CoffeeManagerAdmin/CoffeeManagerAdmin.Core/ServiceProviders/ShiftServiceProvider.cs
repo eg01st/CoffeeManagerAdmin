@@ -24,7 +24,10 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
         {
             return await Get<decimal>($"Payment/getentiremoney", null);
         }
-
+        public async Task<decimal> GetCurrentShiftMoney()
+        {
+            return await Get<decimal>($"Payment/getcurrentshiftmoney", null);
+        }
         public async Task<ShiftInfo[]> GetShifts()
         {
             return await Get<ShiftInfo[]>($"{Shift}/getShifts");

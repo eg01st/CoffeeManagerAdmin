@@ -13,5 +13,7 @@ namespace CoffeeManagerAdmin.Core
         public string Name => _item.Name;
 
         public string Amount => _item.Amount.ToString("F");
+
+        public int ItemCount => _item.ItemCount;
     }
 }

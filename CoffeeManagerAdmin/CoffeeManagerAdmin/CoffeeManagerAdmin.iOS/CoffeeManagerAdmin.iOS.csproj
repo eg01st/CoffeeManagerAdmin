@@ -220,6 +220,10 @@
     <Compile Include="Views\ShiftSalesView.designer.cs">
       <DependentUpon>ShiftSalesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\StatisticView.cs" />
+    <Compile Include="Views\StatisticView.designer.cs">
+      <DependentUpon>StatisticView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -252,6 +256,7 @@
     <InterfaceDefinition Include="Views\Orders\SelectOrderItemsView.xib" />
     <InterfaceDefinition Include="Views\Orders\OrderItemsView.xib" />
     <InterfaceDefinition Include="Views\ShiftSalesView.xib" />
+    <InterfaceDefinition Include="Views\StatisticView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

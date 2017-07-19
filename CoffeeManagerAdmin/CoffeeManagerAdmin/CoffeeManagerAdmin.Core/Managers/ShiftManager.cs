@@ -20,6 +20,11 @@ namespace CoffeeManagerAdmin.Core.Managers
             return await provider.GetEntireMoney();
         }
 
+        public async Task<decimal> GetCurrentShiftMoney()
+        {
+            return await provider.GetCurrentShiftMoney();
+        }
+
         public async Task<ShiftInfo[]> GetShifts()
         {
             return await provider.GetShifts();

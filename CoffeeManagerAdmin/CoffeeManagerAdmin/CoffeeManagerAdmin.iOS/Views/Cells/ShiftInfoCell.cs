@@ -26,7 +26,6 @@ namespace CoffeeManagerAdmin.iOS
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-
             this.DelayBind(() =>
             {
                 var set = this.CreateBindingSet<ShiftInfoCell, ShiftItemViewModel>();
@@ -37,6 +36,7 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(RealAmountLabel).To(vm => vm.RealAmount);
                 set.Bind(TotalLabel).To(vm => vm.TotalAmount);
                 set.Bind(StartAmount).To(vm => vm.RealShiftAmount);
+                set.Bind(CreditCardAmount).To(vm => vm.CreditCardAmount);
                 set.Bind(StartAmount).For(o => o.TextColor).To(vm => vm.IsPositive)
                    .WithConversion(new GenericConverter<bool, UIColor>((arg) =>
                {

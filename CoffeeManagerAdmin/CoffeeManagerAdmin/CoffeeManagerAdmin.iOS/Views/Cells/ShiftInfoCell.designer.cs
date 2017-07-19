@@ -13,6 +13,9 @@ namespace CoffeeManagerAdmin.iOS
 	partial class ShiftInfoCell
 	{
 		[Outlet]
+		UIKit.UILabel CreditCardAmount { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DateLabel { get; set; }
 
 		[Outlet]
@@ -60,14 +63,19 @@ namespace CoffeeManagerAdmin.iOS
 				ShiftEarnedAmountLabel = null;
 			}
 
+			if (StartAmount != null) {
+				StartAmount.Dispose ();
+				StartAmount = null;
+			}
+
 			if (TotalLabel != null) {
 				TotalLabel.Dispose ();
 				TotalLabel = null;
 			}
 
-			if (StartAmount != null) {
-				StartAmount.Dispose ();
-				StartAmount = null;
+			if (CreditCardAmount != null) {
+				CreditCardAmount.Dispose ();
+				CreditCardAmount = null;
 			}
 		}
 	}

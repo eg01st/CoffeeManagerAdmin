@@ -4,6 +4,7 @@ using CoffeeManagerAdmin.Core.Managers;
 using MvvmCross.Core.ViewModels;
 using System.Threading.Tasks;
 using CoffeeManagerAdmin.Core.ViewModels.Orders;
+using System.Diagnostics;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
@@ -19,6 +20,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private ICommand _editProductsCommand;
         private ICommand _editUsersCommand;
         private ICommand _editProductCalculation;
+        private ICommand _showStatiscticCommand;
 
         public void ShowErrorMessage(string v)
         {
@@ -27,6 +29,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
 
         private string _currentBalance;
+        private string _currentShiftBalance;
 
         public ICommand ShowShiftsCommand => _showShiftsCommand;
         public ICommand ShowSupliedProductsCommand => _showSupliedProductsCommand;
@@ -35,7 +38,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand EditProductsCommand => _editProductsCommand;
         public ICommand EditUsersCommand => _editUsersCommand;
         public ICommand EditProductCalculation => _editProductCalculation;
-
+        public ICommand ShowStatiscticCommand => _showStatiscticCommand;
 
         public string CurrentBalance
         {
@@ -44,6 +47,16 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             {
                 _currentBalance = value;
                 RaisePropertyChanged(nameof(CurrentBalance));
+            }
+        }
+
+        public string CurrentShiftBalance
+        {
+            get { return _currentShiftBalance; }
+            set
+            {
+                _currentShiftBalance = value;
+                RaisePropertyChanged(nameof(CurrentShiftBalance));
             }
         }
         public MainViewModel()
@@ -55,6 +68,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _editProductsCommand = new MvxCommand(DoEditProducts);
             _editUsersCommand = new MvxCommand(DoEditUsers);
             _editProductCalculation = new MvxCommand(DoEditCalculation);
+            _showStatiscticCommand = new MvxCommand(() => ShowViewModel<StatisticViewModel>());
         }
 
         private void DoEditCalculation()
@@ -100,7 +114,11 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         private async Task GetEntireMoney()
         {
             var currentBalance = await _shiftManager.GetEntireMoney();
+            Debug.WriteLine("currentBalance "+ currentBalance);
             CurrentBalance = currentBalance.ToString("F1");
+            var shiftBalance = await _shiftManager.GetCurrentShiftMoney();
+            Debug.WriteLine("shiftBalance "+ shiftBalance);
+            CurrentShiftBalance = shiftBalance.ToString("F1");
         }
     }
 }

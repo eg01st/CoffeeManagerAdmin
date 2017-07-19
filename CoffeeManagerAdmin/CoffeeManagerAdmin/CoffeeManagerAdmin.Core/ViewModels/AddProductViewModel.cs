@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using CoffeeManager.Models;
 using MvvmCross.Core.ViewModels;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ViewModels
 {
     public class AddProductViewModel : ViewModelBase
     {
@@ -45,7 +43,6 @@ namespace CoffeeManagerAdmin.Core
 
         private void DoAddProduct()
         {
-
             UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
             {
                 Message = $"Добавить продукт \"{Name}\"?",

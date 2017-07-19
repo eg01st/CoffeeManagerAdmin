@@ -11,6 +11,8 @@ namespace CoffeeManagerAdmin.Core
         }
 
         public bool IsCopSale => _sale.IsPoliceSale;
+        public bool IsRejected => _sale.IsRejected;
+        public bool IsUtilized => _sale.IsUtilized;
 
         public string Name => _sale.Product1.Name;
         public string Amount => _sale.Amount.ToString("F");

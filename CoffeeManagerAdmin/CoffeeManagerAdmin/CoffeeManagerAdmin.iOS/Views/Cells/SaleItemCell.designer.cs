@@ -19,13 +19,19 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UILabel NameLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel RejectedLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel TimeLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel UtilizedLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TimeLabel != null) {
-				TimeLabel.Dispose ();
-				TimeLabel = null;
+			if (AmountLabel != null) {
+				AmountLabel.Dispose ();
+				AmountLabel = null;
 			}
 
 			if (NameLabel != null) {
@@ -33,9 +39,19 @@ namespace CoffeeManagerAdmin.iOS
 				NameLabel = null;
 			}
 
-			if (AmountLabel != null) {
-				AmountLabel.Dispose ();
-				AmountLabel = null;
+			if (TimeLabel != null) {
+				TimeLabel.Dispose ();
+				TimeLabel = null;
+			}
+
+			if (RejectedLabel != null) {
+				RejectedLabel.Dispose ();
+				RejectedLabel = null;
+			}
+
+			if (UtilizedLabel != null) {
+				UtilizedLabel.Dispose ();
+				UtilizedLabel = null;
 			}
 		}
 	}

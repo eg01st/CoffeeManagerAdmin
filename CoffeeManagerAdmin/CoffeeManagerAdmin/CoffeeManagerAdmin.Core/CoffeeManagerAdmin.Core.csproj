@@ -93,6 +93,7 @@
     <Compile Include="Messages\ProcessRequestSuplyListChangedMessage.cs" />
     <Compile Include="Messages\SuplyProductDeletedMessage.cs" />
     <Compile Include="ViewModels\ShiftSalesViewModel.cs" />
+    <Compile Include="ViewModels\StatisticViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

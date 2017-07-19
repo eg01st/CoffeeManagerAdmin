@@ -5,6 +5,7 @@ using UIKit;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core;
+using MvvmCross.Platform.Converters;
 
 namespace CoffeeManagerAdmin.iOS
 {
@@ -29,10 +30,14 @@ namespace CoffeeManagerAdmin.iOS
 
             this.DelayBind(() =>
             {
+                var conv = new GenericConverter<bool, bool>((arg) => !arg);
+
                 var set = this.CreateBindingSet<SaleItemCell, SaleItemViewModel>();
                 set.Bind(NameLabel).To(vm => vm.Name);
                 set.Bind(AmountLabel).To(vm => vm.Amount);
                 set.Bind(TimeLabel).To(vm => vm.Time);
+                set.Bind(RejectedLabel).For(h => h.Hidden).To(vm => vm.IsRejected).WithConversion(conv);
+                set.Bind(UtilizedLabel).For(h => h.Hidden).To(vm => vm.IsUtilized).WithConversion(conv);;
                 set.Apply();
             });
         }

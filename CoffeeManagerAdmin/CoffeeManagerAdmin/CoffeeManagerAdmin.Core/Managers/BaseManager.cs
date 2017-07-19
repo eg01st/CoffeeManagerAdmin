@@ -1,5 +1,4 @@
-﻿using System;
-namespace CoffeeManagerAdmin.Core
+﻿namespace CoffeeManagerAdmin.Core.Managers
 {
 	public class BaseManager
 	{

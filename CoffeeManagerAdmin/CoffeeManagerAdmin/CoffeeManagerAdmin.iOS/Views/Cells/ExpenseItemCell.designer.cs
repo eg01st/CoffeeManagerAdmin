@@ -16,18 +16,26 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UILabel AmountLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel ItemCountLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel NameLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (AmountLabel != null) {
+				AmountLabel.Dispose ();
+				AmountLabel = null;
+			}
+
 			if (NameLabel != null) {
 				NameLabel.Dispose ();
 				NameLabel = null;
 			}
 
-			if (AmountLabel != null) {
-				AmountLabel.Dispose ();
-				AmountLabel = null;
+			if (ItemCountLabel != null) {
+				ItemCountLabel.Dispose ();
+				ItemCountLabel = null;
 			}
 		}
 	}

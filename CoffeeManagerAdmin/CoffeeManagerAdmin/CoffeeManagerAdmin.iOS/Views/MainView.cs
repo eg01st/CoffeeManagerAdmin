@@ -20,8 +20,13 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            NavigationItem.SetHidesBackButton(true, false);
+
+
             var set = this.CreateBindingSet<MainView, MainViewModel>();
             set.Bind(CurrentAmountLabel).To(vm => vm.CurrentBalance);
+            set.Bind(CurrentShiftAmountLabel).To(vm => vm.CurrentShiftBalance);
             set.Bind(UpdateButton).To(vm => vm.UpdateEntireMoneyCommand);
             set.Bind(ShiftButton).To(vm => vm.ShowShiftsCommand);
             set.Bind(SupliedProductsButton).To(vm => vm.ShowSupliedProductsCommand);
@@ -29,6 +34,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(ProductsButton).To(vm => vm.EditProductsCommand);
             set.Bind(UsersButton).To(vm => vm.EditUsersCommand);
             set.Bind(ProductCalculationButton).To(vm => vm.EditProductCalculation);
+            set.Bind(StatisticButton).To(vm => vm.ShowStatiscticCommand);
             set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
         }

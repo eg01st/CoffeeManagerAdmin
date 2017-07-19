@@ -53,7 +53,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         public string Price => _order.Price.ToString("F");
 
-        public string Date => _order.Date.ToString("MM dddd");
+        public string Date => _order.Date.ToString("MM-dd");
 
         public bool IsDone => _order.IsDone;
 

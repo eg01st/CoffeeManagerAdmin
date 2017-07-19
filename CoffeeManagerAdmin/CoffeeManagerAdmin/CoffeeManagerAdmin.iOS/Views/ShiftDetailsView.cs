@@ -1,13 +1,6 @@
-﻿using System;
-
-using UIKit;
-using MvvmCross.iOS.Views;
+﻿using MvvmCross.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core.ViewModels;
-using CoffeeManagerAdmin.Core;
-using System.Collections.Generic;
-using MvvmCross.Binding.ExtensionMethods;
-using CoffeeManager.Models;
 
 namespace CoffeeManagerAdmin.iOS
 {

@@ -40,6 +40,8 @@ namespace CoffeeManagerAdmin.Core.ViewModels
 
         public string ExpenseAmount => ((int)_info.ExpenseAmount).ToString();
 
+        public string CreditCardAmount => ((int)_info.CreditCardAmount).ToString();
+
         public string RealShiftAmount => ((int)(_info.RealAmount - _info.TotalAmount + _info.ShiftEarnedMoney)).ToString();
     }
 }

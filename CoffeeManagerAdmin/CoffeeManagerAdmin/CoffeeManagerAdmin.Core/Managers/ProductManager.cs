@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CoffeeManager.Models;
+using CoffeeManagerAdmin.Core.Managers;
 
 namespace CoffeeManagerAdmin.Core
 {

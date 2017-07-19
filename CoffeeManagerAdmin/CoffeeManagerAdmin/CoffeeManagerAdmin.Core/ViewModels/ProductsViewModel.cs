@@ -6,6 +6,8 @@ using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
 using System.Linq;
 using System.Threading.Tasks;
+using CoffeeManagerAdmin.Core.ViewModels;
+
 namespace CoffeeManagerAdmin.Core
 {
     public class ProductsViewModel : ViewModelBase
