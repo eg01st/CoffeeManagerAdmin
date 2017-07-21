@@ -1,5 +1,7 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.ServiceProviders;
 
 namespace CoffeeManagerAdmin.Core.Managers
@@ -16,9 +18,34 @@ namespace CoffeeManagerAdmin.Core.Managers
             return await provider.Login(name, password);
         }
 
-        public async Task AddUser(string name)
+        public async Task<int> AddUser(string name)
         {
-            await provider.AddUser(name);
+            return await provider.AddUser(name);
+        }
+
+        public async Task<List<User>> GetUsers()
+        {
+            return await provider.GetUsers();
+        }
+
+        public async Task ToggleEnabled(int userId)
+        {
+            await provider.ToggleEnabled(userId);
+        }
+
+        public async Task<User> GetUser(int userId)
+        {
+            return await provider.GetUser(userId);
+        }
+
+        public async Task PaySalary(int userId, int currentShifId)
+        {
+            await provider.PaySalary(userId, currentShifId);
+        }
+
+        public async  Task UpdateUser(User user)
+        {
+            await provider.UpdateUser(user);
         }
     }
 }

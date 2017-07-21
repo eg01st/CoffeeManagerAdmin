@@ -9,25 +9,17 @@ using System.CodeDom.Compiler;
 
 namespace CoffeeManagerAdmin.iOS
 {
-	[Register ("UsersView")]
-	partial class UsersView
+	[Register ("SalesStatisticView")]
+	partial class SalesStatisticView
 	{
 		[Outlet]
-		UIKit.UIButton AddButton { get; set; }
-
-		[Outlet]
-		UIKit.UITextField NameText { get; set; }
+		UIKit.UITableView TableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NameText != null) {
-				NameText.Dispose ();
-				NameText = null;
-			}
-
-			if (AddButton != null) {
-				AddButton.Dispose ();
-				AddButton = null;
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 		}
 	}

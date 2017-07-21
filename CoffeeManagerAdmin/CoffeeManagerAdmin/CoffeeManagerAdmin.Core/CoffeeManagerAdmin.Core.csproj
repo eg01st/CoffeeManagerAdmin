@@ -50,8 +50,6 @@
     <Compile Include="ServiceProviders\PaymentProvider.cs" />
     <Compile Include="ServiceProviders\ShiftServiceProvider.cs" />
     <Compile Include="ServiceProviders\SuplyOrderProvider.cs" />
-    <Compile Include="ViewModels\CalculationItemViewModel.cs" />
-    <Compile Include="ViewModels\CalculationViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrderItemsViewModel.cs" />
@@ -61,12 +59,6 @@
     <Compile Include="ViewModels\Orders\SelectOrderItemsViewModel.cs" />
     <Compile Include="ViewModels\Orders\SelectOrderItemViewModel.cs" />
     <Compile Include="ViewModels\ProductsCalculationViewModel.cs" />
-    <Compile Include="ViewModels\SelectCalculationItemViewModel.cs" />
-    <Compile Include="ViewModels\SelectCalculationListViewModel.cs" />
-    <Compile Include="ViewModels\ShiftDetailsViewModel.cs" />
-    <Compile Include="ViewModels\ShiftItemViewModel.cs" />
-    <Compile Include="ViewModels\ShiftsViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Managers\UserManager.cs" />
@@ -75,8 +67,6 @@
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="ServiceProviders\SuplyProductsServiceProvider.cs" />
     <Compile Include="Managers\SuplyProductsManager.cs" />
-    <Compile Include="ViewModels\SuplyProductsViewModel.cs" />
-    <Compile Include="ViewModels\SuplyProductItemViewModel.cs" />
     <Compile Include="ViewModels\ExpenseItemViewModel.cs" />
     <Compile Include="ViewModels\SaleItemViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
@@ -87,13 +77,34 @@
     <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="Messages\ProductListChangedMessage.cs" />
-    <Compile Include="ViewModels\SuplyProductDetailsViewModel.cs" />
     <Compile Include="Messages\SuplyListChangedMessage.cs" />
-    <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Messages\ProcessRequestSuplyListChangedMessage.cs" />
     <Compile Include="Messages\SuplyProductDeletedMessage.cs" />
-    <Compile Include="ViewModels\ShiftSalesViewModel.cs" />
-    <Compile Include="ViewModels\StatisticViewModel.cs" />
+    <Compile Include="ViewModels\Users\UsersViewModel.cs" />
+    <Compile Include="ViewModels\Users\UserItemViewModel.cs" />
+    <Compile Include="ViewModels\Users\UserDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SuplyProducts\SuplyProductDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SuplyProducts\SuplyProductItemViewModel.cs" />
+    <Compile Include="ViewModels\SuplyProducts\SuplyProductsViewModel.cs" />
+    <Compile Include="ViewModels\Shifts\ShiftDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Shifts\ShiftItemViewModel.cs" />
+    <Compile Include="ViewModels\Shifts\ShiftSalesViewModel.cs" />
+    <Compile Include="ViewModels\Shifts\ShiftsViewModel.cs" />
+    <Compile Include="ViewModels\Calculation\CalculationItemViewModel.cs" />
+    <Compile Include="ViewModels\Calculation\CalculationViewModel.cs" />
+    <Compile Include="ViewModels\Calculation\SelectCalculationItemViewModel.cs" />
+    <Compile Include="ViewModels\Calculation\SelectCalculationListViewModel.cs" />
+    <Compile Include="ViewModels\Statistic\StatisticViewModel.cs" />
+    <Compile Include="ViewModels\Statistic\SalesStatisticViewModel.cs" />
+    <Compile Include="ViewModels\Statistic\ExpensesStatisticViewModel.cs" />
+    <Compile Include="Managers\StatisticManager.cs" />
+    <Compile Include="ServiceProviders\StatisticProvider.cs" />
+    <Compile Include="Util\ParameterTransmitter.cs" />
+    <Compile Include="ViewModels\Statistic\SelectSaleItemViewModel.cs" />
+    <Compile Include="ViewModels\Statistic\SalesChartViewModel.cs" />
+    <Compile Include="ViewModels\Statistic\SelectSalesViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ViewModelBase.cs" />
+    <Compile Include="ViewModels\Abstract\ListItemViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -144,6 +155,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Users\" />
+    <Folder Include="ViewModels\SuplyProducts\" />
+    <Folder Include="ViewModels\Shifts\" />
+    <Folder Include="ViewModels\Calculation\" />
+    <Folder Include="ViewModels\Statistic\" />
+    <Folder Include="Util\" />
+    <Folder Include="ViewModels\Abstract\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">
       <Project>{77E355CB-ADF2-4617-AD95-59E1F4F8AF17}</Project>

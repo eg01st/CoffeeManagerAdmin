@@ -2,20 +2,34 @@
 using CoffeeManager.Models;
 namespace CoffeeManagerAdmin.Core
 {
-    public class SaleItemViewModel : ViewModelBase
+    public class SaleItemViewModel : ListItemViewModelBase
     {
-        private Sale _sale;
         public SaleItemViewModel(Sale sale)
         {
-            _sale = sale;
+            IsCopSale = sale.IsPoliceSale;
+            IsRejected = sale.IsRejected;
+            IsUtilized = sale.IsUtilized;
+
+            Name = sale.Product1.Name;
+            Amount = sale.Amount.ToString("F");
+            Time = sale.Time.ToString("HH:mm:ss");
+            RaiseAllPropertiesChanged();
         }
 
-        public bool IsCopSale => _sale.IsPoliceSale;
-        public bool IsRejected => _sale.IsRejected;
-        public bool IsUtilized => _sale.IsUtilized;
+        public SaleItemViewModel(SaleInfo sale)
+        {
+            Name = sale.Name;
+            Amount = sale.Amount.Value.ToString("F");
+            Quantity = sale.Quantity.ToString();
+        }
 
-        public string Name => _sale.Product1.Name;
-        public string Amount => _sale.Amount.ToString("F");
-        public string Time => _sale.Time.ToString("HH:mm:ss");
+        public bool IsCopSale {get;set;}
+        public bool IsRejected {get;set;}
+        public bool IsUtilized {get;set;}
+
+        public string Name  {get;set;}
+        public string Amount {get;set;}
+        public string Time {get;set;}
+        public string Quantity {get;set;}
     }
 }

@@ -6,6 +6,7 @@ using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core.ViewModels.Orders;
 using System.Collections.Generic;
 using MvvmCross.Binding.iOS.Views;
+using CoreGraphics;
 
 namespace CoffeeManagerAdmin.iOS
 {
@@ -18,9 +19,6 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
-            View.AddGestureRecognizer(g);
 
             var btn = new UIBarButtonItem()
             {
@@ -42,6 +40,19 @@ namespace CoffeeManagerAdmin.iOS
             expenseTypePicker.ShowSelectionIndicator = true;
             ExpenseTypeText.InputView = expenseTypePicker;
 
+            var toolbar = new UIToolbar(new CGRect(0,0, this.View.Frame.Width, 44));
+            toolbar.UserInteractionEnabled = true;
+            toolbar.BarStyle = UIBarStyle.BlackOpaque;
+            var doneButton = new UIBarButtonItem();
+            doneButton.Title = "Готово";
+            doneButton.Style = UIBarButtonItemStyle.Bordered;
+            doneButton.TintColor = UIColor.Black;
+            doneButton.Clicked += (sender, e) => 
+            {
+                View.EndEditing(true);
+            };
+            toolbar.SetItems(new [] { doneButton}, false);
+            ExpenseTypeText.InputAccessoryView = toolbar; 
 
             var source = new ProductsTableSource(OrdersTableView, OrderItemViewCell.Key);
             OrdersTableView.Source = source;

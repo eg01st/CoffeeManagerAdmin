@@ -9,16 +9,9 @@ namespace CoffeeManagerAdmin.iOS
         public ShiftDetailsView() : base("ShiftDetailsView", null)
         {
         }
-
-      
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-
-       
-
 
             // Perform any additional setup after loading the view, typically from a nib.
             var source = new ExpenseTableSource(ExpenseTableView);

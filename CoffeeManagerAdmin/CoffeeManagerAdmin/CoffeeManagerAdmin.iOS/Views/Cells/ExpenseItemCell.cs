@@ -31,7 +31,7 @@ namespace CoffeeManagerAdmin.iOS
             {
                 var set = this.CreateBindingSet<ExpenseItemCell, ExpenseItemViewModel>();
                 set.Bind(NameLabel).To(vm => vm.Name);
-                set.Bind(AmountLabel).To(vm => vm.Amount);
+                set.Bind(AmountLabel).To(vm => vm.Amount).WithConversion(new DecimalToStringConverter());
                 set.Bind(ItemCountLabel).To(vm => vm.ItemCount);
                 set.Apply();
             });

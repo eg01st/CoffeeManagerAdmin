@@ -1,4 +1,5 @@
-﻿using CoffeeManager.Models;
+﻿
+using CoffeeManager.Models;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.File;
 using Newtonsoft.Json;

@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,6 +13,7 @@
             <connections>
                 <outlet property="AddButton" destination="j0p-ZN-4dk" id="7Uh-P1-ux5"/>
                 <outlet property="NameText" destination="rfF-YR-2sK" id="4EM-33-Q0O"/>
+                <outlet property="UsersTableView" destination="K0c-Dg-icg" id="dYG-Bg-IA8"/>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
             </connections>
         </placeholder>
@@ -19,28 +23,39 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Работник: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7n-hZ-mhY">
+                    <rect key="frame" x="16" y="75" width="85" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0p-ZN-4dk">
+                    <rect key="frame" x="153" y="118" width="69" height="30"/>
                     <state key="normal" title="Добавить"/>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-YR-2sK">
+                    <rect key="frame" x="117" y="72" width="242" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-Dg-icg">
+                    <rect key="frame" x="0.0" y="164" width="375" height="503"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="K0c-Dg-icg" firstAttribute="width" secondItem="2" secondAttribute="width" id="086-GX-V0l"/>
                 <constraint firstAttribute="trailing" secondItem="rfF-YR-2sK" secondAttribute="trailing" constant="16" id="3lx-dy-giE"/>
                 <constraint firstItem="j0p-ZN-4dk" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="5y0-SS-nmk"/>
                 <constraint firstItem="v7n-hZ-mhY" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="6kp-Po-frc"/>
                 <constraint firstItem="rfF-YR-2sK" firstAttribute="top" secondItem="2" secondAttribute="top" constant="72" id="ErC-Cm-Gin"/>
                 <constraint firstItem="rfF-YR-2sK" firstAttribute="leading" secondItem="v7n-hZ-mhY" secondAttribute="trailing" constant="16" id="IJK-nm-OXZ"/>
                 <constraint firstItem="v7n-hZ-mhY" firstAttribute="top" secondItem="2" secondAttribute="top" constant="75" id="PlS-Vh-NmP"/>
+                <constraint firstItem="K0c-Dg-icg" firstAttribute="top" secondItem="j0p-ZN-4dk" secondAttribute="bottom" constant="16" id="TYw-oU-Zio"/>
+                <constraint firstItem="K0c-Dg-icg" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="bfi-3N-ytX"/>
                 <constraint firstItem="j0p-ZN-4dk" firstAttribute="top" secondItem="rfF-YR-2sK" secondAttribute="bottom" constant="16" id="gRm-rd-452"/>
+                <constraint firstAttribute="bottom" secondItem="K0c-Dg-icg" secondAttribute="bottom" id="nTx-PT-Kob"/>
             </constraints>
         </view>
     </objects>

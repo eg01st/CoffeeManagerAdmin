@@ -6,7 +6,7 @@ using MvvmCross.Plugins.Messenger;
 
 namespace CoffeeManagerAdmin.Core
 {
-    public class ViewModelBase : MvxViewModel
+    public abstract class ViewModelBase : MvxViewModel
     {
         protected IUserDialogs UserDialogs
         {

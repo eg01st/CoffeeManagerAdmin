@@ -163,10 +163,6 @@
     <Compile Include="Views\SuplyProductDetailsView.designer.cs">
       <DependentUpon>SuplyProductDetailsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UsersView.cs" />
-    <Compile Include="Views\UsersView.designer.cs">
-      <DependentUpon>UsersView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductsCalculationView.cs" />
     <Compile Include="Views\ProductsCalculationView.designer.cs">
       <DependentUpon>ProductsCalculationView.cs</DependentUpon>
@@ -220,10 +216,38 @@
     <Compile Include="Views\ShiftSalesView.designer.cs">
       <DependentUpon>ShiftSalesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\StatisticView.cs" />
-    <Compile Include="Views\StatisticView.designer.cs">
+    <Compile Include="Views\Cells\UserTableViewCell.cs" />
+    <Compile Include="Views\Cells\UserTableViewCell.designer.cs">
+      <DependentUpon>UserTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\UserTableSource.cs" />
+    <Compile Include="Views\Users\UsersView.cs" />
+    <Compile Include="Views\Users\UsersView.designer.cs">
+      <DependentUpon>UsersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\UserDetailsView.cs" />
+    <Compile Include="Views\Users\UserDetailsView.designer.cs">
+      <DependentUpon>UserDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistic\StatisticView.cs" />
+    <Compile Include="Views\Statistic\StatisticView.designer.cs">
       <DependentUpon>StatisticView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateToStringConverter.cs" />
+    <Compile Include="Views\Statistic\ExpensesStatisticView.cs" />
+    <Compile Include="Views\Statistic\ExpensesStatisticView.designer.cs">
+      <DependentUpon>ExpensesStatisticView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistic\SalesStatisticView.cs" />
+    <Compile Include="Views\Statistic\SalesStatisticView.designer.cs">
+      <DependentUpon>SalesStatisticView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistic\SaleStatisticViewCell.cs" />
+    <Compile Include="Views\Statistic\SaleStatisticViewCell.designer.cs">
+      <DependentUpon>SaleStatisticViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableSources\BaseTableSource.cs" />
+    <Compile Include="TableSources\SalesStatisticTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -242,7 +266,6 @@
     <InterfaceDefinition Include="Views\Cells\ProductItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\GroupedSaleCell.xib" />
     <InterfaceDefinition Include="Views\SuplyProductDetailsView.xib" />
-    <InterfaceDefinition Include="Views\UsersView.xib" />
     <InterfaceDefinition Include="Views\ProductsCalculationView.xib" />
     <InterfaceDefinition Include="Views\Cells\ItemViewCell.xib" />
     <InterfaceDefinition Include="Views\CalculationView.xib" />
@@ -256,7 +279,13 @@
     <InterfaceDefinition Include="Views\Orders\SelectOrderItemsView.xib" />
     <InterfaceDefinition Include="Views\Orders\OrderItemsView.xib" />
     <InterfaceDefinition Include="Views\ShiftSalesView.xib" />
-    <InterfaceDefinition Include="Views\StatisticView.xib" />
+    <InterfaceDefinition Include="Views\Cells\UserTableViewCell.xib" />
+    <InterfaceDefinition Include="Views\Users\UsersView.xib" />
+    <InterfaceDefinition Include="Views\Users\UserDetailsView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\StatisticView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\ExpensesStatisticView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\SalesStatisticView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\SaleStatisticViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -335,6 +364,8 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Views\Orders\" />
+    <Folder Include="Views\Users\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_check.png" />

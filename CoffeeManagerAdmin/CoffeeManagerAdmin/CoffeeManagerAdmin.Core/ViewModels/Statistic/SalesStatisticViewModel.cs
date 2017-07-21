@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using CoffeeManager.Models;
+using System.Linq;
+using System.Windows.Input;
+using MvvmCross.Core.ViewModels;
+
+namespace CoffeeManagerAdmin.Core.ViewModels.Statistic
+{
+    public class SalesStatisticViewModel : ViewModelBase
+    {
+        public IEnumerable<SaleItemViewModel> Items { get { return items;} set { items = value; RaisePropertyChanged(nameof(Items));}}
+        IEnumerable<SaleItemViewModel> items;
+        IEnumerable<SaleInfo> saleItems;
+        public ICommand ShowChartCommand {get;set;}
+
+        public SalesStatisticViewModel()
+        {
+            ShowChartCommand = new MvxCommand(DoShowChart);
+        }
+
+        public void Init(Guid id)
+        {     
+            ParameterTransmitter.TryGetParameter(id, out saleItems);
+            Items = saleItems.Select(s=> new SaleItemViewModel(s));
+        }
+
+        private void DoShowChart()
+        {
+            var id = ParameterTransmitter.PutParameter(saleItems);
+            ShowViewModel<SelectSalesViewModel>(new {id});
+        }
+    }
+}
