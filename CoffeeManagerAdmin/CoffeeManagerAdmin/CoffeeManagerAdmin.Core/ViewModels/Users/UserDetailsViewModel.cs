@@ -20,8 +20,9 @@ namespace CoffeeManagerAdmin.Core
         private string _expenseTypeName;
 
         private User user;
+        private int useridParameter;
         public int UserId => user.Id;
-        public string UserName => user.Name;
+        public string UserName {get;set;}
         public decimal CurrentEarnedAmount => user.CurrentEarnedAmount;
         public decimal EntireEarnedAmount => user.EntireEarnedAmount;
         public int DayShiftPersent {get;set;}  
@@ -106,12 +107,49 @@ namespace CoffeeManagerAdmin.Core
             Close(this);        
         }
 
+        private async void DoCreateUser()
+        {
+            user.Name = UserName;
+            user.DayShiftPersent = DayShiftPersent;
+            user.NightShiftPercent = NightShiftPercent;
+            user.ExpenceId = SelectedExpenseType?.Id;
+            user.CoffeeRoomNo = Config.CoffeeRoomNo;
+            user.IsActive = true;
+            await um.AddUser(user);
+            Close(this);        
+        }
+
         public async void Init(int id)
         {
-            user = await um.GetUser(id);
+            useridParameter = id;
+            if(useridParameter == 0)
+            {
+                return;
+            }
+            user = await um.GetUser(useridParameter);
+            UserName = user.Name;
             DayShiftPersent = user.DayShiftPersent;
             NightShiftPercent = user.NightShiftPercent;
             
+            await InitTypes();
+
+            RaiseAllPropertiesChanged();
+        }
+
+        public async void Init()
+        {
+            if(useridParameter == 0)
+            {
+                user = new User();
+                await InitTypes();
+                UpdateCommand = new MvxCommand(DoCreateUser);
+    
+                RaiseAllPropertiesChanged();
+            }
+        }
+
+        private async Task InitTypes()
+        {
             var types = await pm.GetExpenseItems();
             ExpenseItems = types.Select(s => new Entity { Id = s.Id, Name = s.Name }).ToList();
             if (user.ExpenceId > 0)
@@ -119,8 +157,6 @@ namespace CoffeeManagerAdmin.Core
                 var item = ExpenseItems.First(i => i.Id == user.ExpenceId);
                 SelectedExpenseType = item;
             }
-
-            RaiseAllPropertiesChanged();
         }
 
         private void DoPaySalary()

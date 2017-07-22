@@ -14,16 +14,6 @@ namespace CoffeeManagerAdmin.Core
         private List<UserItemViewModel> users;
         private ICommand _addUserCommand;
 
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                RaisePropertyChanged(nameof(Name));
-            }
-        }
-
         public List<UserItemViewModel> Users
         {
             get { return users; }
@@ -49,15 +39,9 @@ namespace CoffeeManagerAdmin.Core
             _addUserCommand = new MvxCommand(DoAddUser);
         }
 
-        private async void DoAddUser()
+        private void DoAddUser()
         {
-            if(string.IsNullOrEmpty(Name))
-            {
-                return;
-            }
-            var userId = await manager.AddUser(Name);
-            Name = string.Empty;
-            ShowViewModel<UserDetailsViewModel>(new {id = userId});
+            ShowViewModel<UserDetailsViewModel>();
         }
     }
 }

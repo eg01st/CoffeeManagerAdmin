@@ -18,9 +18,9 @@ namespace CoffeeManagerAdmin.Core.Managers
             return await provider.Login(name, password);
         }
 
-        public async Task<int> AddUser(string name)
+        public async Task<int> AddUser(User user)
         {
-            return await provider.AddUser(name);
+            return await provider.AddUser(user);
         }
 
         public async Task<List<User>> GetUsers()

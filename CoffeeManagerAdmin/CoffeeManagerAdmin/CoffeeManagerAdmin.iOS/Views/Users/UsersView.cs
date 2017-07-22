@@ -5,6 +5,7 @@ using MvvmCross.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core;
 using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace CoffeeManagerAdmin.iOS
 {
@@ -30,23 +31,24 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+             var btn = new UIBarButtonItem();
+            btn.Title = "Добавить";
+
+            NavigationItem.SetRightBarButtonItem(btn, false);
+            this.AddBindings(new Dictionary<object, string>
+            {
+                {btn, "Clicked AddUserCommand"},
+            });
 
             var source = new UserTableSource(UsersTableView);
             UsersTableView.RegisterNibForCellReuse(UserTableViewCell.Nib, UserTableViewCell.Key);
             UsersTableView.Source = source;
         
             var set = this.CreateBindingSet<UsersView, UsersViewModel>();
-            set.Bind(NameText).To(vm => vm.Name);
-            set.Bind(this).For(t => t.AddUserCommand).To(vm => vm.AddUserCommand);
             set.Bind(source).To(vm => vm.Users);
             set.Apply();
             
-            addUserRegognizer = new UITapGestureRecognizer(() => 
-            {
-                View.EndEditing(true);
-                AddUserCommand.Execute(null);
-            });           
-            AddButton.AddGestureRecognizer(addUserRegognizer);
+      
         }
 
     }

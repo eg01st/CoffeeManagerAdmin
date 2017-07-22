@@ -17,13 +17,9 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             return await Post($"{Users}/login", new UserInfo() { Login = name, Password = password });
         }
 
-        public async Task<int> AddUser(string name)
+        public async Task<int> AddUser(User user)
         {
-           return await Put<int, User>($"{Users}/add", null, new Dictionary<string, string>() 
-                {
-                    {nameof(name), name}
-                }
-            );
+           return await Put<int, User>($"{Users}/add", user);
         }
 
         public async Task<List<User>> GetUsers()

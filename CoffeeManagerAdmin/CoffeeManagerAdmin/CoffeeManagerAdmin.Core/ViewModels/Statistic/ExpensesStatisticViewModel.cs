@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoffeeManager.Models;
+using System.Linq;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Statistic
 {
     public class ExpensesStatisticViewModel : ViewModelBase
     {
-        public IEnumerable<Expense> Items { get { return items;} set { items = value; RaisePropertyChanged(nameof(Items));}}
+        public IEnumerable<ExpenseItemViewModel> Items { get { return items;} set { items = value; RaisePropertyChanged(nameof(Items));}}
 
-        private IEnumerable<Expense> items;
+        private IEnumerable<ExpenseItemViewModel> items;
 
         public void Init(Guid id)
         {
-            ParameterTransmitter.TryGetParameter(id, out items);
-            RaisePropertyChanged(nameof(Items));
+            IEnumerable<Expense> expenses;
+            ParameterTransmitter.TryGetParameter(id, out expenses);
+            Items = expenses.Select(s=> new ExpenseItemViewModel(s));
         }
     }
 }

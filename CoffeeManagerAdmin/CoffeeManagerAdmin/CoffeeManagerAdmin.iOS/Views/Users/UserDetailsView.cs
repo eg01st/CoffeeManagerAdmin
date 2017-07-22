@@ -51,7 +51,8 @@ namespace CoffeeManagerAdmin.iOS
             ExpenseTypeTextField.InputAccessoryView = toolbar;    
     
             var set = this.CreateBindingSet<UserDetailsView, UserDetailsViewModel>();
-            set.Bind(NameLabel).To(vm => vm.UserName);
+            set.Bind(NameTextField).To(vm => vm.UserName);
+            set.Bind(NameTextField).For(e => e.Enabled).To(vm => vm.UserId).WithConversion(new GenericConverter<int, bool>((arg) => arg < 1));
             set.Bind(PaySalaryButton).To(vm => vm.PaySalaryCommand);
             set.Bind(EntireSalaryLabel).To(vm => vm.EntireEarnedAmount).WithConversion(new DecimalToStringConverter());
             set.Bind(CurrentSalaryLabel).To(vm => vm.CurrentEarnedAmount).WithConversion(new DecimalToStringConverter());
