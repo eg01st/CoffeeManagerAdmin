@@ -248,6 +248,10 @@
     </Compile>
     <Compile Include="TableSources\BaseTableSource.cs" />
     <Compile Include="TableSources\SalesStatisticTableSource.cs" />
+    <Compile Include="Views\Statistic\CreditCardSalesView.cs" />
+    <Compile Include="Views\Statistic\CreditCardSalesView.designer.cs">
+      <DependentUpon>CreditCardSalesView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -286,6 +290,7 @@
     <InterfaceDefinition Include="Views\Statistic\ExpensesStatisticView.xib" />
     <InterfaceDefinition Include="Views\Statistic\SalesStatisticView.xib" />
     <InterfaceDefinition Include="Views\Statistic\SaleStatisticViewCell.xib" />
+    <InterfaceDefinition Include="Views\Statistic\CreditCardSalesView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">

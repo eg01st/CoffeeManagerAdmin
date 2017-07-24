@@ -105,6 +105,7 @@
     <Compile Include="ViewModels\Statistic\SelectSalesViewModel.cs" />
     <Compile Include="ViewModels\Abstract\ViewModelBase.cs" />
     <Compile Include="ViewModels\Abstract\ListItemViewModelBase.cs" />
+    <Compile Include="ViewModels\Statistic\CreditCardSalesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

@@ -181,13 +181,23 @@ namespace CoffeeManagerAdmin.Core
                 UserDialogs.Alert("Не связана трата с пользователем!");
                 return;
             }
+            if(user.CurrentEarnedAmount <= 0)
+            {
+                UserDialogs.Alert("Пустой баланс!");
+                return;
+            }
             
             var sm = new ShiftManager();
             var shift = await sm.GetCurrentShift();
+            if(shift == null)
+            {
+                UserDialogs.Alert("Запустите новую смену!");
+                return;
+            }
             await um.PaySalary(UserId, shift.Id);
             user.EntireEarnedAmount += CurrentEarnedAmount;
             user.CurrentEarnedAmount = 0;
-            RaiseAllPropertiesChanged();
+            Close(this);
         }
    }
 }

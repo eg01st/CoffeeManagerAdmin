@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoffeeManager.Models;
@@ -22,6 +22,11 @@ namespace CoffeeManagerAdmin.Core.Managers
         public async Task<IEnumerable<SaleInfo>> GetSales(DateTime from, DateTime to)
         {
             return await provider.GetSales(from, to);
+        }
+
+        public async Task<IEnumerable<Sale>> GetCreditCardSales(DateTime from, DateTime to)
+        {
+            return await provider.GetCreditCardSales(from, to);
         }
     }
 }
