@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using Acr.UserDialogs;
-using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.Managers;
 using CoffeeManagerAdmin.Core.ViewModels.Statistic;
 using MvvmCross.Core.ViewModels;
@@ -46,7 +45,7 @@ namespace CoffeeManagerAdmin.Core
             var toDate = To.AddDays(1);
             var sales = await sm.GetSales(From, toDate);
             var id = ParameterTransmitter.PutParameter(sales);
-            ShowViewModel<SalesStatisticViewModel>(new {id = id});
+            ShowViewModel<SalesStatisticViewModel>(new {id = id, from, to = toDate});
         }
 
         private async void DoShowExpenses()

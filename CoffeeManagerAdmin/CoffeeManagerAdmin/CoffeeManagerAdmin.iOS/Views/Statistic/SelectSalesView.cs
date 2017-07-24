@@ -2,42 +2,39 @@
 
 using UIKit;
 using MvvmCross.iOS.Views;
-using CoffeeManagerAdmin.Core.ViewModels.Statistic;
+using CoffeeManagerAdmin.Core;
 using MvvmCross.Binding.BindingContext;
 using System.Collections.Generic;
 
 namespace CoffeeManagerAdmin.iOS
 {
-    public partial class SalesStatisticView : MvxViewController
+    public partial class SelectSalesView : MvxViewController
     {
-        public SalesStatisticView() : base("SalesStatisticView", null)
+        public SelectSalesView() : base("SelectSalesView", null)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            
             var btn = new UIBarButtonItem();
-            btn.Title = "Графики";
-
+            btn.Title = "Готово";
             NavigationItem.SetRightBarButtonItem(btn, false);
             this.AddBindings(new Dictionary<object, string>
             {
                 {btn, "Clicked ShowChartCommand"},
-
             });
 
-            Title = "Продажи";
-            var tableSource = new SalesStatisticTableSource(TableView);
-            TableView.RegisterNibForCellReuse(SaleStatisticViewCell.Nib, SaleStatisticViewCell.Key);
+            var tableSource = new SimpleTableSource(TableView, SelectSalesTableViewCell.Key);
+            TableView.RegisterNibForCellReuse(SelectSalesTableViewCell.Nib, SelectSalesTableViewCell.Key);
             TableView.Source = tableSource;
 
-            var set = this.CreateBindingSet<SalesStatisticView, SalesStatisticViewModel>();
+            var set = this.CreateBindingSet<SelectSalesView, SelectSalesViewModel>();
             set.Bind(tableSource).For(i => i.ItemsSource).To(vm => vm.Items);
-            set.Apply();
-        }
+            set.Apply();            
 
+        }
     }
 }
 

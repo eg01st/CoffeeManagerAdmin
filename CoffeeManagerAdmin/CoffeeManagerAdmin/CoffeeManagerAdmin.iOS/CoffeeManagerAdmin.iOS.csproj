@@ -252,6 +252,20 @@
     <Compile Include="Views\Statistic\CreditCardSalesView.designer.cs">
       <DependentUpon>CreditCardSalesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableSources\SimpleTableSource.cs" />
+    <Compile Include="Views\Statistic\SelectSalesView.cs" />
+    <Compile Include="Views\Statistic\SelectSalesView.designer.cs">
+      <DependentUpon>SelectSalesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistic\SelectSalesTableViewCell.cs" />
+    <Compile Include="Views\Statistic\SelectSalesTableViewCell.designer.cs">
+      <DependentUpon>SelectSalesTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistic\SalesChartView.cs" />
+    <Compile Include="Views\Statistic\SalesChartView.designer.cs">
+      <DependentUpon>SalesChartView.cs</DependentUpon>
+    </Compile>
+    <None Include="Lib\Alliance.Charts.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -291,6 +305,9 @@
     <InterfaceDefinition Include="Views\Statistic\SalesStatisticView.xib" />
     <InterfaceDefinition Include="Views\Statistic\SaleStatisticViewCell.xib" />
     <InterfaceDefinition Include="Views\Statistic\CreditCardSalesView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\SelectSalesView.xib" />
+    <InterfaceDefinition Include="Views\Statistic\SelectSalesTableViewCell.xib" />
+    <InterfaceDefinition Include="Views\Statistic\SalesChartView.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -352,6 +369,9 @@
     <Reference Include="MvvmCross.Plugins.Visibility.iOS">
       <HintPath>..\..\packages\MvvmCross.Plugin.Visibility.4.4.0\lib\Xamarin.iOS10\MvvmCross.Plugins.Visibility.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Alliance.Charts">
+      <HintPath>Lib\Alliance.Charts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
@@ -371,6 +391,7 @@
     <Folder Include="Views\Orders\" />
     <Folder Include="Views\Users\" />
     <Folder Include="Views\Statistic\" />
+    <Folder Include="Lib\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_check.png" />

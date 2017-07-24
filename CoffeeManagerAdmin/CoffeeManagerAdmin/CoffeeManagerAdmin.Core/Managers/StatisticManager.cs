@@ -28,5 +28,10 @@ namespace CoffeeManagerAdmin.Core.Managers
         {
             return await provider.GetCreditCardSales(from, to);
         }
+
+        public async  Task<IEnumerable<Sale>> GetSalesByNames(IEnumerable<string> itemsNames, DateTime from, DateTime to)
+        {
+            return await provider.GetSalesByNames(itemsNames,from , to);
+        }
     }
 }

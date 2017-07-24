@@ -16,7 +16,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            
+            Title = "Продажи по кредитке";
             var salesTableSource = new SaleTableSource(TableView);
             TableView.Source = salesTableSource;
             TableView.RegisterNibForCellReuse(SaleItemCell.Nib, SaleItemCell.Key);

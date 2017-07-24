@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoffeeManager.Models;
@@ -39,5 +40,14 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
                 { nameof(to), to.ToString()}
             });
         }
-    }
+
+        public async Task<IEnumerable<Sale>> GetSalesByNames(IEnumerable<string> itemsNames, DateTime from, DateTime to)
+        {
+              return await Post<Sale[], IEnumerable<string>>($"{Statistic}/getSalesByName", itemsNames, new Dictionary<string, string>()
+            {
+                { nameof(from), from.ToString()},
+                { nameof(to), to.ToString()}
+            });
+        }
+   }
 }
