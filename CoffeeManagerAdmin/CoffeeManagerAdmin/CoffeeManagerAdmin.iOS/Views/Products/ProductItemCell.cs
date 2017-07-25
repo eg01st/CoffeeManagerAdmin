@@ -5,10 +5,6 @@ using UIKit;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Binding.BindingContext;
 using CoffeeManagerAdmin.Core;
-using MvvmCross.Platform.Converters;
-using CoffeeManager.Models;
-using System.Linq;
-using MvvmCross.Binding.iOS.Views.Gestures;
 using System.Windows.Input;
 
 namespace CoffeeManagerAdmin.iOS
@@ -34,6 +30,17 @@ namespace CoffeeManagerAdmin.iOS
             }
         }
 
+        private ICommand _toggleIsActiveCommand;
+        public ICommand ToggleIsActiveCommand
+        {
+            get { return _toggleIsActiveCommand; }
+            set
+            {
+                _toggleIsActiveCommand = value;
+
+            }
+        }
+
         protected ProductItemCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -49,14 +56,15 @@ namespace CoffeeManagerAdmin.iOS
             {
                 var set = this.CreateBindingSet<ProductItemCell, ProductItemViewModel>();
                 set.Bind(NameLabel).To(vm => vm.Name);
-                set.Bind(CategoryLabel).To(vm => vm.ProductType).WithConversion(new GenericConverter<int, string>((arg) =>
-                 {
-                     var type = TypesLists.ProductTypesList.First(i => i.Id == arg);
-                     return type.Name;
-                 }));
-                set.Bind(this.Tap()).For(t => t.Command).To(vm => vm.SelectCommand);
+                set.Bind(CategoryLabel).To(vm => vm.Category);
+                set.Bind(IsActiveSwitch).For(s => s.On).To(vm => vm.IsActive);
                 set.Bind(this).For(t => t.DeleteProductCommand).To(vm => vm.DeleteProductCommand);
-                set.Apply();
+                set.Bind(this).For(t => t.ToggleIsActiveCommand).To(vm => vm.ToggleIsActiveCommand);
+                set.Apply();    
+                IsActiveSwitch.ValueChanged += (sender, e) => 
+                {
+                    ToggleIsActiveCommand.Execute(null);
+                }; 
             });
         }
     }

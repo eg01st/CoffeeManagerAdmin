@@ -22,7 +22,7 @@ namespace CoffeeManagerAdmin.iOS
             TableView.RegisterNibForCellReuse(SaleItemCell.Nib, SaleItemCell.Key);
 
             var set = this.CreateBindingSet<CreditCardSalesView, CreditCardSalesViewModel>();
-            set.Bind(EntireAmountLabel).To(vm => vm.EntireSaleAmount);
+            set.Bind(EntireAmountLabel).To(vm => vm.EntireSaleAmount).WithConversion(new DecimalToStringConverter());
             set.Bind(salesTableSource).To(vm => vm.Sales);
             set.Apply();
         }

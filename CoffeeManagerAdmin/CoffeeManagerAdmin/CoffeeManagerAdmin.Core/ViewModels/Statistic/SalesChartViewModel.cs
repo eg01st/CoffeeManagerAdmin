@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.Managers;
 using System.Linq;
+using CoffeeManagerAdmin.Core.Util;
+
 namespace CoffeeManagerAdmin.Core
 {
     public class SalesChartViewModel : ViewModelBase

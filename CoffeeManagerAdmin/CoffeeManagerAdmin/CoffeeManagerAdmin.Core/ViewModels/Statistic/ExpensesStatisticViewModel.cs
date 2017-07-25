@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CoffeeManager.Models;
 using System.Linq;
+using CoffeeManagerAdmin.Core.Util;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Statistic
 {

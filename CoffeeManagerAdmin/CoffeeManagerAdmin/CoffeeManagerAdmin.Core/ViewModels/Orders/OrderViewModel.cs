@@ -3,11 +3,12 @@ using Acr.UserDialogs;
 using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.Managers;
 using CoffeeManagerAdmin.Core.Messages;
+using CoffeeManagerAdmin.Core.Util;
 using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 {
-    public class OrderViewModel : ViewModelBase
+    public class OrderViewModel : ListItemViewModelBase
     {
         private SuplyOrderManager _manager = new SuplyOrderManager();
         private Order _order;
@@ -18,10 +19,9 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
         {
             _order = order;
             DeleteOrderCommand = new MvxCommand(DoDeleteOrder);
-            ShowDelailsCommand = new MvxCommand(DoShowDetails);
         }
 
-        private void DoShowDetails()
+        protected override void DoGoToDetails()
         {
             var id = ParameterTransmitter.PutParameter(_order);
             ShowViewModel<OrderItemsViewModel>(new { id = id });
@@ -65,6 +65,5 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 
         public ICommand DeleteOrderCommand { get; set; }
 
-        public ICommand ShowDelailsCommand { get; set; }
     }
 }

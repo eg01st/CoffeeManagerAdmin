@@ -44,7 +44,6 @@
     <Compile Include="Messages\OrderItemChangedMessage.cs" />
     <Compile Include="Messages\OrderItemsListChangedMessage.cs" />
     <Compile Include="Messages\OrderListChangedMessage.cs" />
-    <Compile Include="ParameterTransmitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceProviders\CupsProvider.cs" />
     <Compile Include="ServiceProviders\PaymentProvider.cs" />
@@ -69,13 +68,10 @@
     <Compile Include="Managers\SuplyProductsManager.cs" />
     <Compile Include="ViewModels\ExpenseItemViewModel.cs" />
     <Compile Include="ViewModels\SaleItemViewModel.cs" />
-    <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="ServiceProviders\ProductProvider.cs" />
-    <Compile Include="ViewModels\ProductItemViewModel.cs" />
     <Compile Include="Messages\ProductSelectedMessage.cs" />
     <Compile Include="Messages\BaseMessage.cs" />
-    <Compile Include="ViewModels\AddProductViewModel.cs" />
     <Compile Include="Messages\ProductListChangedMessage.cs" />
     <Compile Include="Messages\SuplyListChangedMessage.cs" />
     <Compile Include="Messages\ProcessRequestSuplyListChangedMessage.cs" />
@@ -108,6 +104,9 @@
     <Compile Include="ViewModels\Statistic\CreditCardSalesViewModel.cs" />
     <Compile Include="ViewModels\ManageExpenses\ManageExpensesViewModel.cs" />
     <Compile Include="ViewModels\ManageExpenses\ManageExpenseItemViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductsViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductItemViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -167,6 +166,7 @@
     <Folder Include="Util\" />
     <Folder Include="ViewModels\Abstract\" />
     <Folder Include="ViewModels\ManageExpenses\" />
+    <Folder Include="ViewModels\Products\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">

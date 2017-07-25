@@ -1,35 +1,44 @@
-﻿using System;
+﻿
 
 using UIKit;
 using MvvmCross.iOS.Views;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Binding.BindingContext;
-using CoffeeManagerAdmin.Core;
-using CoffeeManager.Models;
+using CoffeeManagerAdmin.Core.ViewModels;
+using CoreGraphics;
 
 namespace CoffeeManagerAdmin.iOS
 {
-    public partial class ProductsView : MvxViewController
+    public partial class ProductDetailsView : MvxViewController
     {
-        public ProductsView() : base("ProductsView", null)
+        public ProductDetailsView() : base("ProductDetailsView", null)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Детали продукта";
+            var toolbar = new UIToolbar(new CGRect(0, 0, this.View.Frame.Width, 44));
+            toolbar.UserInteractionEnabled = true;
+            toolbar.BarStyle = UIBarStyle.BlackOpaque;
+            var doneButton = new UIBarButtonItem();
+            doneButton.Title = "Готово";
+            doneButton.Style = UIBarButtonItemStyle.Bordered;
+            doneButton.TintColor = UIColor.Black;
+            doneButton.Clicked += (sender, e) =>
+            {
+                View.EndEditing(true);
+            };
+            toolbar.SetItems(new[] { doneButton }, false);
 
-
-            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
-            View.AddGestureRecognizer(g);
 
             var cupTypePicker = new UIPickerView();
             var cupPickerViewModel = new MvxPickerViewModel(cupTypePicker);
             cupTypePicker.Model = cupPickerViewModel;
             cupTypePicker.ShowSelectionIndicator = true;
             CupTypeCategoryText.InputView = cupTypePicker;
-
+            CupTypeCategoryText.InputAccessoryView = toolbar;
 
 
             var productTypePicker = new UIPickerView();
@@ -37,35 +46,23 @@ namespace CoffeeManagerAdmin.iOS
             productTypePicker.Model = productTypePickerViewModel;
             productTypePicker.ShowSelectionIndicator = true;
             ProductTypeText.InputView = productTypePicker;
+            ProductTypeText.InputAccessoryView = toolbar;
 
-
-            var set = this.CreateBindingSet<ProductsView, ProductsViewModel>();
+            var set = this.CreateBindingSet<ProductDetailsView, ProductDetailsViewModel>();
             set.Bind(NameText).To(vm => vm.Name);
             set.Bind(PriceText).To(vm => vm.Price);
             set.Bind(PolicePriceText).To(vm => vm.PolicePrice);
             set.Bind(CupTypeCategoryText).To(vm => vm.CupTypeName);
             set.Bind(ProductTypeText).To(vm => vm.ProductTypeName);
-            set.Bind(EditProductButton).To(vm => vm.EditProductCommand);
-            set.Bind(EditProductButton).For(b => b.Enabled).To(vm => vm.IsAddEnabled);
+            set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
+            set.Bind(AddProductButton).For(b => b.Enabled).To(vm => vm.IsAddEnabled);
+             set.Bind(AddProductButton).For("Title").To(vm => vm.ButtonTitle);
             set.Bind(cupPickerViewModel).For(p => p.ItemsSource).To(vm => vm.CupTypesList);
             set.Bind(cupPickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedCupType);
             set.Bind(productTypePickerViewModel).For(p => p.ItemsSource).To(vm => vm.ProductTypesList);
             set.Bind(productTypePickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedProductType);
-
-            set.Bind(AddProductButton).To(vm => vm.AddProductCommand);
-
-            var source = new ProductsTableSource(ProductsTableView, ProductItemCell.Key);
-            ProductsTableView.Source = source;
-            set.Bind(source).To(vm => vm.Items);
-
             set.Apply();
 
-        }
-
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
     }
 }

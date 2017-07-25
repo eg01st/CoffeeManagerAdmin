@@ -54,7 +54,7 @@ namespace CoffeeManagerAdmin.iOS
             toolbar.SetItems(new [] { doneButton}, false);
             ExpenseTypeText.InputAccessoryView = toolbar; 
 
-            var source = new ProductsTableSource(OrdersTableView, OrderItemViewCell.Key);
+            var source = new SimpleTableSource(OrdersTableView, OrderItemViewCell.Key, OrderItemViewCell.Nib);
             OrdersTableView.Source = source;
 
             var set = this.CreateBindingSet<OrderItemsView, OrderItemsViewModel>();

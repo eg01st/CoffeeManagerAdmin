@@ -12,8 +12,9 @@ namespace CoffeeManagerAdmin.iOS
         private readonly NSString reuseIdentifier;
         private List<ListItemViewModelBase> Source => ItemsSource as List<ListItemViewModelBase>;
 
-        public BaseTableSource(UITableView tableView, NSString reuseIdentifier) : base(tableView)
+        public BaseTableSource(UITableView tableView, NSString reuseIdentifier, UINib cellNib) : base(tableView)
         {
+            tableView.RegisterNibForCellReuse(cellNib, reuseIdentifier);
             this.reuseIdentifier = reuseIdentifier;
         }
         public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)

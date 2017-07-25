@@ -13,7 +13,7 @@ namespace CoffeeManagerAdmin.iOS
         {
             base.ViewDidLoad();
 
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Детали смены";
             var source = new ExpenseTableSource(ExpenseTableView);
             ExpenseTableView.Source = source;
        

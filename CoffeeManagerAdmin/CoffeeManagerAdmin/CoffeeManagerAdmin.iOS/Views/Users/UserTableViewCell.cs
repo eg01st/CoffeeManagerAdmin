@@ -31,7 +31,6 @@ namespace CoffeeManagerAdmin.iOS
             set
             {
                 _toggleIsActiveCommand = value;
-
             }
         }
 

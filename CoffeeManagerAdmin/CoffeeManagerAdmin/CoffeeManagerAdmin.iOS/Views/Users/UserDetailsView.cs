@@ -19,7 +19,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            Title = "Детали пользователя";
             var btn = new UIBarButtonItem();
             btn.Title = "Сохранить";
 

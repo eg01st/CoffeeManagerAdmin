@@ -14,12 +14,9 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Заявки";
 
-            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
-            View.AddGestureRecognizer(g);
-
-            var source = new ProductsTableSource(OrdersTable, OrderViewCell.Key);
+            var source = new SimpleTableSource(OrdersTable, OrderViewCell.Key, OrderViewCell.Nib);
             OrdersTable.Source = source;
 
             var set = this.CreateBindingSet<OrdersView, OrdersViewModel>();

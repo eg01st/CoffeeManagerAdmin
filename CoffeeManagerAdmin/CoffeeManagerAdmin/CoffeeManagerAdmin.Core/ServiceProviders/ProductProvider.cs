@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.ServiceProviders;
@@ -18,7 +19,7 @@ namespace CoffeeManagerAdmin.Core
 
         public async Task DeleteProduct(int id)
         {
-            await Delete("products/deleteproduct", new System.Collections.Generic.Dictionary<string, string>() { { nameof(id), id.ToString() } });
+            await Delete("products/deleteproduct", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
 
         public async Task EditProduct(Product product)
@@ -29,6 +30,11 @@ namespace CoffeeManagerAdmin.Core
         public async Task<Product[]> GetProducts()
         {
             return await Get<Product[]>("products/getAll");
+        }
+
+        public async Task ToggleIsActiveProduct(int id)
+        {
+            await Post<Object>("products/toggleProductEnabled", null, new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
     }
 }

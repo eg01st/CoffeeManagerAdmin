@@ -32,7 +32,6 @@ namespace CoffeeManagerAdmin.iOS
             {
                 var set = this.CreateBindingSet<ItemViewCell, ItemViewModel>();
                 set.Bind(Name).To(vm => vm.Name);
-                set.Bind(this.Tap()).For(t => t.Command).To(vm => vm.SelectCommand);
                 set.Apply();
             });
         }

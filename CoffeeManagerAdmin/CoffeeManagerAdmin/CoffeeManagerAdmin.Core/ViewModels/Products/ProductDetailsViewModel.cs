@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using CoffeeManager.Models;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
+using CoffeeManager.Models;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
+using System;
 using System.Linq;
-using System.Threading.Tasks;
-using CoffeeManagerAdmin.Core.ViewModels;
+using CoffeeManagerAdmin.Core.Util;
 
-namespace CoffeeManagerAdmin.Core
+namespace CoffeeManagerAdmin.Core.ViewModels
 {
-    public class ProductsViewModel : ViewModelBase
+    public class ProductDetailsViewModel : ViewModelBase
     {
         private ProductManager manager = new ProductManager();
-        private SuplyProductsManager suplyManager = new SuplyProductsManager();
-
-        private MvxSubscriptionToken _productSelectedToken;
-
-        private MvxSubscriptionToken _productListChangedToken;
 
         private int _id;
 
@@ -35,105 +28,86 @@ namespace CoffeeManagerAdmin.Core
 
         private string _productTypeName;
 
-        private ICommand _editProductCommand;
-
         private ICommand _addProductCommand;
-
-        private bool _isTapped = false;
-
-        private List<ProductItemViewModel> _items = new List<ProductItemViewModel>();
 
         private Entity _selectedCupType;
         private Entity _selectedProductType;
 
+
         public List<Entity> CupTypesList => TypesLists.CupTypesList;
-
-
 
         public List<Entity> ProductTypesList => TypesLists.ProductTypesList;
 
-        public List<ProductItemViewModel> Items
-        {
-            get { return _items; }
-            set
-            {
-                _items = value;
-                RaisePropertyChanged(nameof(Items));
-            }
-        }
+        public ICommand AddProductCommand => _addProductCommand;
 
-
-        public ProductsViewModel()
+        public ProductDetailsViewModel()
         {
-            _editProductCommand = new MvxCommand(DoEditProduct);
             _addProductCommand = new MvxCommand(DoAddProduct);
-            _productSelectedToken = Subscribe<ProductSelectedMessage>(DoSetFields);
-            _productListChangedToken = Subscribe<ProductListChangedMessage>(async (obj) =>
+        }
+
+        public void Init(Guid id)
+        {
+            if(id != Guid.Empty)
             {
-                await LoadProducts();
-                Name = Price = PolicePrice = CupTypeName = ProductTypeName = string.Empty;
-                ProductTypeId = -1;
-                CupType = -1;
-            });
-        }
-
-        public async void Init()
-        {
-            await LoadProducts();
-        }
-
-
-        private async Task LoadProducts()
-        {
-            var items = await manager.GetProducts();
-            Items = items.Select(s => new ProductItemViewModel(s)).ToList();
+                _addProductCommand = new MvxCommand(DoEditProduct);
+                
+                Product product;
+                ParameterTransmitter.TryGetParameter(id, out product);
+                _id = product.Id;
+                Name = product.Name;
+                Price = product.Price.ToString("F");
+                PolicePrice = product.PolicePrice.ToString("F");
+                
+                var cupType = CupTypesList.FirstOrDefault(t => t.Id == product.CupType);
+                if(cupType != null)
+                {
+                    SelectedCupType = cupType;
+                }
+                var productType = ProductTypesList.FirstOrDefault(t => t.Id == product.ProductType);
+                if(productType != null)
+                {
+                    SelectedProductType = productType;
+                }
+                ButtonTitle = "Сохранить изменения";
+                RaisePropertyChanged(nameof(ButtonTitle));
+            }
         }
 
         private void DoAddProduct()
         {
-            ShowViewModel<AddProductViewModel>();
-        }
-
-        private void DoSetFields(ProductSelectedMessage obj)
-        {
-            Name = obj.Data.Name;
-            Price = obj.Data.Price.ToString("F");
-            PolicePrice = obj.Data.PolicePrice.ToString("F");
-            SelectedCupType = TypesLists.CupTypesList.First(i => i.Id == obj.Data.CupType);
-            SelectedProductType = TypesLists.ProductTypesList.First(i => i.Id == obj.Data.ProductType);
-
-            _id = obj.Data.Id;
+            UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
+            {
+                Message = $"Добавить продукт \"{Name}\"?",
+                OnAction = async (obj) =>
+                {
+                    if (obj)
+                    {
+                        await manager.AddProduct(Name, Price, PolicePrice, CupType, ProductTypeId);
+                        Publish(new ProductListChangedMessage(this));
+                        Close(this);
+                    }
+                }
+            });
         }
 
         private void DoEditProduct()
         {
-            if (!_isTapped)
+            UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
             {
-                _isTapped = true;
-                UserDialogs.Confirm(new Acr.UserDialogs.ConfirmConfig()
+                Message = $"Сохранить изменения в продукте \"{Name}\"?",
+                OnAction = async (obj) =>
                 {
-                    Message = $"Сохранить изменения в продукте \"{Name}\"?",
-                    OnAction = async (obj) =>
+                    if (obj)
                     {
-                        if (obj)
-                        {
-                            await manager.EditProduct(_id, Name, Price, PolicePrice, CupType, ProductTypeId);
-                            Name = Price = PolicePrice = CupTypeName = ProductTypeName  = string.Empty;
-                            ProductTypeId = -1;
-                            CupType = -1;
-                            await LoadProducts();
-                        }
-                        _isTapped = false;
+                        await manager.EditProduct(_id, Name, Price, PolicePrice, CupType, ProductTypeId);
+                        Publish(new ProductListChangedMessage(this));
+                        Close(this);
                     }
-                });
-            }
+                }
+            });
         }
 
         public bool IsAddEnabled => !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Price) && !string.IsNullOrEmpty(PolicePrice) && !string.IsNullOrEmpty(CupTypeName) && !string.IsNullOrEmpty(ProductTypeName);
-
-        public ICommand EditProductCommand => _editProductCommand;
-
-        public ICommand AddProductCommand => _addProductCommand;
 
 
         public Entity SelectedCupType
@@ -168,6 +142,8 @@ namespace CoffeeManagerAdmin.Core
             }
         }
 
+        public string ButtonTitle {get;set;} = "Добавить продукт";
+
         public string Name
         {
             get { return _name; }
@@ -200,7 +176,6 @@ namespace CoffeeManagerAdmin.Core
                 RaisePropertyChanged(nameof(IsAddEnabled));
             }
         }
-
 
         public int CupType
         {
@@ -243,5 +218,6 @@ namespace CoffeeManagerAdmin.Core
                 RaisePropertyChanged(nameof(ProductTypeName));
             }
         }
+
     }
 }

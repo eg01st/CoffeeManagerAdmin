@@ -5,7 +5,7 @@ using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
-    public class CalculationItemViewModel : ViewModelBase
+    public class CalculationItemViewModel : ListItemViewModelBase
     {
         private ICommand _deleteCommand;
 

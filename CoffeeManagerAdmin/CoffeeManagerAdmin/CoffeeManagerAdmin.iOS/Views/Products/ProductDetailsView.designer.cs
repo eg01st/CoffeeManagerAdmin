@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace CoffeeManagerAdmin.iOS
 {
-	[Register ("AddProductView")]
-	partial class AddProductView
+	[Register ("ProductDetailsView")]
+	partial class ProductDetailsView
 	{
 		[Outlet]
 		UIKit.UIButton AddProductButton { get; set; }

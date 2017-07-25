@@ -37,6 +37,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Title = "График продаж";
             var set = this.CreateBindingSet<SalesChartView, SalesChartViewModel>();
             set.Bind(this).For(t => t.Sales).To(vm => vm.Sales);          
             set.Apply();

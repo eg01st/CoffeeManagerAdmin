@@ -16,9 +16,9 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Title = "Траты";
 
-            var source = new SimpleTableSource(TableView, ManageExpensesTableViewCell.Key);
-            TableView.RegisterNibForCellReuse(ManageExpensesTableViewCell.Nib, ManageExpensesTableViewCell.Key);
+            var source = new SimpleTableSource(TableView, ManageExpensesTableViewCell.Key, ManageExpensesTableViewCell.Nib);
             TableView.Source = source;
 
             var set = this.CreateBindingSet<ManageExpensesView, ManageExpensesViewModel>();

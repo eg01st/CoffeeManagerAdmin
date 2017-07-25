@@ -17,7 +17,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            
+            Title = "Выбор продуктов";
             var btn = new UIBarButtonItem();
             btn.Title = "Готово";
             NavigationItem.SetRightBarButtonItem(btn, false);
@@ -26,8 +26,7 @@ namespace CoffeeManagerAdmin.iOS
                 {btn, "Clicked ShowChartCommand"},
             });
 
-            var tableSource = new SimpleTableSource(TableView, SelectSalesTableViewCell.Key);
-            TableView.RegisterNibForCellReuse(SelectSalesTableViewCell.Nib, SelectSalesTableViewCell.Key);
+            var tableSource = new SimpleTableSource(TableView, SelectSalesTableViewCell.Key, SelectSalesTableViewCell.Nib);
             TableView.Source = tableSource;
 
             var set = this.CreateBindingSet<SelectSalesView, SelectSalesViewModel>();

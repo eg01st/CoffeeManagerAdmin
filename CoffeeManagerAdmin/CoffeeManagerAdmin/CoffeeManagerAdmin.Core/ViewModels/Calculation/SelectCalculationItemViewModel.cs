@@ -11,17 +11,22 @@ using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels
 {
-    public class SelectCalculationItemViewModel : ViewModelBase
+    public class SelectCalculationItemViewModel : ListItemViewModelBase
     {
         private int _productId;
         private SupliedProduct _prod;
 
-        private ICommand _addCalculationProductItemCommand;
+        public string Name => _prod.Name;
+
         public SelectCalculationItemViewModel(int productId, SupliedProduct prod)
         {
             _prod = prod;
             _productId = productId;
-            _addCalculationProductItemCommand = new MvxCommand(DoAddCalculationItem);
+        }
+
+        protected override void DoGoToDetails()
+        {
+            DoAddCalculationItem();
         }
 
         private void DoAddCalculationItem()
@@ -33,8 +38,6 @@ namespace CoffeeManagerAdmin.Core.ViewModels
                 OnAction = AddItem,
 
             });
-
-
         }
 
         private async void AddItem(PromptResult obj)
@@ -47,8 +50,5 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             }
         }
 
-        public ICommand AddCalculationProductItemCommand => _addCalculationProductItemCommand;
-
-        public string Name => _prod.Name;
     }
 }

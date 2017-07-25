@@ -39,7 +39,7 @@ namespace CoffeeManagerAdmin.iOS
             };
 
 
-            var source = new ProductsTableSource(ProductsTableView, SelectOrderItemViewCell.Key);
+            var source = new SimpleTableSource(ProductsTableView, SelectOrderItemViewCell.Key, SelectOrderItemViewCell.Nib);
             ProductsTableView.Source = source;
             ProductsTableView.TableHeaderView = _searchBar;
 

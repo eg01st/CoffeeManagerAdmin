@@ -16,7 +16,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Детали товара";
             var set = this.CreateBindingSet<SuplyProductDetailsView, SuplyProductDetailsViewModel>();
             set.Bind(NameText).To(vm => vm.Name);
             set.Bind(SuplyPriceText).To(vm => vm.SupliedPrice).WithConversion(new DecimalToStringConverter());

@@ -31,6 +31,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Title = "Персонал";
              var btn = new UIBarButtonItem();
             btn.Title = "Добавить";
 
@@ -40,8 +41,7 @@ namespace CoffeeManagerAdmin.iOS
                 {btn, "Clicked AddUserCommand"},
             });
 
-            var source = new UserTableSource(UsersTableView);
-            UsersTableView.RegisterNibForCellReuse(UserTableViewCell.Nib, UserTableViewCell.Key);
+            var source = new SimpleTableSource(UsersTableView, UserTableViewCell.Key, UserTableViewCell.Nib);
             UsersTableView.Source = source;
         
             var set = this.CreateBindingSet<UsersView, UsersViewModel>();

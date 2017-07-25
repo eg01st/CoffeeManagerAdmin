@@ -31,7 +31,6 @@ namespace CoffeeManagerAdmin.iOS
             this.DelayBind(() =>
             {
                 var set = this.CreateBindingSet<SelectCalculationItemViewCell, SelectCalculationItemViewModel>();
-                set.Bind(this.Tap()).For(t => t.Command).To(vm => vm.AddCalculationProductItemCommand);
                 set.Bind(NameLabel).To(vm => vm.Name);
                 set.Apply();
             });

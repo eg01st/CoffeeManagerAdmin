@@ -17,7 +17,7 @@ namespace CoffeeManagerAdmin.iOS
         {
             base.ViewDidLoad();
 
-            var source = new ProductsTableSource(TableView, CalculationItemViewCell.Key);
+            var source = new SimpleTableSource(TableView, CalculationItemViewCell.Key, CalculationItemViewCell.Nib);
             TableView.Source = source;
 
             var set = this.CreateBindingSet<CalculationView, CalculationViewModel>();

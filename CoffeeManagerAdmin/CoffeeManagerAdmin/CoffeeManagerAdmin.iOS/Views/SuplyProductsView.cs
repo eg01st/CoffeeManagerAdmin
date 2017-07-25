@@ -16,7 +16,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Баланс товара";
             var g = new UITapGestureRecognizer(() => View.EndEditing(true));
             View.AddGestureRecognizer(g);
             var source = new SuplyProductTableSource(TableView);

@@ -29,8 +29,7 @@ namespace CoffeeManagerAdmin.iOS
             });
 
             Title = "Продажи";
-            var tableSource = new SalesStatisticTableSource(TableView);
-            TableView.RegisterNibForCellReuse(SaleStatisticViewCell.Nib, SaleStatisticViewCell.Key);
+            var tableSource = new SimpleTableSource(TableView,SaleStatisticViewCell.Key, SaleStatisticViewCell.Nib);
             TableView.Source = tableSource;
 
             var set = this.CreateBindingSet<SalesStatisticView, SalesStatisticViewModel>();

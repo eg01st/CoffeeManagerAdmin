@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using CoffeeManager.Models;
 using CoffeeManagerAdmin.Core.Managers;
@@ -30,6 +30,11 @@ namespace CoffeeManagerAdmin.Core
         public async Task<Product[]> GetProducts()
         {
             return await provider.GetProducts();
+        }
+
+        public async Task ToggleIsActiveProduct(int id)
+        {
+            await provider.ToggleIsActiveProduct(id);
         }
     }
 }

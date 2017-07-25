@@ -17,7 +17,7 @@ namespace CoffeeManagerAdmin.iOS
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-            var source = new ProductsTableSource(TableView, SelectCalculationItemViewCell.Key);
+            var source = new SimpleTableSource(TableView, SelectCalculationItemViewCell.Key, SelectCalculationItemViewCell.Nib);
             TableView.Source = source;
             var set = this.CreateBindingSet<SelectCalculationListView, SelectCalculationListViewModel>();
             set.Bind(source).To(vm => vm.Items);

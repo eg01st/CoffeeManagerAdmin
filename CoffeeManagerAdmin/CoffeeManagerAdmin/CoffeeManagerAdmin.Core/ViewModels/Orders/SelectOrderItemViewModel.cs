@@ -12,7 +12,7 @@ using MvvmCross.Core.ViewModels;
 
 namespace CoffeeManagerAdmin.Core.ViewModels.Orders
 {
-    public class SelectOrderItemViewModel : ViewModelBase
+    public class SelectOrderItemViewModel : ListItemViewModelBase
     {
         private int _orderId;
         private SupliedProduct _prod;
@@ -51,6 +51,11 @@ namespace CoffeeManagerAdmin.Core.ViewModels.Orders
                 Publish(new SuplyProductDeletedMessage(this));
             }
             _isPromt = false;
+        }
+
+        protected override void DoGoToDetails()
+        {
+            DoAddRequestItem();
         }
 
         private void DoAddRequestItem()

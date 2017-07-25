@@ -140,21 +140,8 @@
       <DependentUpon>SaleItemCell.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSources\SaleTableSource.cs" />
-    <Compile Include="Views\ProductsView.cs" />
-    <Compile Include="Views\ProductsView.designer.cs">
-      <DependentUpon>ProductsView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddProductView.cs" />
-    <Compile Include="Views\AddProductView.designer.cs">
-      <DependentUpon>AddProductView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
-    <Compile Include="Views\Cells\ProductItemCell.cs" />
-    <Compile Include="Views\Cells\ProductItemCell.designer.cs">
-      <DependentUpon>ProductItemCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="Converters\GenericConverter.cs" />
-    <Compile Include="TableSources\ProductsTableSource.cs" />
     <Compile Include="Views\Cells\GroupedSaleCell.cs" />
     <Compile Include="Views\Cells\GroupedSaleCell.designer.cs">
       <DependentUpon>GroupedSaleCell.cs</DependentUpon>
@@ -216,11 +203,6 @@
     <Compile Include="Views\ShiftSalesView.designer.cs">
       <DependentUpon>ShiftSalesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cells\UserTableViewCell.cs" />
-    <Compile Include="Views\Cells\UserTableViewCell.designer.cs">
-      <DependentUpon>UserTableViewCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TableSources\UserTableSource.cs" />
     <Compile Include="Views\Users\UsersView.cs" />
     <Compile Include="Views\Users\UsersView.designer.cs">
       <DependentUpon>UsersView.cs</DependentUpon>
@@ -247,7 +229,6 @@
       <DependentUpon>SaleStatisticViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSources\BaseTableSource.cs" />
-    <Compile Include="TableSources\SalesStatisticTableSource.cs" />
     <Compile Include="Views\Statistic\CreditCardSalesView.cs" />
     <Compile Include="Views\Statistic\CreditCardSalesView.designer.cs">
       <DependentUpon>CreditCardSalesView.cs</DependentUpon>
@@ -274,6 +255,22 @@
     <Compile Include="Views\ManageExpenses\ManageExpensesTableViewCell.designer.cs">
       <DependentUpon>ManageExpensesTableViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Products\ProductsView.cs" />
+    <Compile Include="Views\Products\ProductsView.designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\ProductItemCell.cs" />
+    <Compile Include="Views\Products\ProductItemCell.designer.cs">
+      <DependentUpon>ProductItemCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\ProductDetailsView.cs" />
+    <Compile Include="Views\Products\ProductDetailsView.designer.cs">
+      <DependentUpon>ProductDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\UserTableViewCell.cs" />
+    <Compile Include="Views\Users\UserTableViewCell.designer.cs">
+      <DependentUpon>UserTableViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -287,9 +284,6 @@
     <InterfaceDefinition Include="Views\ShiftDetailsView.xib" />
     <InterfaceDefinition Include="Views\Cells\ExpenseItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\SaleItemCell.xib" />
-    <InterfaceDefinition Include="Views\ProductsView.xib" />
-    <InterfaceDefinition Include="Views\AddProductView.xib" />
-    <InterfaceDefinition Include="Views\Cells\ProductItemCell.xib" />
     <InterfaceDefinition Include="Views\Cells\GroupedSaleCell.xib" />
     <InterfaceDefinition Include="Views\SuplyProductDetailsView.xib" />
     <InterfaceDefinition Include="Views\ProductsCalculationView.xib" />
@@ -305,7 +299,6 @@
     <InterfaceDefinition Include="Views\Orders\SelectOrderItemsView.xib" />
     <InterfaceDefinition Include="Views\Orders\OrderItemsView.xib" />
     <InterfaceDefinition Include="Views\ShiftSalesView.xib" />
-    <InterfaceDefinition Include="Views\Cells\UserTableViewCell.xib" />
     <InterfaceDefinition Include="Views\Users\UsersView.xib" />
     <InterfaceDefinition Include="Views\Users\UserDetailsView.xib" />
     <InterfaceDefinition Include="Views\Statistic\StatisticView.xib" />
@@ -318,6 +311,10 @@
     <InterfaceDefinition Include="Views\Statistic\SalesChartView.xib" />
     <InterfaceDefinition Include="Views\ManageExpenses\ManageExpensesView.xib" />
     <InterfaceDefinition Include="Views\ManageExpenses\ManageExpensesTableViewCell.xib" />
+    <InterfaceDefinition Include="Views\Products\ProductsView.xib" />
+    <InterfaceDefinition Include="Views\Products\ProductItemCell.xib" />
+    <InterfaceDefinition Include="Views\Products\ProductDetailsView.xib" />
+    <InterfaceDefinition Include="Views\Users\UserTableViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -403,6 +400,7 @@
     <Folder Include="Views\Statistic\" />
     <Folder Include="Lib\" />
     <Folder Include="Views\ManageExpenses\" />
+    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_check.png" />

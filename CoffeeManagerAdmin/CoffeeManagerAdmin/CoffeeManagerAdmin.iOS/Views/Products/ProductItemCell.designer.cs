@@ -16,18 +16,26 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UILabel CategoryLabel { get; set; }
 
 		[Outlet]
+		UIKit.UISwitch IsActiveSwitch { get; set; }
+
+		[Outlet]
 		UIKit.UILabel NameLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (CategoryLabel != null) {
+				CategoryLabel.Dispose ();
+				CategoryLabel = null;
+			}
+
 			if (NameLabel != null) {
 				NameLabel.Dispose ();
 				NameLabel = null;
 			}
 
-			if (CategoryLabel != null) {
-				CategoryLabel.Dispose ();
-				CategoryLabel = null;
+			if (IsActiveSwitch != null) {
+				IsActiveSwitch.Dispose ();
+				IsActiveSwitch = null;
 			}
 		}
 	}

@@ -63,7 +63,6 @@ namespace CoffeeManagerAdmin.iOS
                 set.Bind(this).For(t => t.SelectActionCommand).To(vm => vm.AddRequestItemCommand);
                 set.Bind(this).For(t => t.DeleteItemCommand).To(vm => vm.DeleteItemCommand);
                 set.Bind(CountLabel).To(vm => vm.Quantity);
-                set.Bind(this.Tap()).For(tap => tap.Command).To(vm => vm.AddRequestItemCommand);
                 set.Apply();
 
                 IsSelected.ValueChanged += (sender, e) =>

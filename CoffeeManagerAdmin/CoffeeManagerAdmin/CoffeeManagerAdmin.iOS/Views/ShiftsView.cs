@@ -16,7 +16,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Смены";
             var source = new ShiftInfoTableSource(TableView);
             TableView.Source = source;
             var set = this.CreateBindingSet<ShiftsView, ShiftsViewModel>();

@@ -19,7 +19,7 @@ namespace CoffeeManagerAdmin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            Title = "Статистика";
 
             var fromPicker = new UIDatePicker();
             fromPicker.Mode = UIDatePickerMode.Date;

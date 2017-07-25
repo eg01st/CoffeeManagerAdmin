@@ -6,7 +6,7 @@ namespace CoffeeManagerAdmin.iOS
 {
     public class SimpleTableSource : BaseTableSource<ListItemViewModelBase>
     {
-        public SimpleTableSource(UITableView tableView, NSString reuseIdentifier) : base(tableView, reuseIdentifier)
+        public SimpleTableSource(UITableView tableView, NSString reuseIdentifier, UINib cellNib) : base(tableView, reuseIdentifier, cellNib)
         {
         }
     }

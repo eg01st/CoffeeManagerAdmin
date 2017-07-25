@@ -47,7 +47,6 @@ namespace CoffeeManagerAdmin.iOS
                 var set = this.CreateBindingSet<OrderViewCell, OrderViewModel>();
                 set.Bind(DisplayLabel).To(vm => vm.DisplayName);
                 set.Bind(StatusLabel).To(vm => vm.Status);
-                set.Bind(this.Tap()).For(t => t.Command).To(vm => vm.ShowDelailsCommand);
                 set.Bind(this).For(t => t.DeleteOrderCommand).To(vm => vm.DeleteOrderCommand);
                 set.Apply();
             });
