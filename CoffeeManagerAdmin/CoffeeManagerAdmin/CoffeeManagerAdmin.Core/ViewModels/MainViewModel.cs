@@ -39,6 +39,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
         public ICommand EditUsersCommand => _editUsersCommand;
         public ICommand EditProductCalculation => _editProductCalculation;
         public ICommand ShowStatiscticCommand => _showStatiscticCommand;
+        public ICommand ShowExpensesCommand {get;set;} 
 
         public string CurrentBalance
         {
@@ -69,6 +70,7 @@ namespace CoffeeManagerAdmin.Core.ViewModels
             _editUsersCommand = new MvxCommand(DoEditUsers);
             _editProductCalculation = new MvxCommand(DoEditCalculation);
             _showStatiscticCommand = new MvxCommand(() => ShowViewModel<StatisticViewModel>());
+            ShowExpensesCommand = new MvxCommand(() => ShowViewModel<ManageExpensesViewModel>());
         }
 
         private void DoEditCalculation()

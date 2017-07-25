@@ -266,6 +266,14 @@
       <DependentUpon>SalesChartView.cs</DependentUpon>
     </Compile>
     <None Include="Lib\Alliance.Charts.dll" />
+    <Compile Include="Views\ManageExpenses\ManageExpensesView.cs" />
+    <Compile Include="Views\ManageExpenses\ManageExpensesView.designer.cs">
+      <DependentUpon>ManageExpensesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageExpenses\ManageExpensesTableViewCell.cs" />
+    <Compile Include="Views\ManageExpenses\ManageExpensesTableViewCell.designer.cs">
+      <DependentUpon>ManageExpensesTableViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -308,6 +316,8 @@
     <InterfaceDefinition Include="Views\Statistic\SelectSalesView.xib" />
     <InterfaceDefinition Include="Views\Statistic\SelectSalesTableViewCell.xib" />
     <InterfaceDefinition Include="Views\Statistic\SalesChartView.xib" />
+    <InterfaceDefinition Include="Views\ManageExpenses\ManageExpensesView.xib" />
+    <InterfaceDefinition Include="Views\ManageExpenses\ManageExpensesTableViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -392,6 +402,7 @@
     <Folder Include="Views\Users\" />
     <Folder Include="Views\Statistic\" />
     <Folder Include="Lib\" />
+    <Folder Include="Views\ManageExpenses\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_check.png" />

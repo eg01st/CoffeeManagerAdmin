@@ -35,6 +35,7 @@ namespace CoffeeManagerAdmin.iOS
             set.Bind(UsersButton).To(vm => vm.EditUsersCommand);
             set.Bind(ProductCalculationButton).To(vm => vm.EditProductCalculation);
             set.Bind(StatisticButton).To(vm => vm.ShowStatiscticCommand);
+            set.Bind(ExpensesButton).To(vm => vm.ShowExpensesCommand);
             set.Apply();
             // Perform any additional setup after loading the view, typically from a nib.
         }

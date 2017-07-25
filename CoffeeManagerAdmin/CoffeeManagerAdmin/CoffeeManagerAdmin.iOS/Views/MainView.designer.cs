@@ -19,6 +19,9 @@ namespace CoffeeManagerAdmin.iOS
 		UIKit.UILabel CurrentShiftAmountLabel { get; set; }
 
 		[Outlet]
+		UIKit.UIButton ExpensesButton { get; set; }
+
+		[Outlet]
 		UIKit.UIButton OrdersButton { get; set; }
 
 		[Outlet]
@@ -47,6 +50,11 @@ namespace CoffeeManagerAdmin.iOS
 			if (CurrentAmountLabel != null) {
 				CurrentAmountLabel.Dispose ();
 				CurrentAmountLabel = null;
+			}
+
+			if (CurrentShiftAmountLabel != null) {
+				CurrentShiftAmountLabel.Dispose ();
+				CurrentShiftAmountLabel = null;
 			}
 
 			if (OrdersButton != null) {
@@ -89,9 +97,9 @@ namespace CoffeeManagerAdmin.iOS
 				UsersButton = null;
 			}
 
-			if (CurrentShiftAmountLabel != null) {
-				CurrentShiftAmountLabel.Dispose ();
-				CurrentShiftAmountLabel = null;
+			if (ExpensesButton != null) {
+				ExpensesButton.Dispose ();
+				ExpensesButton = null;
 			}
 		}
 	}

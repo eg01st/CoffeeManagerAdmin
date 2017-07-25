@@ -106,6 +106,8 @@
     <Compile Include="ViewModels\Abstract\ViewModelBase.cs" />
     <Compile Include="ViewModels\Abstract\ListItemViewModelBase.cs" />
     <Compile Include="ViewModels\Statistic\CreditCardSalesViewModel.cs" />
+    <Compile Include="ViewModels\ManageExpenses\ManageExpensesViewModel.cs" />
+    <Compile Include="ViewModels\ManageExpenses\ManageExpenseItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -164,6 +166,7 @@
     <Folder Include="ViewModels\Statistic\" />
     <Folder Include="Util\" />
     <Folder Include="ViewModels\Abstract\" />
+    <Folder Include="ViewModels\ManageExpenses\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CoffeeManager\CoffeeManager.Core\CoffeeManager.Models\CoffeeManager.Models.csproj">

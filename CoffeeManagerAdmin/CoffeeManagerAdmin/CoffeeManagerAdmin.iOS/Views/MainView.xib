@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="CurrentAmountLabel" destination="xWM-em-lxK" id="pxx-KU-8wv"/>
                 <outlet property="CurrentShiftAmountLabel" destination="ycJ-p5-eWj" id="1sX-PQ-9f8"/>
+                <outlet property="ExpensesButton" destination="NTu-F5-vSy" id="iu7-gB-2i5"/>
                 <outlet property="OrdersButton" destination="510-wl-31F" id="Y6z-KC-OEH"/>
                 <outlet property="ProductCalculationButton" destination="tMJ-bQ-3tM" id="q4s-1F-ZdG"/>
                 <outlet property="ProductsButton" destination="BLn-MY-6qN" id="ZOk-Sy-nIa"/>
@@ -33,7 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pf-lb-OPA">
-                            <rect key="frame" x="0.0" y="305" width="375" height="57"/>
+                            <rect key="frame" x="0.0" y="123" width="375" height="57"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текущая касса:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suy-dX-keX">
                                     <rect key="frame" x="14" y="18" width="123" height="21"/>
@@ -68,45 +69,49 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-eG-NZS">
-                            <rect key="frame" x="0.0" y="370" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="188" width="375" height="30"/>
                             <state key="normal" title="Информация по сменам"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ4-rp-f1g">
-                            <rect key="frame" x="0.0" y="400" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="218" width="375" height="30"/>
                             <state key="normal" title="Информация по балансу товара"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="510-wl-31F">
-                            <rect key="frame" x="0.0" y="430" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="248" width="375" height="30"/>
                             <state key="normal" title="Заявки на покупку товара"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLn-MY-6qN">
-                            <rect key="frame" x="0.0" y="460" width="375" height="30"/>
+                            <rect key="frame" x="0.0" y="278" width="375" height="30"/>
                             <state key="normal" title="Редактированние товаров"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljL-ig-Bk5">
-                            <rect key="frame" x="152" y="490" width="71" height="30"/>
+                            <rect key="frame" x="152" y="308" width="71" height="30"/>
                             <state key="normal" title="Персонал"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMJ-bQ-3tM">
-                            <rect key="frame" x="102.5" y="520" width="170" height="30"/>
+                            <rect key="frame" x="102.5" y="338" width="170" height="30"/>
                             <state key="normal" title="Калькуляция продуктов"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndV-93-hpW">
-                            <rect key="frame" x="146" y="550" width="82" height="30"/>
+                            <rect key="frame" x="146" y="368" width="82" height="30"/>
                             <state key="normal" title="Статистика"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текущая смена: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eu-9a-SXF">
-                            <rect key="frame" x="14" y="282" width="132" height="21"/>
+                            <rect key="frame" x="14" y="100" width="132" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycJ-p5-eWj">
-                            <rect key="frame" x="154" y="282" width="42" height="21"/>
+                            <rect key="frame" x="154" y="100" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTu-F5-vSy">
+                            <rect key="frame" x="110" y="398" width="155" height="30"/>
+                            <state key="normal" title="Редактирование трат"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -115,6 +120,7 @@
                         <constraint firstItem="tMJ-bQ-3tM" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="59Q-2J-Xef"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="top" secondItem="510-wl-31F" secondAttribute="bottom" id="9vz-bg-2eB"/>
                         <constraint firstAttribute="trailing" secondItem="6pf-lb-OPA" secondAttribute="trailing" id="A92-MY-CFK"/>
+                        <constraint firstItem="NTu-F5-vSy" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="CcP-h8-YD1"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="DlG-fi-nj4"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="centerX" secondItem="nw2-pP-fuX" secondAttribute="centerX" id="J2J-4q-TO1"/>
                         <constraint firstItem="ndV-93-hpW" firstAttribute="top" secondItem="tMJ-bQ-3tM" secondAttribute="bottom" id="KcG-t8-f8m"/>
@@ -128,12 +134,13 @@
                         <constraint firstItem="Suy-dX-keX" firstAttribute="top" secondItem="4eu-9a-SXF" secondAttribute="bottom" constant="20" id="cZ9-ZM-gy7"/>
                         <constraint firstAttribute="trailing" secondItem="510-wl-31F" secondAttribute="trailing" id="fpC-tG-ezw"/>
                         <constraint firstItem="510-wl-31F" firstAttribute="top" secondItem="mJ4-rp-f1g" secondAttribute="bottom" id="gy2-Eb-Uyr"/>
+                        <constraint firstItem="NTu-F5-vSy" firstAttribute="top" secondItem="ndV-93-hpW" secondAttribute="bottom" id="ixI-Im-Ocg"/>
+                        <constraint firstItem="4eu-9a-SXF" firstAttribute="top" secondItem="nw2-pP-fuX" secondAttribute="top" constant="100" id="iyd-B1-gSA"/>
                         <constraint firstAttribute="trailing" secondItem="mJ4-rp-f1g" secondAttribute="trailing" id="lnp-3f-aOE"/>
                         <constraint firstItem="BLn-MY-6qN" firstAttribute="width" secondItem="nw2-pP-fuX" secondAttribute="width" id="m0v-2p-oKU"/>
                         <constraint firstItem="mJ4-rp-f1g" firstAttribute="top" secondItem="ho5-eG-NZS" secondAttribute="bottom" id="mNT-uo-NLK"/>
                         <constraint firstItem="4eu-9a-SXF" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" constant="14" id="nUW-25-71r"/>
                         <constraint firstAttribute="trailing" secondItem="ho5-eG-NZS" secondAttribute="trailing" id="vGM-rQ-Uku"/>
-                        <constraint firstItem="xWM-em-lxK" firstAttribute="centerY" secondItem="nw2-pP-fuX" secondAttribute="centerY" id="xYE-OK-htF"/>
                         <constraint firstItem="ho5-eG-NZS" firstAttribute="leading" secondItem="nw2-pP-fuX" secondAttribute="leading" id="yi0-dM-Jf9"/>
                     </constraints>
                 </view>
@@ -142,7 +149,7 @@
             <constraints>
                 <constraint firstItem="nw2-pP-fuX" firstAttribute="top" secondItem="2" secondAttribute="top" id="2sd-Ve-zAy"/>
                 <constraint firstAttribute="trailing" secondItem="nw2-pP-fuX" secondAttribute="trailing" id="8C5-rh-lga"/>
-                <constraint firstItem="nw2-pP-fuX" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="exg-Sg-0GH"/>
+                <constraint firstAttribute="bottom" secondItem="nw2-pP-fuX" secondAttribute="bottom" id="GC6-zj-Rxw"/>
                 <constraint firstItem="nw2-pP-fuX" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="sae-df-7NX"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>

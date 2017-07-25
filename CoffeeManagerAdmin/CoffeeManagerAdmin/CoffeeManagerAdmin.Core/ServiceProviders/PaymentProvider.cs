@@ -14,9 +14,17 @@ namespace CoffeeManagerAdmin.Core.ServiceProviders
             return await Get<Expense[]>("payment/getShiftExpenses", new Dictionary<string, string>() { { nameof(id), id.ToString() } });
         }
 
-        public async Task<Entity[]> GetExpenseItems()
+        public async Task<ExpenseType[]> GetExpenseItems()
         {
-            return await Get<Entity[]>($"payment/getexpenseitems");
+            return await Get<ExpenseType[]>($"payment/getexpenseitems");
         }
-    }
+
+        public async Task ToggleIsActiveExpense(int id)
+        {
+            await Post<object>("payment/toggleExpenseEnabled", null, new Dictionary<string, string>()
+            {
+                { nameof(id), id.ToString()}
+            });
+        }
+   }
 }

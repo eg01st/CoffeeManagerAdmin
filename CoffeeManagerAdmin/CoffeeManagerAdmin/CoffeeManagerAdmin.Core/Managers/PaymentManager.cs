@@ -16,9 +16,14 @@ namespace CoffeeManagerAdmin.Core.Managers
             return await provider.GetShiftExpenses(id);
         }
 
-        public async Task<Entity[]> GetExpenseItems()
+        public async Task<ExpenseType[]> GetExpenseItems()
         {
             return await provider.GetExpenseItems();
         }
-    }
+
+        public async Task ToggleIsActiveExpense(int id)
+        {
+            await provider.ToggleIsActiveExpense(id);
+        }
+   }
 }
